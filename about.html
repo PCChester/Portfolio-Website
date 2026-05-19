@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Chris Chester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #1c1a16;
+    --ink-muted:  #58534d;
+    --ink-faint:  #9a9590;
+    --paper:      #faf8f3;
+    --paper-warm: #f3ede2;
+    --card:       #ffffff;
+    --accent:     #c05c2b;
+    --accent-lt:  #f0dfd4;
+    --accent-dk:  #8c3d18;
+    --teal:       #2a7a6a;
+    --teal-lt:    #d0ebe7;
+    --border:     #e0dbd2;
+    --border-mid: #c8c2b6;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+    --mono:  'DM Mono', monospace;
+    --page-max: 1080px;
+    --page-pad: 6%;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--page-pad);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 2.6rem; font-weight: 600;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .nav-brand em { color: var(--accent); font-style: normal; }
+  .nav-brand span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 2px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; color: var(--ink-muted);
+    text-decoration: none; transition: color 0.18s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 500; }
+  .nav-chat {
+    background: var(--ink) !important; color: #fff !important;
+    padding: 0.38rem 1rem; border-radius: 4px;
+    font-weight: 500 !important; transition: background 0.18s !important;
+  }
+  .nav-chat:hover { background: var(--accent) !important; }
+
+  /* ── PAGE LAYOUT ── */
+  .page-wrap {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+  }
+
+  /* ── OPENING HERO ── */
+  .about-hero {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    max-width: 680px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.55rem;
+    margin-bottom: 1.4rem;
+  }
+  .eyebrow::before {
+    content: ''; width: 20px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+
+  .about-h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 600; line-height: 1.22;
+    letter-spacing: -0.025em; color: var(--ink);
+  }
+  .about-h1 em {
+    display: block;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    color: var(--ink-muted); font-style: italic; font-weight: 300;
+    margin-top: 0.5rem; letter-spacing: -0.01em; line-height: 1.4;
+  }
+
+  /* Stat callout */
+  .stat-callout {
+    background: var(--ink);
+    border-radius: 10px;
+    padding: 2rem;
+    color: var(--paper);
+    display: flex; gap: 1.5rem; align-items: flex-start;
+  }
+
+  .stat-big {
+    font-family: var(--serif);
+    font-size: 3.8rem; font-weight: 600; line-height: 1;
+    color: var(--accent); flex-shrink: 0; letter-spacing: -0.03em;
+  }
+
+  .stat-context {
+    font-size: 0.875rem; line-height: 1.75; color: #b0a89e; font-weight: 300;
+  }
+
+  .stat-cite {
+    display: block; margin-top: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.62rem; letter-spacing: 0.06em; color: #6a6460;
+    text-transform: uppercase;
+  }
+
+  /* Lead paragraph */
+  .about-lead {
+    font-size: 1rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.85; margin-top: 1.75rem;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* ── SECTION ── */
+  .about-section {
+    padding: 4.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-section-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .section-label-col { padding-top: 0.25rem; }
+
+  .sec-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent); margin-bottom: 0.6rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .sec-tag::before { content: ''; width: 14px; height: 1px; background: var(--accent); }
+
+  .sec-title {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .body-text {
+    font-size: 0.95rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.85; margin-bottom: 1.25rem;
+  }
+  .body-text:last-child { margin-bottom: 0; }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    margin: 2rem 0 0;
+    border-left: 1.5px solid var(--border-mid);
+    padding-left: 2rem;
+    display: flex; flex-direction: column; gap: 1.75rem;
+  }
+
+  .tl-item { position: relative; }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -2.45rem; top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--border-mid);
+    border: 2px solid var(--paper);
+    outline: 1.5px solid var(--border-mid);
+  }
+
+  .tl-item.highlight::before { background: var(--accent); outline-color: var(--accent); }
+
+  .tl-year {
+    font-family: var(--mono);
+    font-size: 0.62rem; letter-spacing: 0.08em;
+    color: var(--ink-faint); margin-bottom: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .tl-place {
+    font-family: var(--serif);
+    font-size: 1rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .tl-desc {
+    font-size: 0.875rem; color: var(--ink-muted); line-height: 1.7; font-weight: 300;
+  }
+
+  /* ── STAT CARDS ── */
+  .stat-cards {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; margin-top: 2.5rem;
+  }
+
+  .stat-card {
+    background: var(--paper-warm); padding: 1.25rem 1.1rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif); font-size: 2rem; font-weight: 600;
+    color: var(--ink); letter-spacing: -0.03em; line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-num em { color: var(--accent); font-style: normal; }
+
+  .stat-lbl {
+    font-size: 0.72rem; color: var(--ink-faint); font-weight: 300; line-height: 1.5;
+  }
+
+  /* ── ANALOGY GRID ── */
+  .analogy-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; margin: 1.75rem 0;
+  }
+
+  .analogy-card { background: var(--card); padding: 1.4rem 1.25rem; }
+
+  .analogy-stage {
+    font-family: var(--mono);
+    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-faint); margin-bottom: 0.5rem;
+  }
+
+  .analogy-lang {
+    font-family: var(--serif);
+    font-size: 1rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .analogy-ai {
+    font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; font-weight: 300;
+  }
+
+  /* ── PULLQUOTE ── */
+  .pullquote {
+    border-left: 2px solid var(--accent);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2rem 0;
+    font-family: var(--serif);
+    font-size: 1.15rem; font-style: italic; line-height: 1.6;
+    color: var(--ink);
+  }
+
+  /* ── CLOSING CTA ── */
+  .closing-band {
+    background: var(--ink); color: var(--paper);
+    padding: 4.5rem 0;
+  }
+
+  .closing-inner {
+    max-width: var(--page-max);
+    margin: 0 auto; padding: 0 var(--page-pad);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+
+  .closing-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    font-weight: 600; line-height: 1.25;
+    letter-spacing: -0.02em; color: var(--paper);
+    margin-bottom: 1rem;
+  }
+
+  .closing-sub {
+    font-size: 0.925rem; color: #9a9590; font-weight: 300; line-height: 1.8;
+  }
+
+  .closing-actions {
+    display: flex; flex-direction: column; gap: 1rem; justify-content: center;
+  }
+
+  .btn-fill {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--accent); color: #fff;
+    padding: 0.8rem 1.75rem; border-radius: 4px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: background 0.18s, transform 0.12s;
+  }
+  .btn-fill:hover { background: var(--accent-dk); transform: translateY(-1px); }
+
+  .btn-outline-light {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: transparent; color: #9a9590;
+    padding: 0.78rem 1.75rem; border-radius: 4px;
+    border: 1px solid #3a3830;
+    font-size: 0.9rem; font-weight: 400; text-decoration: none;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .btn-outline-light:hover { border-color: #6a6460; color: var(--paper); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--paper-warm); border-top: 1px solid var(--border);
+    padding: 2.25rem var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+  .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
+  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
+  .foot-links a:hover { color: var(--accent); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 840px) {
+    :root { --page-pad: 5%; }
+    .nav-links { display: none; }
+    .nav-brand { font-size: 1.8rem; }
+    .about-section-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .analogy-grid { grid-template-columns: 1fr; }
+    .stat-cards { grid-template-columns: repeat(2, 1fr); }
+    .closing-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<!-- OPENING HERO -->
+<div class="page-wrap">
+  <div class="about-hero reveal">
+
+    <div>
+      <div class="eyebrow">About Chris Chester</div>
+      <h1 class="about-h1">
+        AI is the most powerful tool most teams have ever been given.<br>
+        <em>Nobody showed them how to use it.</em>
+      </h1>
+      <div class="stat-callout" style="margin: 1.75rem 0;">
+        <div class="stat-big">5%</div>
+        <div class="stat-context">
+          That's the share of generative AI projects that deliver measurable business impact, according to MIT's 2025 State of AI in Business report — based on 150 executive interviews, 350 employee surveys, and 300 public AI deployments. The technology isn't the problem. The people surrounding it are.
+          <cite class="stat-cite">MIT Project NANDA · State of AI in Business, 2025</cite>
+        </div>
+      </div>
+      <p class="about-lead">
+        The other 95% didn't fail because AI isn't remarkable — it is. They stalled because teams were handed something extraordinary and left to figure it out alone. Closing that gap is what I do.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ORIGIN STORY -->
+<section class="about-section" id="origin">
+  <div class="page-wrap">
+    <div class="about-section-inner reveal">
+
+      <div class="section-label-col">
+        <div class="sec-tag">The origin</div>
+        <h2 class="sec-title">Thirty years of crossing borders</h2>
+      </div>
+
+      <div>
+        <p class="body-text">
+          I moved to Austria in 1995 as a stranger in a strange land — no shared language, no familiar cultural shorthand. Within a year, I was teaching others how to navigate that exact experience. What started as English as a Second Language classes became corporate communication training, and a career built entirely around one question: how do you help someone say what they mean, and be understood?
+        </p>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">1995 – 1998</div>
+            <div class="tl-place">Austria</div>
+            <div class="tl-desc">Arrived as a stranger, started teaching English as a Second Language and corporate communication within a year. Three years learning what it really means to cross a cultural and language barrier.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">1998 – 2000</div>
+            <div class="tl-place">New York City</div>
+            <div class="tl-desc">Two years in the city that teaches you to communicate fast or not at all. Continued teaching and sharpened the ability to read a room.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2000 – 2009</div>
+            <div class="tl-place">Germany</div>
+            <div class="tl-desc">Nine years training professionals across industries in communication, presentation, and business English. Built systems for diagnosing where communication breaks down — and fixing it.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2009 – 2013</div>
+            <div class="tl-place">The World</div>
+            <div class="tl-desc">Became a SCUBA instructor and spent four years teaching people to breathe underwater — across 36 countries on five continents. Same skill, different medium: calm someone's fear, build their confidence, set them free.</div>
+          </div>
+          <div class="tl-item highlight">
+            <div class="tl-year">2013 – Present</div>
+            <div class="tl-place">Valencia, Spain</div>
+            <div class="tl-desc">Returned to language and corporate communication training, and began building AI automation workflows. Noticed the same pattern everywhere: great tools, untrained teams. Decided to be the person who fixes that.</div>
+          </div>
+        </div>
+
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-num">30<em>+</em></div>
+            <div class="stat-lbl">years teaching</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">9</div>
+            <div class="stat-lbl">countries lived in</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">36</div>
+            <div class="stat-lbl">countries visited</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">100<em>s</em></div>
+            <div class="stat-lbl">of students</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGE ANALOGY -->
+<section class="about-section" id="approach">
+  <div class="page-wrap">
+    <div class="about-section-inner reveal">
+
+      <div class="section-label-col">
+        <div class="sec-tag">Why this matters now</div>
+        <h2 class="sec-title">Learning AI is like learning a language</h2>
+      </div>
+
+      <div>
+        <p class="body-text">
+          I've spent three decades helping people move through the same learning curve — whether the subject was English grammar, a pressure gauge 20 metres underwater, or a boardroom presentation in a second language. The progression is always the same.
+        </p>
+
+        <div class="analogy-grid">
+          <div class="analogy-card">
+            <div class="analogy-stage">Stage 1</div>
+            <div class="analogy-lang">Vocabulary</div>
+            <div class="analogy-ai">What is this tool? What do these terms mean? Why does it sometimes give me nonsense?</div>
+          </div>
+          <div class="analogy-card">
+            <div class="analogy-stage">Stage 2</div>
+            <div class="analogy-lang">Grammar</div>
+            <div class="analogy-ai">How do I structure a prompt to get useful output? What does context actually change?</div>
+          </div>
+          <div class="analogy-card">
+            <div class="analogy-stage">Stage 3</div>
+            <div class="analogy-lang">Fluency</div>
+            <div class="analogy-ai">The tool stops feeling like a chore and becomes how you work. You stop noticing you're using it.</div>
+          </div>
+        </div>
+
+        <p class="body-text">
+          When a team member says "I don't understand why it gave me that answer," most technical consultants see a prompt error. I see a language acquisition problem — and I know exactly which stage that person is on, and what they need next.
+        </p>
+
+        <blockquote class="pullquote">
+          "I spent 30 years teaching humans to communicate with each other. Now I teach humans and machines to work together."
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE GAP -->
+<section class="about-section" id="gap" style="border-bottom: none;">
+  <div class="page-wrap">
+    <div class="about-section-inner reveal">
+
+      <div class="section-label-col">
+        <div class="sec-tag">What I'm looking for</div>
+        <h2 class="sec-title">The gap I work in</h2>
+      </div>
+
+      <div>
+        <p class="body-text">
+          I'm most useful to teams that are mid-adoption: past the decision to use AI, but not yet getting consistent value from it. The tool exists. The team hasn't embraced it. That's where I come in.
+        </p>
+        <p class="body-text">
+          I don't just build the workflow — I stay until the team knows how to use it, adapt it, and trust it. Because that's when the ROI actually shows up.
+        </p>
+        <p class="body-text">
+          If that sounds like what you need, let's talk.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA BAND -->
+<div class="closing-band">
+  <div class="closing-inner reveal">
+    <div>
+      <h2 class="closing-headline">Ready to close the gap?</h2>
+      <p class="closing-sub">Whether you need an audit, a build, or just a conversation about where your team is stuck — I'm easy to reach and straight to the point.</p>
+    </div>
+    <div class="closing-actions">
+      <a href="index.html#chatbot" class="btn-fill">Start the conversation →</a>
+      <a href="/cv.pdf" class="btn-outline-light" download>Download CV</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#chatbot">Chat</a></li>
+    <li><a href="mailto:chris@christeachesai.com">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

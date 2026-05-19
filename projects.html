@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Chris Teaches AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #1c1a16;
+    --ink-muted:  #58534d;
+    --ink-faint:  #9a9590;
+    --paper:      #faf8f3;
+    --paper-warm: #f3ede2;
+    --card:       #ffffff;
+    --accent:     #c05c2b;
+    --accent-lt:  #f0dfd4;
+    --accent-dk:  #8c3d18;
+    --teal:       #2a7a6a;
+    --teal-lt:    #d0ebe7;
+    --gold:       #b87c2a;
+    --gold-lt:    #f5e8cf;
+    --blue:       #2a5a8a;
+    --blue-lt:    #d0e0f0;
+    --border:     #e0dbd2;
+    --border-mid: #c8c2b6;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+    --mono:  'DM Mono', monospace;
+    --page-max: 1080px;
+    --page-pad: 6%;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--page-pad);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 2.6rem; font-weight: 600;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .nav-brand em { color: var(--accent); font-style: normal; }
+  .nav-brand span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 2px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; color: var(--ink-muted);
+    text-decoration: none; transition: color 0.18s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 500; }
+  .nav-chat {
+    background: var(--ink) !important;
+    color: #fff !important;
+    padding: 0.38rem 1rem;
+    border-radius: 4px; font-weight: 500 !important;
+    transition: background 0.18s !important;
+  }
+  .nav-chat:hover { background: var(--accent) !important; }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    border-bottom: 1px solid var(--border);
+    padding: 4rem var(--page-pad) 3.5rem;
+  }
+  .page-header-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.55rem;
+    margin-bottom: 1.25rem;
+  }
+  .eyebrow::before {
+    content: ''; width: 20px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+  .page-title {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+    font-weight: 600; letter-spacing: -0.025em; line-height: 1.2;
+    color: var(--ink); margin-bottom: 1rem; max-width: 640px;
+  }
+  .page-sub {
+    font-size: 0.975rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.75; max-width: 560px;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--page-pad);
+  }
+  .filter-bar-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    display: flex; gap: 0; align-items: center;
+  }
+  .filter-btn {
+    font-family: var(--sans);
+    font-size: 0.8rem; font-weight: 400;
+    color: var(--ink-faint);
+    background: none; border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.9rem 1.1rem;
+    cursor: pointer;
+    transition: color 0.18s, border-color 0.18s;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+  .filter-btn:hover { color: var(--ink-muted); }
+  .filter-btn.on { color: var(--ink); font-weight: 500; border-bottom-color: var(--accent); }
+
+  /* ── PROJECTS GRID ── */
+  .projects-wrap {
+    padding: 3.5rem var(--page-pad) 5rem;
+  }
+  .projects-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Individual project card */
+  .proj-card {
+    background: var(--card);
+    padding: 2.25rem 2rem;
+    display: flex; flex-direction: column;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .proj-card:hover { background: var(--paper-warm); }
+
+  /* Hidden by filter */
+  .proj-card.hidden { display: none; }
+
+  .proj-card-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.63rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.18rem 0.6rem;
+    border-radius: 100px;
+  }
+  .tag-pipeline  { background: var(--accent-lt); color: var(--accent-dk); }
+  .tag-analysis  { background: var(--teal-lt);   color: var(--teal); }
+  .tag-scraping  { background: var(--gold-lt);   color: var(--gold); }
+  .tag-flask     { background: var(--blue-lt);   color: var(--blue); }
+  .tag-ai        { background: #ede8f5; color: #5a3a8a; }
+  .tag-data      { background: var(--teal-lt);   color: var(--teal); }
+  .tag-r         { background: #e8f0e8; color: #2a5a2a; }
+
+  .proj-num {
+    font-family: var(--mono);
+    font-size: 0.62rem; letter-spacing: 0.06em; color: var(--ink-faint);
+    flex-shrink: 0;
+  }
+
+  .proj-title {
+    font-family: var(--serif);
+    font-size: 1.25rem; font-weight: 600; line-height: 1.25;
+    color: var(--ink); margin-bottom: 0.4rem; letter-spacing: -0.01em;
+  }
+
+  .proj-hook {
+    font-size: 0.82rem; color: var(--accent-dk); font-weight: 500;
+    font-style: italic; font-family: var(--serif);
+    margin-bottom: 1.25rem; line-height: 1.5;
+  }
+
+  /* Before / Build / Result */
+  .bbar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .bbar-cell {
+    background: var(--paper-warm);
+    padding: 0.85rem 0.9rem;
+  }
+  .proj-card:hover .bbar-cell { background: var(--paper); }
+
+  .bbar-label {
+    font-family: var(--mono);
+    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-faint); margin-bottom: 0.35rem;
+  }
+
+  .bbar-text {
+    font-size: 0.8rem; color: var(--ink-muted); line-height: 1.55; font-weight: 300;
+  }
+
+  /* Tech stack */
+  .tech-row {
+    display: flex; flex-wrap: wrap; gap: 0.35rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tech-badge {
+    font-family: var(--mono);
+    font-size: 0.68rem; color: var(--ink-faint);
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.55rem; border-radius: 3px;
+  }
+  .proj-card:hover .tech-badge { background: var(--card); }
+
+  /* Card footer */
+  .proj-card-foot {
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .github-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.82rem; color: var(--ink-muted); text-decoration: none;
+    font-weight: 400;
+    transition: color 0.18s;
+  }
+  .github-link:hover { color: var(--ink); }
+  .github-link svg { flex-shrink: 0; }
+
+  .proj-cta {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.82rem; font-weight: 500; text-decoration: none;
+    color: var(--accent-dk);
+    border-bottom: 1px solid var(--accent-lt);
+    padding-bottom: 1px;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .proj-cta:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── GITHUB STRIP ── */
+  .github-strip {
+    background: var(--ink);
+    padding: 3rem var(--page-pad);
+    text-align: center;
+  }
+  .github-strip-inner { max-width: var(--page-max); margin: 0 auto; }
+  .github-strip p {
+    font-family: var(--serif); font-style: italic;
+    font-size: 1rem; color: #afa89d; margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+  .btn-github {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--paper-warm); color: var(--ink);
+    padding: 0.7rem 1.6rem; border-radius: 4px;
+    font-size: 0.875rem; font-weight: 500; text-decoration: none;
+    transition: background 0.18s;
+  }
+  .btn-github:hover { background: #fff; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--paper-warm); border-top: 1px solid var(--border);
+    padding: 2.25rem var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+  .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
+  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
+  .foot-links a:hover { color: var(--accent); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 840px) {
+    :root { --page-pad: 5%; }
+    .nav-links { display: none; }
+    .nav-brand { font-size: 1.8rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .bbar { grid-template-columns: 1fr; }
+    .bbar-cell + .bbar-cell { border-top: 1px solid var(--border); }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner reveal">
+    <div class="eyebrow">Selected work</div>
+    <h1 class="page-title">Four projects. Two hats. One point to prove.</h1>
+    <p class="page-sub">Each project here started as a real problem — something I actually needed to solve. The code is the proof that the trainer can also build. The GitHub is open; have a look.</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <button class="filter-btn on" onclick="filter('all', this)">All projects</button>
+    <button class="filter-btn" onclick="filter('pipeline', this)">AI Pipelines</button>
+    <button class="filter-btn" onclick="filter('analysis', this)">Data Analysis</button>
+    <button class="filter-btn" onclick="filter('scraping', this)">Scraping & Automation</button>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="projects-wrap">
+  <div class="projects-inner">
+    <div class="projects-grid" id="grid">
+
+      <!-- ── CARD 1: Lead Scout ── -->
+      <div class="proj-card reveal" data-tags="pipeline">
+        <div class="proj-card-top">
+          <div class="proj-tags">
+            <span class="tag tag-pipeline">AI Pipeline</span>
+            <span class="tag tag-flask">Flask</span>
+            <span class="tag tag-ai">Claude API</span>
+          </div>
+          <span class="proj-num">01</span>
+        </div>
+
+        <h2 class="proj-title">Lead Scout</h2>
+        <p class="proj-hook">Built by an AI adoption trainer who got tired of searching for clients manually.</p>
+
+        <div class="bbar">
+          <div class="bbar-cell">
+            <div class="bbar-label">Before</div>
+            <div class="bbar-text">Manually searching LinkedIn and Google for companies that might need AI training — hours of tab-switching with no consistent scoring or output.</div>
+          </div>
+          <div class="bbar-cell">
+            <div class="bbar-label">Build</div>
+            <div class="bbar-text">A five-stage pipeline: discover → score → classify → find contact → draft email. Results stream live to a UI as each company clears the pipeline.</div>
+          </div>
+          <div class="bbar-cell">
+            <div class="bbar-label">Result</div>
+            <div class="bbar-text">Select an industry and region, click Scout — get scored leads with a named contact and a personalised cold email draft, in minutes.</div>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Flask</span>
+          <span class="tech-badge">Anthropic API</span>
+          <span class="tech-badge">Tavily API</span>
+          <span class="tech-badge">Hunter.io</span>
+          <span class="tech-badge">BeautifulSoup</span>
+          <span class="tech-badge">SSE</span>
+        </div>
+
+        <div class="proj-card-foot">
+          <a class="github-link" href="https://github.com/PCChester/Lead-Scout" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+          <a class="proj-cta" href="https://github.com/PCChester/Lead-Scout" target="_blank" rel="noopener">Read the README →</a>
+        </div>
+      </div>
+
+      <!-- ── CARD 2: Bellabeat Case Study ── -->
+      <div class="proj-card reveal" data-tags="analysis">
+        <div class="proj-card-top">
+          <div class="proj-tags">
+            <span class="tag tag-data">Data Analysis</span>
+            <span class="tag tag-r">R</span>
+          </div>
+          <span class="proj-num">02</span>
+        </div>
+
+        <h2 class="proj-title">Bellabeat Case Study</h2>
+        <p class="proj-hook">The data contradicted the hypothesis — and that turned out to be the finding.</p>
+
+        <div class="bbar">
+          <div class="bbar-cell">
+            <div class="bbar-label">Before</div>
+            <div class="bbar-text">Bellabeat lacked a data-driven argument for which product feature to build next. Competitor feature comparisons existed, but no user behaviour data to validate the priority.</div>
+          </div>
+          <div class="bbar-cell">
+            <div class="bbar-label">Build</div>
+            <div class="bbar-text">End-to-end analysis of 30 Fitbit users' activity, sleep, and heart rate data — cleaned in SQL, feature-engineered in R, visualised in Tableau. Google Data Analytics capstone.</div>
+          </div>
+          <div class="bbar-cell">
+            <div class="bbar-label">Result</div>
+            <div class="bbar-text">Users slept poorly and then worked out harder the next day — not less. That compensation pattern validated a Burnout Prevention feature over a performance optimisation one.</div>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-badge">R / tidyverse</span>
+          <span class="tech-badge">SQL (BigQuery)</span>
+          <span class="tech-badge">Tableau</span>
+          <span class="tech-badge">Google Sheets</span>
+        </div>
+
+        <div class="proj-card-foot">
+          <a class="github-link" href="https://github.com/PCChester/Bellabeat-Case-Study" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+          <a class="proj-cta" href="https://public.tableau.com/app/profile/chris.chester/vizzes" target="_blank" rel="noopener">View on Tableau →</a>
+        </div>
+      </div>
+
+      <!-- ── CARD 3: Developer Portfolio Scanner ── -->
+      <div class="proj-card reveal" data-tags="scraping analysis">
+        <div class="proj-card-top">
+          <div class="proj-tags">
+            <span class="tag tag-scraping">Scraping</span>
+            <span class="tag tag-data">Data Analysis</span>
+          </div>
+          <span class="proj-num">03</span>
+        </div>
+
+        <h2 class="proj-title">Developer Portfolio Scanner</h2>
+        <p class="proj-hook">Recruiters spend hours manually browsing developer sites. This automates that.</p>
+
+        <div class="bbar">
+          <div class="bbar-cell">
+            <div class="bbar-label">Before</div>
+            <div class="bbar-text">A recruiter looking for available developers visits portfolio sites one by one — checking for availability signals, inferring skills, copy-pasting into a spreadsheet. Slow, inconsistent, and manual.</div>
+          </div>
+          <div class="bbar-cell">
+            <div class="bbar-label">Build</div>
+            <div class="bbar-text">A modular Python scraper that detects availability signals and extracts skills across 25 tech categories using regex. v2 added Pandas cleaning, score normalisation, and PNG chart output.</div>
+          </div>
+          <div class="bbar-cell">
+            <div class="bbar-label">Result</div>
+            <div class="bbar-text">Give it a list of URLs and get back a clean, scored dataset of developer availability and skills — plus visualisation charts — in seconds instead of hours.</div>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">BeautifulSoup</span>
+          <span class="tech-badge">Requests</span>
+          <span class="tech-badge">Pandas</span>
+          <span class="tech-badge">Matplotlib</span>
+        </div>
+
+        <div class="proj-card-foot">
+          <a class="github-link" href="https://github.com/PCChester/Developer-Portfolio-Scanner" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+          <a class="proj-cta" href="https://github.com/PCChester/Developer-Portfolio-Scanner" target="_blank" rel="noopener">Read the README →</a>
+        </div>
+      </div>
+
+      <!-- ── CARD 4: Sales Performance Analyzer ── -->
+      <div class="proj-card reveal" data-tags="pipeline analysis">
+        <div class="proj-card-top">
+          <div class="proj-tags">
+            <span class="tag tag-pipeline">AI Pipeline</span>
+            <span class="tag tag-data">Data Analysis</span>
+            <span class="tag tag-ai">Claude API</span>
+          </div>
+          <span class="proj-num">04</span>
+        </div>
+
+        <h2 class="proj-title">Sales Performance Analyzer</h2>
+        <p class="proj-hook">Most companies have more sales data than time to look at it.</p>
+
+        <div class="bbar">
+          <div class="bbar-cell">
+            <div class="bbar-label">Before</div>
+            <div class="bbar-text">A sales manager ends the week with a CSV export and a Monday meeting to prepare for. The analysis that should take an afternoon gets compressed into twenty minutes of gut-feel summary.</div>
+          </div>
+          <div class="bbar-cell">
+            <div class="bbar-label">Build</div>
+            <div class="bbar-text">A Python pipeline that loads the CSV, runs Pandas analysis across categories, regions, and monthly trends, then sends a structured summary to Claude for a plain-English executive report.</div>
+          </div>
+          <div class="bbar-cell">
+            <div class="bbar-label">Result</div>
+            <div class="bbar-text">A formatted report with revenue breakdown, trend analysis, anomaly flagging, and three concrete recommendations — generated in seconds, saved to disk.</div>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Pandas</span>
+          <span class="tech-badge">Anthropic SDK</span>
+          <span class="tech-badge">python-dotenv</span>
+        </div>
+
+        <div class="proj-card-foot">
+          <a class="github-link" href="https://github.com/PCChester/sales-performance-analyzer" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+          <a class="proj-cta" href="https://github.com/PCChester/sales-performance-analyzer" target="_blank" rel="noopener">Read the README →</a>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+  </div>
+</div>
+
+<!-- GITHUB STRIP -->
+<div class="github-strip">
+  <div class="github-strip-inner reveal">
+    <p>Everything here is public, documented, and open to scrutiny.<br>Please do so!</p>
+    <a class="btn-github" href="https://github.com/PCChester" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      github.com/PCChester
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#chatbot">Chat</a></li>
+    <li><a href="mailto:chris@christeachesai.com">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+// ── FILTER ──
+function filter(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+
+  document.querySelectorAll('.proj-card').forEach(card => {
+    if (tag === 'all') {
+      card.classList.remove('hidden');
+    } else {
+      const tags = card.dataset.tags || '';
+      tags.includes(tag) ? card.classList.remove('hidden') : card.classList.add('hidden');
+    }
+  });
+}
+
+// ── SCROLL REVEAL ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chris Teaches AI — AI Enablement Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #1c1a16;
+    --ink-muted:  #58534d;
+    --ink-faint:  #9a9590;
+    --paper:      #faf8f3;
+    --paper-warm: #f3ede2;
+    --card:       #ffffff;
+    --accent:     #c05c2b;
+    --accent-lt:  #f0dfd4;
+    --accent-dk:  #8c3d18;
+    --teal:       #2a7a6a;
+    --teal-lt:    #d0ebe7;
+    --gold:       #b87c2a;
+    --gold-lt:    #f5e8cf;
+    --border:     #e0dbd2;
+    --border-mid: #c8c2b6;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+    --mono:  'DM Mono', monospace;
+    --page-max: 1080px;
+    --page-pad: 6%;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--page-pad);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 2.6rem; font-weight: 600;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .nav-brand em { color: var(--accent); font-style: normal; }
+  .nav-brand span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 2px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; color: var(--ink-muted);
+    text-decoration: none; transition: color 0.18s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-chat {
+    background: var(--ink) !important;
+    color: #fff !important;
+    padding: 0.38rem 1rem;
+    border-radius: 4px; font-weight: 500 !important;
+    transition: background 0.18s !important;
+  }
+  .nav-chat:hover { background: var(--accent) !important; }
+
+  /* ─── HERO ─── */
+  .hero-outer {
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+  }
+
+  /* Top part: text + video */
+  .hero-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 4.5rem 0 2.5rem;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.55rem;
+    margin-bottom: 1.4rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 20px; height: 1px; background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .hero-h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+    line-height: 1.22; font-weight: 600;
+    letter-spacing: -0.025em; color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .hero-sub {
+    font-size: 0.925rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.75; margin-bottom: 1.75rem;
+  }
+
+  .hero-btns {
+    display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;
+  }
+
+  .btn-fill {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--accent); color: #fff;
+    padding: 0.6rem 1.4rem; border-radius: 4px;
+    font-size: 0.875rem; font-weight: 500; text-decoration: none;
+    transition: background 0.18s, transform 0.12s;
+    white-space: nowrap;
+  }
+  .btn-fill:hover { background: var(--accent-dk); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: transparent; color: var(--ink);
+    padding: 0.58rem 1.3rem; border-radius: 4px;
+    border: 1px solid var(--border-mid);
+    font-size: 0.875rem; font-weight: 500; text-decoration: none;
+    transition: border-color 0.18s, color 0.18s;
+    white-space: nowrap;
+  }
+  .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+
+  /* Video slot */
+  .hero-video {
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .video-center { text-align: center; }
+  .play-ring {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: rgba(192,92,43,0.1);
+    border: 1.5px solid rgba(192,92,43,0.3);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 0.85rem;
+  }
+  .play-ring::after {
+    content: '';
+    width: 0; height: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 18px solid var(--accent);
+    margin-left: 4px;
+  }
+  .video-label {
+    font-family: var(--mono);
+    font-size: 0.65rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--ink-faint);
+  }
+  .video-caption {
+    font-size: 0.72rem; color: var(--ink-faint); margin-top: 0.3rem;
+  }
+
+  /* CTA bar — full width below hero columns */
+  .hero-cta-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta-bar-text {
+    font-size: 1rem; font-weight: 400; color: var(--ink);
+    font-family: var(--serif); font-style: italic;
+    line-height: 1.4;
+  }
+  .btn-cta-bar {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent); color: #fff;
+    padding: 0.65rem 1.5rem; border-radius: 4px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.18s, transform 0.12s;
+    flex-shrink: 0;
+  }
+  .btn-cta-bar:hover { background: var(--accent-dk); transform: translateY(-1px); }
+  .cta-anchor-note {
+    font-size: 0.72rem; color: var(--ink-faint); font-style: italic;
+    padding: 0 0 1.5rem;
+    text-align: left;
+  }
+
+  /* ─── SECTION WRAPPER ─── */
+  .section-wrap {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+  }
+
+  /* ─── WHAT I DO ─── */
+  .what-i-do {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .sec-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent); margin-bottom: 0.65rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .sec-eyebrow::before {
+    content: ''; width: 14px; height: 1px; background: var(--accent);
+  }
+  .sec-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.25;
+    color: var(--ink); margin-bottom: 0.6rem; max-width: 540px;
+  }
+  .sec-sub {
+    font-size: 0.925rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.75; max-width: 500px; margin-bottom: 2.75rem;
+  }
+
+  .phase-cards {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+  }
+  .phase-card {
+    background: var(--card); padding: 2rem 1.75rem;
+    transition: background 0.2s;
+  }
+  .phase-card:hover { background: var(--paper-warm); }
+  .phase-num {
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 0.85rem;
+  }
+  .phase-tag {
+    display: inline-block; font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 0.18rem 0.6rem; border-radius: 100px; margin-bottom: 0.85rem;
+  }
+  .p1 { background: var(--accent-lt); color: var(--accent-dk); }
+  .p2 { background: var(--teal-lt); color: var(--teal); }
+  .p3 { background: var(--gold-lt); color: var(--gold); }
+  .phase-title {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
+    line-height: 1.3; color: var(--ink); margin-bottom: 0.65rem;
+  }
+  .phase-body {
+    font-size: 0.85rem; color: var(--ink-muted); line-height: 1.75; font-weight: 300;
+  }
+
+  /* ─── ABOUT DARK BAND ─── */
+  .about-band {
+    background: var(--ink); color: var(--paper);
+    padding: 4.5rem 0;
+  }
+  .about-band .sec-eyebrow { color: #b89a6e; }
+  .about-band .sec-eyebrow::before { background: #b89a6e; }
+  .about-band .sec-headline { color: var(--paper); max-width: 100%; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-quote {
+    font-family: var(--serif); font-size: 1.05rem; line-height: 1.75;
+    font-style: italic; color: #aaa49d;
+    border-left: 2px solid var(--accent); padding-left: 1.4rem;
+  }
+  .stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.25rem;
+  }
+  .stat-n {
+    font-family: var(--serif); font-size: 2.2rem; font-weight: 600;
+    color: var(--paper); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.2rem;
+  }
+  .stat-n em { color: var(--accent); font-style: normal; }
+  .stat-l { font-size: 0.78rem; color: #7a7268; font-weight: 300; line-height: 1.5; }
+
+  /* ─── FEATURED FRAMEWORKS ─── */
+  .frameworks-section {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .fw-intro {
+    font-size: 0.925rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.75; max-width: 560px; margin-top: 0.5rem; margin-bottom: 2rem;
+  }
+  .fw-intro strong {
+    color: var(--ink); font-weight: 500;
+  }
+  .frameworks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) {
+    .frameworks-grid { grid-template-columns: 1fr; }
+  }
+  .framework-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem 1.6rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    position: relative;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .framework-card:hover {
+    box-shadow: 0 4px 18px rgba(26,24,20,0.07);
+    border-color: var(--border-mid);
+  }
+  .framework-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 1.4rem; bottom: 1.4rem;
+    width: 3px; border-radius: 0 2px 2px 0;
+  }
+  .framework-card.card-build::before { background: var(--teal); }
+  .framework-card.card-audit::before { background: var(--accent); }
+  .fw-phase {
+    font-family: var(--mono);
+    font-size: 0.62rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .fw-title {
+    font-family: var(--serif);
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--ink); line-height: 1.3;
+  }
+  .fw-desc {
+    font-size: 0.875rem; line-height: 1.75;
+    color: var(--ink-muted); font-weight: 300;
+  }
+  .fw-badges {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 0.3rem;
+  }
+  .fw-badge {
+    font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+  .fw-link {
+    margin-top: auto; padding-top: 0.85rem;
+    font-size: 0.8rem; color: var(--ink-faint);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: color 0.15s;
+  }
+  .fw-link:hover { color: var(--accent); }
+
+  /* ─── CHATBOT SECTION ─── */
+  .chatbot-section {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .chat-intro-text {
+    font-size: 0.925rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.75; max-width: 580px; margin-top: 0.5rem; margin-bottom: 2rem;
+  }
+
+  .chat-ui {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(26,24,20,0.07);
+  }
+  .chat-hdr {
+    background: var(--paper-warm); border-bottom: 1px solid var(--border);
+    padding: 0.8rem 1.2rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .chat-avatar {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 0.82rem; font-weight: 600; color: #fff;
+    flex-shrink: 0;
+  }
+  .chat-who { font-size: 0.85rem; font-weight: 500; color: var(--ink); line-height: 1.2; }
+  .chat-online {
+    font-size: 0.68rem; color: var(--teal);
+    display: flex; align-items: center; gap: 0.28rem;
+  }
+  .chat-online::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+
+  .chat-messages {
+    padding: 1.4rem; min-height: 220px; max-height: 320px;
+    overflow-y: auto;
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .msg {
+    max-width: 84%; font-size: 0.875rem; line-height: 1.6;
+    padding: 0.6rem 0.9rem; border-radius: 12px;
+    animation: msgIn 0.22s ease;
+  }
+  @keyframes msgIn { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
+  .msg.bot {
+    background: var(--paper-warm); border: 1px solid var(--border);
+    color: var(--ink); align-self: flex-start; border-bottom-left-radius: 3px;
+  }
+  .msg.user {
+    background: var(--ink); color: var(--paper);
+    align-self: flex-end; border-bottom-right-radius: 3px;
+  }
+  .typing-dots {
+    display: none; align-self: flex-start;
+    padding: 0.6rem 0.9rem;
+    background: var(--paper-warm); border: 1px solid var(--border);
+    border-radius: 12px; border-bottom-left-radius: 3px;
+    gap: 4px; align-items: center;
+  }
+  .typing-dots.on { display: flex; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint); animation: dotBounce 1.2s infinite; }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes dotBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
+
+  .qr-row {
+    padding: 0.65rem 1.2rem 0.9rem;
+    display: flex; flex-wrap: wrap; gap: 0.45rem;
+  }
+  .qr {
+    font-size: 0.76rem; padding: 0.3rem 0.75rem;
+    border-radius: 100px; border: 1px solid var(--border-mid);
+    background: transparent; color: var(--ink-muted); cursor: pointer;
+    font-family: var(--sans); transition: all 0.15s;
+  }
+  .qr:hover { border-color: var(--accent); color: var(--accent-dk); background: var(--accent-lt); }
+
+  .chat-input-row {
+    border-top: 1px solid var(--border);
+    padding: 0.8rem 1.2rem;
+    display: flex; gap: 0.5rem;
+  }
+  .chat-field {
+    flex: 1; padding: 0.5rem 0.85rem;
+    border: 1px solid var(--border-mid); border-radius: 4px;
+    font-size: 0.875rem; font-family: var(--sans);
+    background: var(--paper); color: var(--ink); outline: none;
+    transition: border-color 0.18s;
+  }
+  .chat-field:focus { border-color: var(--accent); }
+  .chat-send {
+    background: var(--accent); color: #fff; border: none; border-radius: 4px;
+    padding: 0.5rem 1.05rem;
+    font-size: 0.875rem; font-weight: 500; font-family: var(--sans);
+    cursor: pointer; transition: background 0.18s;
+  }
+  .chat-send:hover { background: var(--accent-dk); }
+
+  /* Form toggle area */
+  .form-toggle-area {
+    margin-top: 1.75rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .prefer-label {
+    font-size: 0.82rem; color: var(--ink-faint); margin-bottom: 0.75rem;
+  }
+  .btn-report {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    background: var(--paper-warm); color: var(--ink-muted);
+    padding: 0.62rem 1.35rem; border-radius: 4px;
+    border: 1px solid var(--border-mid);
+    font-size: 0.875rem; font-weight: 400; cursor: pointer;
+    font-family: var(--sans); text-decoration: none;
+    transition: border-color 0.18s, color 0.18s, background 0.18s;
+  }
+  .btn-report:hover { border-color: var(--accent); color: var(--accent-dk); background: var(--accent-lt); }
+  .form-note {
+    font-size: 0.72rem; color: var(--ink-faint); margin-top: 0.55rem; font-style: italic;
+  }
+
+  /* ─── FORM PANEL ─── */
+  .form-panel {
+    display: none; text-align: left;
+    margin-top: 1.5rem;
+    padding: 1.75rem 2rem;
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    animation: fadeUp 0.28s ease;
+  }
+  .form-panel.open { display: block; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+  .f-step { display: none; }
+  .f-step.active { display: block; animation: fadeUp 0.22s ease; }
+
+  .f-q { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+  .f-hint { font-size: 0.78rem; color: var(--ink-faint); margin-bottom: 1.1rem; }
+
+  .f-opts { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.1rem; }
+  .f-opt {
+    padding: 0.42rem 0.9rem; font-size: 0.83rem;
+    border: 1px solid var(--border-mid); border-radius: 4px;
+    background: transparent; color: var(--ink-muted); cursor: pointer;
+    font-family: var(--sans); transition: all 0.15s;
+  }
+  .f-opt:hover, .f-opt.on { border-color: var(--accent); color: var(--accent-dk); background: var(--accent-lt); }
+
+  .f-input {
+    width: 100%; padding: 0.6rem 0.85rem;
+    border: 1px solid var(--border-mid); border-radius: 4px;
+    font-size: 0.875rem; font-family: var(--sans);
+    background: var(--card); color: var(--ink); outline: none;
+    margin-bottom: 1.1rem; resize: vertical;
+    transition: border-color 0.18s;
+  }
+  .f-input:focus { border-color: var(--accent); }
+
+  .f-nav {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .f-prog { font-family: var(--mono); font-size: 0.66rem; color: var(--ink-faint); }
+  .btn-back {
+    font-size: 0.85rem; color: var(--ink-muted); cursor: pointer;
+    font-family: var(--sans); background: none; border: none;
+    border-bottom: 1px solid var(--border-mid); padding-bottom: 1px;
+    transition: color 0.18s;
+  }
+  .btn-back:hover { color: var(--ink); }
+  .btn-sm {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    background: var(--accent); color: #fff; border: none; border-radius: 4px;
+    padding: 0.55rem 1.3rem; font-size: 0.875rem; font-weight: 500;
+    font-family: var(--sans); cursor: pointer; transition: background 0.18s;
+  }
+  .btn-sm:hover { background: var(--accent-dk); }
+
+  /* ─── REPORT BOX ─── */
+  .report-box {
+    display: none;
+    background: var(--paper-warm);
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.75rem 2rem; margin-top: 1.75rem;
+    animation: fadeUp 0.35s ease;
+  }
+  .report-box.show { display: block; }
+  .report-hed {
+    font-family: var(--serif); font-size: 1.05rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 1.1rem;
+  }
+  .report-txt { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.8; font-weight: 300; }
+  .report-txt p+p { margin-top: 0.9rem; }
+  .report-actions {
+    margin-top: 1.5rem; padding-top: 1.1rem; border-top: 1px solid var(--border);
+    display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+  }
+  .btn-text {
+    font-size: 0.85rem; color: var(--ink-muted); cursor: pointer;
+    font-family: var(--sans); background: none; border: none;
+    border-bottom: 1px solid var(--border-mid); padding-bottom: 1px;
+    transition: color 0.18s;
+  }
+  .btn-text:hover { color: var(--ink); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--paper-warm); border-top: 1px solid var(--border);
+    padding: 2.25rem var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+  .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
+  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
+  .foot-links a:hover { color: var(--accent); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 840px) {
+    :root { --page-pad: 5%; }
+
+    /* Nav */
+    .nav-links { display: none; }
+    nav { height: 56px; }
+    .nav-brand { font-size: 1.8rem; }
+
+    /* Hero */
+    .hero-top {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0 1.75rem;
+    }
+    .hero-h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+    .hero-sub { font-size: 0.9rem; }
+    .hero-video { aspect-ratio: 16/9; }
+
+    /* CTA bar — stack on mobile */
+    .hero-cta-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.2rem;
+    }
+    .hero-cta-bar-text { font-size: 0.95rem; }
+    .btn-cta-bar { width: 100%; justify-content: center; }
+
+    /* Hero buttons */
+    .hero-btns { flex-direction: column; align-items: flex-start; gap: 0.65rem; }
+    .btn-fill, .btn-outline { width: 100%; justify-content: center; }
+
+    /* Services */
+    .phase-cards { grid-template-columns: 1fr; }
+    .phase-card { padding: 1.5rem 1.25rem; }
+    .sec-headline { font-size: clamp(1.25rem, 5vw, 1.75rem); }
+
+    /* About */
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .stat-n { font-size: 1.85rem; }
+
+    /* Chatbot */
+    .chat-messages { min-height: 180px; max-height: 260px; }
+    .msg { max-width: 92%; font-size: 0.84rem; }
+    .qr-row { padding: 0.5rem 1rem 0.75rem; }
+    .qr { font-size: 0.74rem; padding: 0.28rem 0.65rem; }
+
+    /* Form */
+    .form-panel { padding: 1.25rem; }
+    .f-opts { gap: 0.4rem; }
+    .f-opt { padding: 0.38rem 0.75rem; font-size: 0.8rem; }
+
+    /* Footer */
+    footer { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .foot-links { flex-wrap: wrap; gap: 1rem; }
+
+    /* Anchor note — hide on mobile, it's obvious enough */
+    .cta-anchor-note { display: none; }
+  }
+
+  /* Extra small — tighten further */
+  @media (max-width: 420px) {
+    :root { --page-pad: 4.5%; }
+    .hero-h1 { font-size: 1.5rem; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat-n { font-size: 1.65rem; }
+    .hero-cta-bar-text { font-size: 0.88rem; }
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero-outer">
+  <div class="hero-inner">
+
+    <!-- Left: text -->
+    <div class="hero-top" style="grid-template-columns: 1fr;">
+      <div class="hero-text">
+        <div class="hero-eyebrow">AI Enablement Architect</div>
+        <h1 class="hero-h1">I help teams use AI to save time, cut repetitive work, and actually stick with it.</h1>
+        <p class="hero-sub">Identifying workflow bottlenecks · Building simple AI solutions · Training your team so they use them</p>
+        <div class="hero-btns">
+        </div>
+      </div>
+    </div>
+
+    <!-- Full-width CTA bar -->
+    <div class="hero-cta-bar">
+      <span class="hero-cta-bar-text">Want to see how I'd train your team? Let's chat.</span>
+      <a href="#chatbot" class="btn-cta-bar">Start the conversation →</a>
+    </div>
+    <div style="margin-bottom: 2.5rem;">
+      <a href="projects.html" class="btn-outline">See my work →</a>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- ── WHAT I DO ── -->
+<section id="services">
+  <div class="what-i-do">
+    <div class="section-wrap reveal">
+      <div class="sec-eyebrow">What I do — 3 phases</div>
+      <h2 class="sec-headline">Built to work. Designed to stick.</h2>
+      <p class="sec-sub">Most AI projects fail not because the tools are wrong, but because nobody stayed to make sure the team understood them.</p>
+      <div class="phase-cards">
+        <div class="phase-card">
+          <div class="phase-num">Phase 01</div>
+          <span class="phase-tag p1">Audit &amp; Strategy</span>
+          <h3 class="phase-title">Find where time is leaking</h3>
+          <p class="phase-body">Map which 20% of tasks are worth automating first. After 25+ years of communication training, I speak the language of the C-suite and entry-level staff — and I deliver a clear picture, not a bloated proposal.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 02</div>
+          <span class="phase-tag p2">Build</span>
+          <h3 class="phase-title">Design and build the workflow or pipeline</h3>
+          <p class="phase-body">You get a working tool, not a proposal. Python-backed, practical, built to last. Something tangible your team can point to and measure from day one.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 03</div>
+          <span class="phase-tag p3">Train &amp; Enable</span>
+          <h3 class="phase-title">Stay until the team uses it confidently</h3>
+          <p class="phase-body">That's when the ROI actually shows up. I don't hand over a tool and disappear — I stay until the team knows how to use it, adapt it, and trust it. Fear of new tools isn't a blocker; it's something I've been solving in classrooms and boardrooms for decades.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-band">
+    <div class="section-wrap">
+      <div class="about-grid reveal">
+        <div>
+          <div class="sec-eyebrow">The Translator</div>
+          <h2 class="sec-headline">I spent 25+ years teaching humans to communicate with each other. Now I teach humans and machines to work together.</h2>
+        </div>
+        <div>
+          <blockquote class="about-quote">
+            "Learning to use AI tools is structurally identical to learning a second language. There's a vocabulary stage, a grammar stage, and a fluency stage. I've guided thousands of people through that progression — the subject has just changed."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED FRAMEWORKS ── -->
+<section id="frameworks">
+  <div class="frameworks-section">
+    <div class="section-wrap reveal">
+      <div class="sec-eyebrow">Work that ships</div>
+      <h2 class="sec-headline">Two projects. One case study. One tool.</h2>
+      <p class="fw-intro">These projects both yielded unexpected results.</p>
+
+      <div class="frameworks-grid">
+
+        <!-- Bellabeat -->
+        <div class="framework-card card-audit">
+          <div class="fw-phase">Phase 1 · Audit &amp; Strategy</div>
+          <h3 class="fw-title">Bellabeat</h3>
+          <p class="fw-desc">A wellness brand wanted to understand how people actually used their fitness tracker — not how they assumed people used it. The data told a different story: users weren't building habits, they were burning out. That finding reframed the product roadmap and shifted the communications strategy from performance to recovery.</p>
+          <div class="fw-badges">
+            <span class="fw-badge">SQL</span>
+            <span class="fw-badge">BigQuery</span>
+            <span class="fw-badge">R</span>
+            <span class="fw-badge">Tableau</span>
+          </div>
+          <a href="https://github.com/yourusername/bellabeat" target="_blank" class="fw-link">View on GitHub →</a>
+        </div>
+
+        <!-- Lead Scout -->
+        <div class="framework-card card-build">
+          <div class="fw-phase">Phase 2 · Build</div>
+          <h3 class="fw-title">Lead Scout</h3>
+          <p class="fw-desc">A sales team was spending hours every week manually researching local prospects — copy-pasting names, checking websites, qualifying leads by hand. Lead Scout automated the entire pipeline: it finds relevant businesses in any target area, pulls the data, and delivers a qualified shortlist. No manual research. No compliance shortcuts.</p>
+          <div class="fw-badges">
+            <span class="fw-badge">Python</span>
+            <span class="fw-badge">Flask</span>
+            <span class="fw-badge">Claude API</span>
+            <span class="fw-badge">SSE</span>
+            <span class="fw-badge">Localization</span>
+          </div>
+          <a href="https://github.com/yourusername/lead-scout" target="_blank" class="fw-link">View on GitHub →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CHATBOT ── -->
+<section id="chatbot">
+  <div class="chatbot-section">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="sec-eyebrow">Let's talk</div>
+        <h2 class="sec-headline">Want to see how I'd train your team? Let's chat.</h2>
+        <p class="chat-intro-text">Tell me about the role or problem you're trying to solve — I'll give you a straight answer on whether my background fits.</p>
+      </div>
+
+      <div class="chat-ui reveal">
+        <div class="chat-hdr">
+          <div class="chat-avatar">C</div>
+          <div>
+            <div class="chat-who">Chris</div>
+            <div class="chat-online">Online now</div>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chatMsgs">
+          <div class="msg bot">Hi! What does your team currently struggle with when using new tools?</div>
+        </div>
+        <div class="typing-dots" id="typingDots">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+
+        <div class="qr-row" id="qrRow">
+          <button class="qr" onclick="sendQ('People just revert to doing things manually after a week.')">People just revert to doing things manually</button>
+          <button class="qr" onclick="sendQ('Nobody knows how to prompt the AI effectively.')">Nobody knows how to prompt it</button>
+          <button class="qr" onclick="sendQ('We have tools but no clear process around them.')">Tools but no clear process</button>
+          <button class="qr" onclick="sendQ('Staff are worried AI will replace their jobs.')">Staff worried about being replaced</button>
+        </div>
+
+        <div class="chat-input-row">
+          <input class="chat-field" id="chatField" type="text" placeholder="Or type your answer…" onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="chat-send" onclick="sendChat()">Send</button>
+        </div>
+      </div>
+
+      <!-- Chat report -->
+      <div class="report-box" id="chatReport">
+        <div class="report-hed">Your AI Readiness Snapshot</div>
+        <div class="report-txt" id="chatReportBody">
+          <p id="cr1"></p><p id="cr2"></p><p id="cr3"></p>
+        </div>
+        <div class="report-actions">
+          <a href="mailto:chris@christeachesai.com" class="btn-fill">Let's talk →</a>
+          <button class="btn-text" onclick="resetChat()">Start over</button>
+        </div>
+      </div>
+
+      <!-- Form toggle -->
+      <div class="form-toggle-area reveal">
+        <p class="prefer-label">prefer a form?</p>
+        <button class="btn-report" id="toggleBtn" onclick="toggleForm()">
+          Get your free AI Readiness Mini-Report →
+        </button>
+        <p class="form-note">Opens a short 5-question form. AI generates a personalised report instantly. No chatbot required.</p>
+      </div>
+
+      <!-- Form panel -->
+      <div class="form-panel" id="formPanel">
+        <!-- Step 1 -->
+        <div class="f-step active">
+          <p class="f-q">What industry or sector are you in?</p>
+          <p class="f-hint">Choose the closest match</p>
+          <div class="f-opts">
+            <button class="f-opt" onclick="pick(this,'industry','Healthcare')">Healthcare</button>
+            <button class="f-opt" onclick="pick(this,'industry','Finance')">Finance</button>
+            <button class="f-opt" onclick="pick(this,'industry','Education')">Education</button>
+            <button class="f-opt" onclick="pick(this,'industry','Retail')">Retail</button>
+            <button class="f-opt" onclick="pick(this,'industry','Tech')">Tech</button>
+            <button class="f-opt" onclick="pick(this,'industry','Professional Services')">Professional Services</button>
+          </div>
+          <input class="f-input" id="f1" style="height:40px" placeholder="Or type your sector…" oninput="fa.industry=this.value">
+          <div class="f-nav">
+            <span class="f-prog">1 / 5</span>
+            <button class="btn-sm" onclick="nextStep()">Next →</button>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="f-step">
+          <p class="f-q">How many people are on the team this would affect?</p>
+          <p class="f-hint">Roughly speaking</p>
+          <div class="f-opts">
+            <button class="f-opt" onclick="pick(this,'size','1–5')">1–5 people</button>
+            <button class="f-opt" onclick="pick(this,'size','6–20')">6–20 people</button>
+            <button class="f-opt" onclick="pick(this,'size','20+')">20+ people</button>
+          </div>
+          <div class="f-nav">
+            <button class="btn-back" onclick="prevStep()">← Back</button>
+            <span class="f-prog">2 / 5</span>
+            <button class="btn-sm" onclick="nextStep()">Next →</button>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="f-step">
+          <p class="f-q">What does most of your team's repetitive work look like?</p>
+          <p class="f-hint">Be specific — this shapes the report most</p>
+          <textarea class="f-input" id="f3" rows="3" placeholder="E.g. 'We copy data between systems each morning and write status reports for six stakeholders…'" oninput="fa.work=this.value"></textarea>
+          <div class="f-nav">
+            <button class="btn-back" onclick="prevStep()">← Back</button>
+            <span class="f-prog">3 / 5</span>
+            <button class="btn-sm" onclick="nextStep()">Next →</button>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="f-step">
+          <p class="f-q">Have you already introduced any AI tools?</p>
+          <p class="f-hint">Honesty helps — there's no wrong answer</p>
+          <div class="f-opts">
+            <button class="f-opt" onclick="pick(this,'ai','Not yet')">Not yet</button>
+            <button class="f-opt" onclick="pick(this,'ai','Yes, with mixed results')">Yes, mixed results</button>
+            <button class="f-opt" onclick="pick(this,'ai','Yes, working well')">Yes, working well</button>
+          </div>
+          <div class="f-nav">
+            <button class="btn-back" onclick="prevStep()">← Back</button>
+            <span class="f-prog">4 / 5</span>
+            <button class="btn-sm" onclick="nextStep()">Next →</button>
+          </div>
+        </div>
+        <!-- Step 5 -->
+        <div class="f-step">
+          <p class="f-q">What's the biggest obstacle right now?</p>
+          <p class="f-hint">What's actually in the way?</p>
+          <div class="f-opts">
+            <button class="f-opt" onclick="pick(this,'obstacle','Staff resistance')">Staff resistance</button>
+            <button class="f-opt" onclick="pick(this,'obstacle','No clear use case')">No clear use case</button>
+            <button class="f-opt" onclick="pick(this,'obstacle','Technical setup')">Technical setup</button>
+            <button class="f-opt" onclick="pick(this,'obstacle','Time to implement')">Time to implement</button>
+          </div>
+          <input class="f-input" id="f5" style="height:40px" placeholder="Something else?" oninput="fa.obstacle=this.value">
+          <div class="f-nav">
+            <button class="btn-back" onclick="prevStep()">← Back</button>
+            <span class="f-prog">5 / 5</span>
+            <button class="btn-sm" onclick="makeFormReport()">Get my report →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form report -->
+      <div class="report-box" id="formReport">
+        <div class="report-hed">Your AI Readiness Snapshot</div>
+        <div class="report-txt" id="formReportBody">
+          <p id="fr1"></p><p id="fr2"></p><p id="fr3"></p>
+        </div>
+        <div class="report-actions">
+          <a href="mailto:chris@christeachesai.com" class="btn-fill">Let's talk →</a>
+          <button class="btn-text" onclick="resetForm()">Start over</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#chatbot">Chat</a></li>
+    <li><a href="mailto:chris@christeachesai.com">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+// ── CHATBOT ──
+const SYSTEM_PROMPT = `You are Chris Chester — an AI enablement consultant based in Valencia, Spain. You speak in first person as Chris.
+
+Your background: You moved to Austria in 1995 with no shared language and within a year were teaching English as a Second Language. You spent 30+ years teaching communication — ESL, corporate communication, and presentation skills — across Austria, New York, Germany, and Spain. You also spent four years as a SCUBA instructor across 36 countries. Since 2013 you've been in Valencia, and you now apply that same teaching instinct to AI adoption: helping teams go from confused and resistant to genuinely fluent with AI tools.
+
+Your core belief: Learning AI is structurally identical to learning a language. There's a vocabulary stage, a grammar stage, and a fluency stage. Most consultants hand over a tool and disappear. You stay until the team actually understands it — because that's when the ROI shows up.
+
+Your 3-phase approach:
+1. Audit & Strategy — understand the team's actual workflows and where AI fits
+2. Build — deliver a working tool or automation, not a proposal
+3. Embed — train the team until they're genuinely fluent, not just functional
+
+Your tone: Straight-talking, warm, experienced. You don't oversell. You ask good questions. You're genuinely curious about the person's situation. You use concrete examples. You never use jargon for its own sake.
+
+Your goal in this conversation: Genuinely help the person think through their AI situation. Answer real questions about AI honestly — including general questions, because showing expertise builds trust. Naturally qualify whether your background fits their problem. If it seems like a good fit after a few exchanges, suggest they reach out at chris@christeachesai.com — but don't push it too early or too hard.
+
+Keep responses concise — 2–4 sentences max. This is a chat, not an essay. Ask one follow-up question at a time. Never use bullet points or markdown formatting.`;
+
+let chatHistory = [];
+const chatMsgs = document.getElementById('chatMsgs');
+const typingDots = document.getElementById('typingDots');
+const qrRow = document.getElementById('qrRow');
+
+function addMsg(txt, type) {
+  const d = document.createElement('div');
+  d.className = `msg ${type}`;
+  d.textContent = txt;
+  chatMsgs.appendChild(d);
+  chatMsgs.scrollTop = chatMsgs.scrollHeight;
+}
+
+async function botReply(userMsg) {
+  chatHistory.push({ role: 'user', content: userMsg });
+  typingDots.classList.add('on');
+  chatMsgs.scrollTop = chatMsgs.scrollHeight;
+
+  try {
+    const response = await fetch('/.netlify/functions/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system: SYSTEM_PROMPT,
+        messages: chatHistory
+      })
+    });
+
+    const data = await response.json();
+    const reply = data.content?.[0]?.text || "Sorry, something went wrong — try again in a moment.";
+    chatHistory.push({ role: 'assistant', content: reply });
+    typingDots.classList.remove('on');
+    addMsg(reply, 'bot');
+  } catch (err) {
+    typingDots.classList.remove('on');
+    addMsg("Something went wrong on my end — give it another try.", 'bot');
+  }
+}
+
+function sendQ(txt) {
+  addMsg(txt, 'user');
+  qrRow.style.display = 'none';
+  botReply(txt);
+}
+
+function sendChat() {
+  const v = document.getElementById('chatField').value.trim();
+  if (!v) return;
+  addMsg(v, 'user');
+  document.getElementById('chatField').value = '';
+  qrRow.style.display = 'none';
+  botReply(v);
+}
+
+function resetChat() {
+  chatMsgs.innerHTML = '<div class="msg bot">Hi! What does your team currently struggle with when using new tools?</div>';
+  document.getElementById('chatReport').classList.remove('show');
+  qrRow.style.display = '';
+  chatHistory = [];
+}
+
+// ── FORM ──
+let curStep = 1;
+const fa = {};
+
+function toggleForm() {
+  const panel = document.getElementById('formPanel');
+  const btn = document.getElementById('toggleBtn');
+  const isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open');
+  btn.textContent = isOpen ? 'Get your free AI Readiness Mini-Report →' : 'Close the form ↑';
+}
+
+function showStep(n) {
+  document.querySelectorAll('.f-step').forEach((s,i) => s.classList.toggle('active', i+1===n));
+  curStep = n;
+}
+function nextStep() { if(curStep<5) showStep(curStep+1); }
+function prevStep() { if(curStep>1) showStep(curStep-1); }
+
+function pick(el, key, val) {
+  el.closest('.f-opts').querySelectorAll('.f-opt').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  fa[key] = val;
+}
+
+function makeFormReport() {
+  const industry = fa.industry || document.getElementById('f1').value || 'your sector';
+  const size = fa.size || 'your team';
+  const work = fa.work || document.getElementById('f3').value || 'manual tasks';
+  const ai = fa.ai || 'Not yet';
+  const obstacle = fa.obstacle || document.getElementById('f5').value || 'implementation';
+  const r = buildReport(industry, size, work, ai, obstacle);
+  document.getElementById('fr1').textContent = r[0];
+  document.getElementById('fr2').textContent = r[1];
+  document.getElementById('fr3').textContent = r[2];
+  document.getElementById('formPanel').classList.remove('open');
+  document.getElementById('toggleBtn').textContent = 'Get your free AI Readiness Mini-Report →';
+  const box = document.getElementById('formReport');
+  box.classList.add('show');
+  box.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function resetForm() {
+  Object.keys(fa).forEach(k=>delete fa[k]);
+  document.getElementById('formReport').classList.remove('show');
+  document.getElementById('formPanel').classList.add('open');
+  document.getElementById('toggleBtn').textContent = 'Close the form ↑';
+  showStep(1);
+  document.querySelectorAll('.f-opt').forEach(b=>b.classList.remove('on'));
+  ['f1','f3','f5'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+}
+
+// ── REPORT GENERATOR ──
+function buildReport(industry, size, work, ai, obstacle) {
+  const p1 = ai === 'Not yet'
+    ? `You're at the starting line — which is actually a great position. Teams in ${industry} who haven't committed to any AI tools yet have the advantage of choosing deliberately rather than inheriting someone else's mistake. You're not behind; you're making a considered choice.`
+    : ai === 'Yes, with mixed results'
+    ? `You're in the most common — and most fixable — position: you've started, but something isn't clicking. In ${industry}, that almost always means the tool was right but the workflow around it wasn't designed with the actual users in mind. The technology isn't the problem.`
+    : `You've already cleared the first hurdle. The question now is whether your team is truly fluent in the tools you have, or just functional. That gap is usually where the remaining productivity gains are waiting.`;
+
+  const p2 = (work && work.length > 5)
+    ? `Based on what you've described, the most immediate opportunity for a team of ${size} is a structured workflow automation with clear human-in-the-loop checkpoints. This isn't about replacing people — it's about eliminating the mechanical effort and giving them back time for the decisions that actually need judgment. That's typically a 40–60% reduction in time spent on those tasks within the first month.`
+    : `For a team of ${size} in ${industry}, the quick win is almost always to identify the single most repetitive task and build one well-documented automation around it — not a sweeping transformation, just one visible fix the team can measure.`;
+
+  const p3 = obstacle === 'Staff resistance'
+    ? `The obstacle you've named — staff resistance — is the one I know best. I've spent over 20 years working with reluctant learners. Fear of AI is rarely about the tool; it's about identity and the worry of being made obsolete. My approach treats it as a language acquisition problem, not a morale problem. When people understand a tool well enough to predict its behaviour, the fear disappears on its own.`
+    : obstacle === 'No clear use case'
+    ? `No clear use case is actually good news. It means you haven't made a wrong investment yet. A half-day workflow audit almost always surfaces two or three high-impact opportunities that were hiding in plain sight. That's usually how I start with a new client.`
+    : obstacle === 'Technical setup'
+    ? `The technical setup barrier is real but almost always overstated. In my experience, 80% of the complexity dissolves when you match the right tool to the actual task, rather than defaulting to whatever is most hyped right now.`
+    : `The obstacle you're facing — ${obstacle.toLowerCase()} — is one I've helped teams work through before. The path almost always starts with a realistic picture of what the team actually does all day, and a plan that doesn't require everyone to change at once.`;
+
+  return [p1, p2, p3];
+}
+
+// ── SCROLL REVEAL ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
+}, {threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
