@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZNZ5H494K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3ZNZ5H494K');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chris Teaches AI — AI Enablement Architect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,7 +109,7 @@
 
   .hero-eyebrow {
     font-family: var(--mono);
-    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.13em;
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
     color: var(--accent);
     display: flex; align-items: center; gap: 0.55rem;
     margin-bottom: 1.4rem;
@@ -140,14 +148,14 @@
 
   .btn-outline {
     display: inline-flex; align-items: center; gap: 0.4rem;
-    background: transparent; color: var(--ink);
+    background: transparent; color: var(--ink-muted);
     padding: 0.58rem 1.3rem; border-radius: 4px;
     border: 1px solid var(--border-mid);
-    font-size: 0.875rem; font-weight: 500; text-decoration: none;
+    font-size: 0.875rem; font-weight: 400; text-decoration: none;
     transition: border-color 0.18s, color 0.18s;
     white-space: nowrap;
   }
-  .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+  .btn-outline:hover { border-color: var(--ink-muted); color: var(--ink); }
 
   /* Video slot */
   .hero-video {
@@ -228,7 +236,7 @@
   }
   .sec-eyebrow {
     font-family: var(--mono);
-    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.13em;
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
     color: var(--accent); margin-bottom: 0.65rem;
     display: flex; align-items: center; gap: 0.5rem;
   }
@@ -699,10 +707,11 @@
     <!-- Left: text -->
     <div class="hero-top" style="grid-template-columns: 1fr;">
       <div class="hero-text">
-        <div class="hero-eyebrow">AI Enablement Architect</div>
+        <div class="hero-eyebrow">AI Enablement Architect · Valencia, Spain</div>
         <h1 class="hero-h1">I help teams use AI to save time, cut repetitive work, and actually stick with it.</h1>
         <p class="hero-sub">Identifying workflow bottlenecks · Building simple AI solutions · Training your team so they use them</p>
         <div class="hero-btns">
+          <a href="projects.html" class="btn-fill">See my work ↓</a>
         </div>
       </div>
     </div>
@@ -712,10 +721,7 @@
       <span class="hero-cta-bar-text">Want to see how I'd train your team? Let's chat.</span>
       <a href="#chatbot" class="btn-cta-bar">Start the conversation →</a>
     </div>
-    <div style="margin-bottom: 2.5rem;">
-      <a href="projects.html" class="btn-outline">See my work →</a>
-    </div>
-
+    <p class="cta-anchor-note">↑ Button anchors down to the chatbot section. Keeps the hero clean — no chatbot here, just the hook.</p>
 
   </div>
 </div>
@@ -775,8 +781,8 @@
   <div class="frameworks-section">
     <div class="section-wrap reveal">
       <div class="sec-eyebrow">Work that ships</div>
-      <h2 class="sec-headline">Two projects. One case study. One tool.</h2>
-      <p class="fw-intro">These projects both yielded unexpected results.</p>
+      <h2 class="sec-headline">Two projects. Both ready for delivery.</h2>
+      <p class="fw-intro">These tools revealed more than was expected.</p>
 
       <div class="frameworks-grid">
 
@@ -819,7 +825,7 @@
   <div class="chatbot-section">
     <div class="section-wrap">
       <div class="reveal">
-        <div class="sec-eyebrow">Let's talk</div>
+        <div class="sec-eyebrow">Chatbot section</div>
         <h2 class="sec-headline">Want to see how I'd train your team? Let's chat.</h2>
         <p class="chat-intro-text">Tell me about the role or problem you're trying to solve — I'll give you a straight answer on whether my background fits.</p>
       </div>
@@ -987,24 +993,14 @@
 
 <script>
 // ── CHATBOT ──
-const SYSTEM_PROMPT = `You are Chris Chester — an AI enablement consultant based in Valencia, Spain. You speak in first person as Chris.
+const replies = [
+  "That's an enablement gap, not a technology gap. How big is the team?",
+  "Interesting — that's usually a process problem, not a tool problem. Once the workflow is defined, the AI just fills a slot. What industry are you in?",
+  "That's the most common one I see. The tool exists; the bridge to how the team actually works doesn't. How many people are involved?",
+  "That's the fear gap — and it's the one I specialise in. I've been teaching people to learn things that intimidate them for over 20 years. What does the team do day to day?"
+];
 
-Your background: You moved to Austria in 1995 with no shared language and within a year were teaching English as a Second Language. You spent 30+ years teaching communication — ESL, corporate communication, and presentation skills — across Austria, New York, Germany, and Spain. You also spent four years as a SCUBA instructor across 36 countries. Since 2013 you've been in Valencia, and you now apply that same teaching instinct to AI adoption: helping teams go from confused and resistant to genuinely fluent with AI tools.
-
-Your core belief: Learning AI is structurally identical to learning a language. There's a vocabulary stage, a grammar stage, and a fluency stage. Most consultants hand over a tool and disappear. You stay until the team actually understands it — because that's when the ROI shows up.
-
-Your 3-phase approach:
-1. Audit & Strategy — understand the team's actual workflows and where AI fits
-2. Build — deliver a working tool or automation, not a proposal
-3. Embed — train the team until they're genuinely fluent, not just functional
-
-Your tone: Straight-talking, warm, experienced. You don't oversell. You ask good questions. You're genuinely curious about the person's situation. You use concrete examples. You never use jargon for its own sake.
-
-Your goal in this conversation: Genuinely help the person think through their AI situation. Answer real questions about AI honestly — including general questions, because showing expertise builds trust. Naturally qualify whether your background fits their problem. If it seems like a good fit after a few exchanges, suggest they reach out at chris@christeachesai.com — but don't push it too early or too hard.
-
-Keep responses concise — 2–4 sentences max. This is a chat, not an essay. Ask one follow-up question at a time. Never use bullet points or markdown formatting.`;
-
-let chatHistory = [];
+let chatTurn = 0, chatCtx = {};
 const chatMsgs = document.getElementById('chatMsgs');
 const typingDots = document.getElementById('typingDots');
 const qrRow = document.getElementById('qrRow');
@@ -1017,36 +1013,34 @@ function addMsg(txt, type) {
   chatMsgs.scrollTop = chatMsgs.scrollHeight;
 }
 
-async function botReply(userMsg) {
-  chatHistory.push({ role: 'user', content: userMsg });
+function botReply() {
   typingDots.classList.add('on');
   chatMsgs.scrollTop = chatMsgs.scrollHeight;
-
-  try {
-    const response = await fetch('/.netlify/functions/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system: SYSTEM_PROMPT,
-        messages: chatHistory
-      })
-    });
-
-    const data = await response.json();
-    const reply = data.content?.[0]?.text || "Sorry, something went wrong — try again in a moment.";
-    chatHistory.push({ role: 'assistant', content: reply });
+  setTimeout(() => {
     typingDots.classList.remove('on');
-    addMsg(reply, 'bot');
-  } catch (err) {
-    typingDots.classList.remove('on');
-    addMsg("Something went wrong on my end — give it another try.", 'bot');
-  }
+    if (chatTurn < 2) {
+      addMsg(replies[Math.min(chatTurn, replies.length - 1)], 'bot');
+      chatTurn++;
+    } else {
+      addMsg("Thanks — that's enough for me to give you something specific. Here's your AI Readiness Snapshot:", 'bot');
+      setTimeout(() => {
+        const r = buildReport(chatCtx.industry||'your sector', chatCtx.size||'your team', chatCtx.work||'manual tasks', 'Not yet', chatCtx.obstacle||'implementation');
+        document.getElementById('cr1').textContent = r[0];
+        document.getElementById('cr2').textContent = r[1];
+        document.getElementById('cr3').textContent = r[2];
+        const box = document.getElementById('chatReport');
+        box.classList.add('show');
+        box.scrollIntoView({behavior:'smooth',block:'nearest'});
+      }, 500);
+    }
+  }, 800 + Math.random() * 700);
 }
 
 function sendQ(txt) {
   addMsg(txt, 'user');
   qrRow.style.display = 'none';
-  botReply(txt);
+  if (!chatCtx.work) chatCtx.work = txt;
+  botReply();
 }
 
 function sendChat() {
@@ -1055,14 +1049,17 @@ function sendChat() {
   addMsg(v, 'user');
   document.getElementById('chatField').value = '';
   qrRow.style.display = 'none';
-  botReply(v);
+  if (!chatCtx.work) chatCtx.work = v;
+  else if (!chatCtx.size) chatCtx.size = v;
+  else chatCtx.obstacle = v;
+  botReply();
 }
 
 function resetChat() {
   chatMsgs.innerHTML = '<div class="msg bot">Hi! What does your team currently struggle with when using new tools?</div>';
   document.getElementById('chatReport').classList.remove('show');
   qrRow.style.display = '';
-  chatHistory = [];
+  chatTurn = 0; chatCtx = {};
 }
 
 // ── FORM ──
