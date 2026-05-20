@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /projects.html
+Allow: /contact.html
+
+Disallow: /private/
+Disallow: /admin/
+Disallow: /*.env
+Disallow: /*.json$
+
+Sitemap: https://www.christeachesai.netlify.app/sitemap.xml
