@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZNZ5H494K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3ZNZ5H494K');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Chris Teaches AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #1c1a16;
+    --ink-muted:  #58534d;
+    --ink-faint:  #9a9590;
+    --paper:      #faf8f3;
+    --paper-warm: #f3ede2;
+    --card:       #ffffff;
+    --accent:     #c05c2b;
+    --accent-lt:  #f0dfd4;
+    --accent-dk:  #8c3d18;
+    --teal:       #2a7a6a;
+    --teal-lt:    #d0ebe7;
+    --gold:       #b87c2a;
+    --gold-lt:    #f5e8cf;
+    --border:     #e0dbd2;
+    --border-mid: #c8c2b6;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+    --mono:  'DM Mono', monospace;
+    --page-max: 1080px;
+    --page-pad: 6%;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--page-pad);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 2.6rem; font-weight: 600;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .nav-brand em { color: var(--accent); font-style: normal; }
+  .nav-brand span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 2px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; color: var(--ink-muted);
+    text-decoration: none; transition: color 0.18s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 500; }
+  .nav-chat {
+    background: var(--ink) !important;
+    color: #fff !important;
+    padding: 0.38rem 1rem;
+    border-radius: 4px; font-weight: 500 !important;
+    transition: background 0.18s !important;
+  }
+  .nav-chat:hover { background: var(--accent) !important; }
+  .nav-lang { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 3px; border: 1px solid var(--border-mid) !important; color: var(--ink-faint) !important; text-decoration: none; }
+  .nav-lang:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
+
+  /* ─── SHARED ─── */
+  .section-wrap {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+  }
+
+  /* ─── BLOG HERO ─── */
+  .blog-hero {
+    border-bottom: 1px solid var(--border);
+    padding: 4.5rem 0 3.5rem;
+  }
+  .blog-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 1.1rem;
+  }
+  .blog-eyebrow::before {
+    content: ''; width: 14px; height: 1px; background: var(--accent);
+  }
+  .blog-h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.2;
+    color: var(--ink); max-width: 680px; margin-bottom: 1rem;
+  }
+  .blog-sub {
+    font-size: 0.925rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.75; max-width: 540px;
+  }
+
+  /* ─── FILTER BAR ─── */
+  .filter-bar {
+    border-bottom: 1px solid var(--border);
+  }
+  .filter-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 1.4rem var(--page-pad);
+    display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+  }
+  .filter-label {
+    font-family: var(--mono);
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-faint); margin-right: 0.4rem;
+  }
+  .filter-pill {
+    font-family: var(--sans);
+    font-size: 0.78rem; font-weight: 400;
+    padding: 0.3rem 0.9rem; border-radius: 100px;
+    border: 1px solid var(--border);
+    background: var(--card); color: var(--ink-muted);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .filter-pill:hover { border-color: var(--border-mid); color: var(--ink); }
+  .filter-pill.active {
+    background: var(--accent); border-color: var(--accent);
+    color: #fff; font-weight: 500;
+  }
+
+  /* ─── ARTICLES SECTION ─── */
+  .articles-section { padding: 3.5rem 0 4rem; }
+  .articles-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .article-card {
+    background: var(--card);
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.75rem;
+    display: flex; flex-direction: column; gap: 0.7rem;
+    transition: border-color 0.18s, box-shadow 0.18s;
+  }
+  .article-card:hover {
+    border-color: var(--border-mid);
+    box-shadow: 0 4px 18px rgba(28,26,22,0.06);
+  }
+  .article-card-meta {
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+  }
+  .topic-pill {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 0.18rem 0.6rem;
+    border-radius: 100px; display: inline-block;
+  }
+  .topic-adoption   { background: var(--accent-lt); color: var(--accent-dk); }
+  .topic-automation { background: var(--teal-lt);   color: var(--teal); }
+  .topic-training   { background: var(--gold-lt);   color: var(--gold); }
+  .topic-readiness  { background: #edeae6;           color: var(--ink-faint); }
+  .read-time {
+    font-family: var(--mono); font-size: 0.66rem; color: var(--ink-faint);
+  }
+  .article-title {
+    font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+    line-height: 1.35; color: var(--ink);
+  }
+  .article-excerpt {
+    font-size: 0.875rem; color: var(--ink-muted); line-height: 1.7; font-weight: 300;
+  }
+  .article-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: auto; padding-top: 0.5rem;
+  }
+  .article-link {
+    font-size: 0.83rem; color: var(--ink-faint);
+    text-decoration: none; transition: color 0.15s;
+  }
+  .article-link:hover { color: var(--accent); }
+  .article-date {
+    font-family: var(--mono); font-size: 0.65rem; color: var(--ink-faint);
+  }
+  .articles-note {
+    margin-top: 2.5rem;
+    text-align: center; font-style: italic;
+    font-size: 0.85rem; color: var(--ink-faint);
+  }
+
+  /* ─── CTA BAND ─── */
+  .closing-band {
+    background: var(--ink); color: var(--paper);
+    padding: 4.5rem 0;
+  }
+  .closing-inner {
+    max-width: var(--page-max);
+    margin: 0 auto; padding: 0 var(--page-pad);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .closing-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    font-weight: 600; line-height: 1.25;
+    letter-spacing: -0.02em; color: var(--paper);
+    margin-bottom: 1rem;
+  }
+  .closing-sub {
+    font-size: 0.925rem; color: #9a9590; font-weight: 300; line-height: 1.8;
+  }
+  .closing-actions {
+    display: flex; flex-direction: column; gap: 1rem; justify-content: center;
+  }
+  .btn-fill {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--accent); color: #fff;
+    padding: 0.8rem 1.75rem; border-radius: 4px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: background 0.18s, transform 0.12s;
+  }
+  .btn-fill:hover { background: var(--accent-dk); transform: translateY(-1px); }
+  .btn-outline-light {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: transparent; color: #9a9590;
+    padding: 0.78rem 1.75rem; border-radius: 4px;
+    border: 1px solid #3a3830;
+    font-size: 0.9rem; font-weight: 400; text-decoration: none;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .btn-outline-light:hover { border-color: #6a6460; color: var(--paper); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--paper-warm); border-top: 1px solid var(--border);
+    padding: 2.25rem var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+  .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
+  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
+  .foot-links a:hover { color: var(--accent); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 840px) {
+    :root { --page-pad: 5%; }
+    .nav-links { display: none; }
+    .nav-brand { font-size: 1.8rem; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .closing-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+    .foot-links { flex-wrap: wrap; gap: 1rem; }
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+    <li><a href="es/blog.html" class="nav-lang">ES</a></li>
+  </ul>
+</nav>
+
+<!-- ── BLOG HERO ── -->
+<div class="blog-hero">
+  <div class="section-wrap reveal">
+    <div class="blog-eyebrow">Perspectives · AI Enablement</div>
+    <h1 class="blog-h1">Thinking out loud about AI adoption, training, and the teams in between.</h1>
+    <p class="blog-sub">Short articles for founders and team leads navigating the gap between buying AI tools and actually using them.</p>
+  </div>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="AI Adoption">AI Adoption</button>
+    <button class="filter-pill" data-filter="Workflow Automation">Workflow Automation</button>
+    <button class="filter-pill" data-filter="AI Training">AI Training</button>
+    <button class="filter-pill" data-filter="AI Readiness">AI Readiness</button>
+  </div>
+</div>
+
+<!-- ── ARTICLES ── -->
+<section class="articles-section">
+  <div class="section-wrap">
+    <div class="articles-grid reveal">
+
+      <article class="article-card" data-topic="AI Adoption">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-adoption">AI Adoption</span>
+          <span class="read-time">5 min read</span>
+        </div>
+        <h2 class="article-title">Why most AI rollouts fail by week three — and what to do instead</h2>
+        <p class="article-excerpt">The tool gets deployed. The team gets a demo. Three weeks later, nobody's using it. Here's the pattern I see in almost every failed rollout, and the one change that fixes it.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Read article →</a>
+          <span class="article-date">May 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="AI Adoption">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-adoption">AI Adoption</span>
+          <span class="read-time">4 min read</span>
+        </div>
+        <h2 class="article-title">The founder's mistake: buying the tool before mapping the problem</h2>
+        <p class="article-excerpt">Most founders who come to me have already spent money on AI subscriptions. The tools aren't the issue. The missing piece is almost always the same thing.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Read article →</a>
+          <span class="article-date">May 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="Workflow Automation">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-automation">Workflow Automation</span>
+          <span class="read-time">6 min read</span>
+        </div>
+        <h2 class="article-title">The 20% rule: how to find the one task worth automating first</h2>
+        <p class="article-excerpt">You don't automate everything. You find the one repetitive task that, if removed, frees up the most thinking time — then you build around that. Here's how I find it.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Read article →</a>
+          <span class="article-date">April 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="Workflow Automation">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-automation">Workflow Automation</span>
+          <span class="read-time">4 min read</span>
+        </div>
+        <h2 class="article-title">What a workflow audit actually looks like — and what it produces</h2>
+        <p class="article-excerpt">It's not a consulting report nobody reads. It's a one-page map of where your team's time actually goes, with three specific recommendations ranked by impact. Here's the format I use.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Read article →</a>
+          <span class="article-date">April 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="AI Training">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-training">AI Training</span>
+          <span class="read-time">7 min read</span>
+        </div>
+        <h2 class="article-title">Staff resistance to AI isn't a morale problem. It's a language problem.</h2>
+        <p class="article-excerpt">When a team member says "I don't trust what it gives me," they're not being difficult. They're at Stage 1 of a learning curve I've seen hundreds of times. Here's what that means for training.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Read article →</a>
+          <span class="article-date">March 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="AI Training">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-training">AI Training</span>
+          <span class="read-time">5 min read</span>
+        </div>
+        <h2 class="article-title">Prompt literacy: the skill your team is missing and nobody is teaching</h2>
+        <p class="article-excerpt">Knowing how to use ChatGPT is not the same as knowing how to prompt it well. The gap between those two things is where most workplace AI adoption stalls.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Read article →</a>
+          <span class="article-date">March 2026</span>
+        </div>
+      </article>
+
+    </div>
+    <p class="articles-note">More articles coming soon. Subscribe via the form below to get them first.</p>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="closing-band">
+  <div class="closing-inner reveal">
+    <div>
+      <h2 class="closing-headline">Have a question about any of these topics?</h2>
+      <p class="closing-sub">The chatbot on the homepage is a good place to start — or just email me directly.</p>
+    </div>
+    <div class="closing-actions">
+      <a href="index.html#chatbot" class="btn-fill">Start a conversation →</a>
+      <a href="mailto:chris@christeachesai.com" class="btn-outline-light">chris@christeachesai.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#chatbot">Chat</a></li>
+    <li><a href="mailto:chris@christeachesai.com">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+// ── TOPIC FILTER ──
+const pills = document.querySelectorAll('.filter-pill');
+const cards = document.querySelectorAll('.article-card');
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const filter = pill.dataset.filter;
+    cards.forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.topic === filter) ? '' : 'none';
+    });
+  });
+});
+
+// ── SCROLL REVEAL ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

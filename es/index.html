@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <!-- Google tag (gtag.js) -->
@@ -11,7 +11,7 @@
   gtag('config', 'G-3ZNZ5H494K');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chris Teaches AI — AI Enablement Architect</title>
+<title>Inicio — Chris Teaches AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -79,6 +79,7 @@
     text-decoration: none; transition: color 0.18s;
   }
   .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 500; }
   .nav-chat {
     background: var(--ink) !important;
     color: #fff !important;
@@ -87,8 +88,8 @@
     transition: background 0.18s !important;
   }
   .nav-chat:hover { background: var(--accent) !important; }
-  .nav-lang { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 3px; border: 1px solid var(--border-mid) !important; color: var(--ink-faint) !important; text-decoration: none; }
-  .nav-lang:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
+  .nav-lang { font-family:var(--mono); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.22rem 0.55rem; border-radius:3px; border:1px solid var(--border-mid) !important; color:var(--ink-faint) !important; text-decoration:none; }
+  .nav-lang:hover { border-color:var(--accent) !important; color:var(--accent) !important; }
 
   /* ─── HERO ─── */
   .hero-outer {
@@ -747,13 +748,13 @@
 <nav>
   <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html" class="active">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="#chatbot" class="nav-chat">Let's chat ↓</a></li>
-    <li><a href="es/index.html" class="nav-lang">ES</a></li>
+    <li><a href="contact.html">Contacto</a></li>
+    <li><a href="#chatbot" class="nav-chat">Hablemos ↓</a></li>
+    <li><a href="../index.html" class="nav-lang">EN</a></li>
   </ul>
 </nav>
 
@@ -761,22 +762,20 @@
 <div class="hero-outer">
   <div class="hero-inner">
 
-    <!-- Left: text -->
     <div class="hero-top" style="grid-template-columns: 1fr;">
       <div class="hero-text">
-        <div class="hero-eyebrow">AI Enablement Architect · Valencia, Spain</div>
-        <h1 class="hero-h1">I help small and mid-sized teams adopt AI tools — and actually use them.</h1>
-        <p class="hero-sub">Identifying workflow bottlenecks · Building simple AI solutions · Training your team so they use them</p>
+        <div class="hero-eyebrow">Arquitecto de Habilitación en IA · Valencia, España</div>
+        <h1 class="hero-h1">Ayudo a equipos pequeños y medianos a adoptar herramientas de IA — y a utilizarlas de verdad.</h1>
+        <p class="hero-sub">Identificar cuellos de botella · Construir soluciones de IA simples · Formar a tu equipo para que las use</p>
         <div class="hero-btns">
-          <a href="projects.html" class="btn-fill">See my work ↓</a>
+          <a href="projects.html" class="btn-fill">Ver mi trabajo ↓</a>
         </div>
       </div>
     </div>
 
-    <!-- Full-width CTA bar -->
     <div class="hero-cta-bar">
-      <span class="hero-cta-bar-text">Running a small team? Let's talk about your needs.</span>
-      <a href="#chatbot" class="btn-cta-bar">Start the conversation →</a>
+      <span class="hero-cta-bar-text">¿Lideras un equipo pequeño? Hablemos de tus necesidades.</span>
+      <a href="#chatbot" class="btn-cta-bar">Iniciar la conversación →</a>
     </div>
 
   </div>
@@ -786,31 +785,35 @@
 <section id="services">
   <div class="what-i-do">
     <div class="section-wrap reveal">
-      <div class="sec-eyebrow">What I do — 3 phases</div>
-      <h2 class="sec-headline">Built to work. Designed to stick.</h2>
-      <p class="sec-sub">Most AI projects fail not because the tools are wrong, but because nobody stayed to make sure the team understood them.</p>
+      <div class="sec-eyebrow">Lo que hago — 3 fases</div>
+      <h2 class="sec-headline">Diseñado para funcionar. Pensado para quedarse.</h2>
+      <p class="sec-sub">La mayoría de los proyectos de IA no fracasan porque las herramientas sean incorrectas, sino porque nadie se quedó para asegurar que el equipo las entendiera.</p>
       <div class="phase-cards">
+
         <div class="phase-card">
-          <div class="phase-num">Phase 01</div>
-          <span class="phase-tag p1">Audit &amp; Strategy</span>
-          <h3 class="phase-title">Find where time is leaking</h3>
-          <p class="phase-body">Map which 20% of tasks are worth automating first. After 25+ years of communication training, I speak the language of the C-suite and entry-level staff — and I deliver a clear picture, not a bloated proposal.</p>
-          <p class="phase-deliverables"><strong>You walk away with:</strong>Workflow audit report · Top-3 automation recommendations</p>
+          <div class="phase-num">Fase 01</div>
+          <span class="phase-tag p1">Auditoría y Estrategia</span>
+          <h3 class="phase-title">Encuentra dónde se pierde el tiempo</h3>
+          <p class="phase-body">Identificar qué 20% de las tareas merece la pena automatizar primero. Con más de 25 años de formación en comunicación, hablo el idioma del equipo directivo y del personal de base — y ofrezco una imagen clara, no una propuesta inflada.</p>
+          <p class="phase-deliverables"><strong>Te vas con:</strong>Informe de auditoría de procesos · 3 principales recomendaciones de automatización</p>
         </div>
+
         <div class="phase-card">
-          <div class="phase-num">Phase 02</div>
-          <span class="phase-tag p2">Build</span>
-          <h3 class="phase-title">Design and build the workflow or pipeline</h3>
-          <p class="phase-body">You get a working tool, not a proposal. Python-backed, practical, built to last. Something tangible your team can point to and measure from day one.</p>
-          <p class="phase-deliverables"><strong>You walk away with:</strong>Working prototype or pipeline · Handover documentation</p>
+          <div class="phase-num">Fase 02</div>
+          <span class="phase-tag p2">Construcción</span>
+          <h3 class="phase-title">Diseña y construye el flujo de trabajo o pipeline</h3>
+          <p class="phase-body">Obtienes una herramienta funcional, no una propuesta. Respaldada por Python, práctica y duradera. Algo tangible que tu equipo pueda señalar y medir desde el primer día.</p>
+          <p class="phase-deliverables"><strong>Te vas con:</strong>Prototipo o pipeline funcional · Documentación de entrega</p>
         </div>
+
         <div class="phase-card">
-          <div class="phase-num">Phase 03</div>
-          <span class="phase-tag p3">Train &amp; Enable</span>
-          <h3 class="phase-title">Stay until the team uses it confidently</h3>
-          <p class="phase-body">That's when the ROI actually shows up. I don't hand over a tool and disappear — I stay until the team knows how to use it, adapt it, and trust it. Fear of new tools isn't a blocker; it's something I've been solving in classrooms and boardrooms for decades.</p>
-          <p class="phase-deliverables"><strong>You walk away with:</strong>Custom prompt library · SOPs · Up to 3 training sessions</p>
+          <div class="phase-num">Fase 03</div>
+          <span class="phase-tag p3">Formación y Habilitación</span>
+          <h3 class="phase-title">Me quedo hasta que el equipo lo use con confianza</h3>
+          <p class="phase-body">Ahí es cuando el ROI realmente aparece. No entrego una herramienta y desaparezco — me quedo hasta que el equipo sepa usarla, adaptarla y confiar en ella. El miedo a las nuevas herramientas no es un obstáculo; es algo que llevo décadas resolviendo en aulas y salas de juntas.</p>
+          <p class="phase-deliverables"><strong>Te vas con:</strong>Biblioteca personalizada de prompts · SOPs · Hasta 3 sesiones de formación</p>
         </div>
+
       </div>
     </div>
   </div>
@@ -820,29 +823,33 @@
 <section id="engagements">
   <div class="engagements-section">
     <div class="section-wrap reveal">
-      <div class="sec-eyebrow">How we work together</div>
-      <h2 class="sec-headline">Three ways to engage.</h2>
+      <div class="sec-eyebrow">Cómo trabajamos juntos</div>
+      <h2 class="sec-headline">Tres formas de colaborar.</h2>
       <div class="engagement-cards">
+
         <div class="engagement-card">
-          <h3 class="engagement-title">AI Quickstart</h3>
-          <p class="engagement-for">For teams just getting started.</p>
-          <p class="engagement-outcome">"A clear picture of where AI can help, and one working proof of concept."</p>
-          <p class="engagement-deliverables"><strong>You walk away with:</strong>Workflow audit report · Top-3 automation recommendations · 1 working prototype</p>
+          <h3 class="engagement-title">Inicio Rápido con IA</h3>
+          <p class="engagement-for">Para equipos que están empezando.</p>
+          <p class="engagement-outcome">"Una imagen clara de dónde puede ayudar la IA, y un primer ejemplo funcional."</p>
+          <p class="engagement-deliverables"><strong>Te vas con:</strong>Informe de auditoría de procesos · 3 principales recomendaciones · 1 prototipo funcional</p>
         </div>
+
         <div class="engagement-card">
-          <h3 class="engagement-title">Full Adoption Sprint</h3>
-          <p class="engagement-for">For teams who bought tools that aren't being used.</p>
-          <p class="engagement-outcome">"Your team goes from resistant to confident in one sprint."</p>
-          <p class="engagement-deliverables"><strong>You walk away with:</strong>Team assessment · Custom prompt library · 3 training sessions · SOPs · Handover doc</p>
+          <h3 class="engagement-title">Sprint de Adopción Completa</h3>
+          <p class="engagement-for">Para equipos que compraron herramientas que no están usando.</p>
+          <p class="engagement-outcome">"Tu equipo pasa de resistente a seguro en un sprint."</p>
+          <p class="engagement-deliverables"><strong>Te vas con:</strong>Evaluación del equipo · Biblioteca personalizada de prompts · 3 sesiones de formación · SOPs · Documento de entrega</p>
         </div>
+
         <div class="engagement-card">
-          <h3 class="engagement-title">Custom Build + Train</h3>
-          <p class="engagement-for">For founders who know what they want built.</p>
-          <p class="engagement-outcome">"A scoped solution, built and handed over with your team fully trained to use it."</p>
-          <p class="engagement-deliverables"><strong>You walk away with:</strong>Scoped automation or pipeline · Full documentation · Team onboarding</p>
+          <h3 class="engagement-title">Construcción y Formación a Medida</h3>
+          <p class="engagement-for">Para fundadores que saben lo que quieren construir.</p>
+          <p class="engagement-outcome">"Una solución delimitada, construida y entregada con tu equipo completamente formado para usarla."</p>
+          <p class="engagement-deliverables"><strong>Te vas con:</strong>Automatización o pipeline a medida · Documentación completa · Incorporación del equipo</p>
         </div>
+
       </div>
-      <p class="engagements-note">Not sure which fits? <a href="#chatbot">The chatbot below will help you figure it out.</a></p>
+      <p class="engagements-note">¿No estás seguro de cuál te conviene? <a href="#chatbot">El chatbot de abajo te ayudará a averiguarlo.</a></p>
     </div>
   </div>
 </section>
@@ -853,12 +860,12 @@
     <div class="section-wrap">
       <div class="about-grid reveal">
         <div>
-          <div class="sec-eyebrow">The Translator</div>
-          <h2 class="sec-headline">I spent 25+ years teaching humans to communicate with each other. Now I teach humans and machines to work together.</h2>
+          <div class="sec-eyebrow">El Traductor</div>
+          <h2 class="sec-headline">Pasé más de 25 años enseñando a las personas a comunicarse entre sí. Ahora enseño a las personas y las máquinas a trabajar juntas.</h2>
         </div>
         <div>
           <blockquote class="about-quote">
-            "Learning to use AI tools is structurally identical to learning a second language. There's a vocabulary stage, a grammar stage, and a fluency stage. I've guided thousands of people through that progression — the subject has just changed."
+            "Aprender a usar herramientas de IA es estructuralmente idéntico a aprender un segundo idioma. Hay una fase de vocabulario, una fase de gramática y una fase de fluidez. He guiado a miles de personas a través de esa progresión — el tema simplemente ha cambiado."
           </blockquote>
         </div>
       </div>
@@ -870,39 +877,36 @@
 <section id="frameworks">
   <div class="frameworks-section">
     <div class="section-wrap reveal">
-      <div class="sec-eyebrow">Work that ships</div>
-      <h2 class="sec-headline">Two projects. Both ready for delivery.</h2>
-      <p class="fw-intro">These tools revealed more than was expected.</p>
+      <div class="sec-eyebrow">Trabajo que se entrega</div>
+      <h2 class="sec-headline">Dos proyectos. Los dos listos para su entrega.</h2>
+      <p class="fw-intro">Estas herramientas revelaron más de lo esperado.</p>
 
       <div class="frameworks-grid">
 
-        <!-- Bellabeat -->
         <div class="framework-card card-audit">
-          <div class="fw-phase">Phase 1 · Audit &amp; Strategy</div>
+          <div class="fw-phase">Fase 1 · Auditoría y Estrategia</div>
           <h3 class="fw-title">Bellabeat</h3>
-          <p class="fw-desc">A wellness brand needed to understand how their tracker was actually being used — not how they assumed it was being used. The data revealed users weren't building habits; they were burning out. That single finding flipped the product roadmap: instead of pushing a performance feature, they built a recovery one. One analysis. One redirected roadmap.</p>
+          <p class="fw-desc">Una marca de bienestar necesitaba entender cómo se usaba realmente su tracker — no cómo asumían que se usaba. Los datos revelaron que los usuarios no estaban creando hábitos; se estaban agotando. Ese hallazgo invirtió el roadmap de producto: en lugar de desarrollar una función de rendimiento, construyeron una de recuperación. Un análisis. Un roadmap redirigido.</p>
           <div class="fw-badges">
             <span class="fw-badge">SQL</span>
             <span class="fw-badge">BigQuery</span>
             <span class="fw-badge">R</span>
             <span class="fw-badge">Tableau</span>
           </div>
-          <a href="https://github.com/yourusername/bellabeat" target="_blank" class="fw-link">View on GitHub →</a>
+          <a href="https://github.com/PCChester/Bellabeat-Case-Study" target="_blank" class="fw-link">Ver en GitHub →</a>
         </div>
 
-        <!-- Lead Scout -->
         <div class="framework-card card-build">
-          <div class="fw-phase">Phase 2 · Build</div>
+          <div class="fw-phase">Fase 2 · Construcción</div>
           <h3 class="fw-title">Lead Scout</h3>
-          <p class="fw-desc">A sales team was losing hours every week to manual prospect research — copy-pasting names, checking websites, qualifying by hand. Lead Scout automated the entire pipeline: find businesses in any target area, score them, pull a named contact, draft a personalised cold email. What took a half-day now takes three minutes.</p>
+          <p class="fw-desc">Un equipo de ventas perdía horas cada semana en investigación manual de prospectos — copiando nombres, revisando webs, cualificando a mano. Lead Scout automatizó todo el pipeline: encontrar empresas en cualquier área objetivo, puntuarlas, obtener un contacto con nombre, redactar un email frío personalizado. Lo que llevaba medio día ahora tarda tres minutos.</p>
           <div class="fw-badges">
             <span class="fw-badge">Python</span>
             <span class="fw-badge">Flask</span>
             <span class="fw-badge">Claude API</span>
             <span class="fw-badge">SSE</span>
-            <span class="fw-badge">Localization</span>
           </div>
-          <a href="https://github.com/yourusername/lead-scout" target="_blank" class="fw-link">View on GitHub →</a>
+          <a href="https://github.com/PCChester/Lead-Scout" target="_blank" class="fw-link">Ver en GitHub →</a>
         </div>
 
       </div>
@@ -915,9 +919,9 @@
   <div class="chatbot-section">
     <div class="section-wrap">
       <div class="reveal">
-        <div class="sec-eyebrow">Chatbot section</div>
-        <h2 class="sec-headline">Want to see how I'd train your team? Let's chat.</h2>
-        <p class="chat-intro-text">Tell me about the role or problem you're trying to solve — I'll give you a straight answer on whether my background fits.</p>
+        <div class="sec-eyebrow">Hablemos</div>
+        <h2 class="sec-headline">¿Quieres ver cómo trabajaría con tu equipo? Hablemos.</h2>
+        <p class="chat-intro-text">Cuéntame el rol o el problema que estás intentando resolver — te diré directamente si mi experiencia encaja.</p>
       </div>
 
       <div class="chat-ui reveal">
@@ -925,146 +929,146 @@
           <div class="chat-avatar">C</div>
           <div>
             <div class="chat-who">Chris</div>
-            <div class="chat-online">Online now</div>
+            <div class="chat-online">En línea ahora</div>
           </div>
         </div>
 
         <div class="chat-messages" id="chatMsgs">
-          <div class="msg bot">Hi! What is your team struggling with from an operational standpoint right now?</div>
+          <div class="msg bot">¡Hola! ¿Con qué está luchando tu equipo desde el punto de vista operativo en este momento?</div>
         </div>
         <div class="typing-dots" id="typingDots">
           <div class="dot"></div><div class="dot"></div><div class="dot"></div>
         </div>
 
         <div class="qr-row" id="qrRow">
-          <button class="qr" onclick="sendQ('No time to take all calls')">No time to take all calls</button>
-          <button class="qr" onclick="sendQ('Invoices get lost or double-billed')">Invoices get lost or double-billed</button>
-          <button class="qr" onclick="sendQ('Too many emails and chats to handle')">Too many emails/chats to handle</button>
-          <button class="qr" onclick="sendQ('Repetitive admin tasks eating into team time')">Repetitive admin tasks</button>
+          <button class="qr" onclick="sendQ('Sin tiempo para atender todas las llamadas')">Sin tiempo para todas las llamadas</button>
+          <button class="qr" onclick="sendQ('Las facturas se pierden o se duplican')">Facturas perdidas o duplicadas</button>
+          <button class="qr" onclick="sendQ('Demasiados emails y chats que gestionar')">Demasiados emails y chats</button>
+          <button class="qr" onclick="sendQ('Tareas administrativas repetitivas que consumen tiempo')">Tareas administrativas repetitivas</button>
         </div>
 
         <div class="chat-input-row">
-          <input class="chat-field" id="chatField" type="text" placeholder="Or type your answer…" onkeydown="if(event.key==='Enter')sendChat()">
-          <button class="chat-send" onclick="sendChat()">Send</button>
+          <input class="chat-field" id="chatField" type="text" placeholder="O escribe tu respuesta…" onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="chat-send" onclick="sendChat()">Enviar</button>
         </div>
       </div>
 
       <!-- Chat report -->
       <div class="report-box" id="chatReport">
-        <div class="report-hed">Your AI Readiness Snapshot</div>
+        <div class="report-hed">Tu Diagnóstico de Preparación para la IA</div>
         <div class="report-txt" id="chatReportBody">
           <p id="cr1"></p><p id="cr2"></p><p id="cr3"></p>
         </div>
         <div class="report-actions">
-          <a href="contact.html" class="btn-fill">Let's talk →</a>
-          <button class="btn-text" onclick="resetChat()">Start over</button>
+          <a href="contact.html" class="btn-fill">Hablemos →</a>
+          <button class="btn-text" onclick="resetChat()">Empezar de nuevo</button>
         </div>
       </div>
 
       <!-- Form toggle -->
       <div class="form-toggle-area reveal">
-        <p class="prefer-label">prefer a form?</p>
+        <p class="prefer-label">¿prefieres un formulario?</p>
         <button class="btn-report" id="toggleBtn" onclick="toggleForm()">
-          Get your free AI Readiness Mini-Report →
+          Obtén tu mini-informe gratuito de preparación para la IA →
         </button>
-        <p class="form-note">Opens a short 5-question form. AI generates a personalised report instantly. No chatbot required.</p>
+        <p class="form-note">Abre un formulario corto de 5 preguntas. Genera un informe personalizado al instante. Sin chatbot.</p>
       </div>
 
       <!-- Form panel -->
       <div class="form-panel" id="formPanel">
         <!-- Step 1 -->
         <div class="f-step active">
-          <p class="f-q">What is your team struggling with from an operational standpoint right now?</p>
-          <p class="f-hint">Choose the closest match, or describe it below</p>
+          <p class="f-q">¿Con qué está luchando tu equipo desde el punto de vista operativo en este momento?</p>
+          <p class="f-hint">Elige la opción más cercana, o descríbelo a continuación</p>
           <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'work','No time to take all calls')">No time to take all calls</button>
-            <button class="f-opt" onclick="pick(this,'work','Invoices get lost or double-billed')">Invoices get lost or double-billed</button>
-            <button class="f-opt" onclick="pick(this,'work','Too many emails and chats to handle')">Too many emails/chats to handle</button>
-            <button class="f-opt" onclick="pick(this,'work','Repetitive admin tasks eating into team time')">Repetitive admin tasks</button>
+            <button class="f-opt" onclick="pick(this,'work','Sin tiempo para atender todas las llamadas')">Sin tiempo para todas las llamadas</button>
+            <button class="f-opt" onclick="pick(this,'work','Las facturas se pierden o se duplican')">Facturas perdidas o duplicadas</button>
+            <button class="f-opt" onclick="pick(this,'work','Demasiados emails y chats que gestionar')">Demasiados emails y chats</button>
+            <button class="f-opt" onclick="pick(this,'work','Tareas administrativas repetitivas')">Tareas administrativas repetitivas</button>
           </div>
-          <input class="f-input" id="f-work" style="height:40px" placeholder="Or describe it in your own words…" oninput="fa.work=this.value">
+          <input class="f-input" id="f-work" style="height:40px" placeholder="O descríbelo con tus propias palabras…" oninput="fa.work=this.value">
           <div class="f-nav">
             <span class="f-prog">1 / 5</span>
-            <button class="btn-sm" onclick="nextStep()">Next →</button>
+            <button class="btn-sm" onclick="nextStep()">Siguiente →</button>
           </div>
         </div>
         <!-- Step 2 -->
         <div class="f-step">
-          <p class="f-q">Have you tried using any AI tools to solve this yet — and given up on them?</p>
-          <p class="f-hint">Honesty helps — there's no wrong answer</p>
+          <p class="f-q">¿Has intentado usar alguna herramienta de IA para resolver esto y la has abandonado?</p>
+          <p class="f-hint">La honestidad ayuda — no hay respuesta incorrecta</p>
           <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'ai','No, not tried anything yet')">No, not tried anything yet</button>
-            <button class="f-opt" onclick="pick(this,'ai','Yes, tried something but stopped')">Yes, tried and stopped</button>
-            <button class="f-opt" onclick="pick(this,'ai','Using tools but not getting value')">Using tools, not getting value</button>
+            <button class="f-opt" onclick="pick(this,'ai','No probé nada aún')">No, no probé nada aún</button>
+            <button class="f-opt" onclick="pick(this,'ai','Probé algo pero lo abandoné')">Sí, probé y lo abandoné</button>
+            <button class="f-opt" onclick="pick(this,'ai','Uso herramientas pero sin valor')">Lo uso pero sin obtener valor</button>
           </div>
           <div class="f-nav">
-            <button class="btn-back" onclick="prevStep()">← Back</button>
+            <button class="btn-back" onclick="prevStep()">← Atrás</button>
             <span class="f-prog">2 / 5</span>
-            <button class="btn-sm" onclick="nextStep()">Next →</button>
+            <button class="btn-sm" onclick="nextStep()">Siguiente →</button>
           </div>
         </div>
         <!-- Step 3 -->
         <div class="f-step">
-          <p class="f-q">How big is the team?</p>
-          <p class="f-hint">Roughly speaking</p>
+          <p class="f-q">¿Cuántas personas tiene el equipo?</p>
+          <p class="f-hint">Aproximadamente</p>
           <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'size','1–5')">1–5 people</button>
-            <button class="f-opt" onclick="pick(this,'size','6–20')">6–20 people</button>
-            <button class="f-opt" onclick="pick(this,'size','20+')">20+ people</button>
+            <button class="f-opt" onclick="pick(this,'size','1–5')">1–5 personas</button>
+            <button class="f-opt" onclick="pick(this,'size','6–20')">6–20 personas</button>
+            <button class="f-opt" onclick="pick(this,'size','20+')">20+ personas</button>
           </div>
           <div class="f-nav">
-            <button class="btn-back" onclick="prevStep()">← Back</button>
+            <button class="btn-back" onclick="prevStep()">← Atrás</button>
             <span class="f-prog">3 / 5</span>
-            <button class="btn-sm" onclick="nextStep()">Next →</button>
+            <button class="btn-sm" onclick="nextStep()">Siguiente →</button>
           </div>
         </div>
         <!-- Step 4 -->
         <div class="f-step">
-          <p class="f-q">What industry are you in?</p>
-          <p class="f-hint">Choose the closest match</p>
+          <p class="f-q">¿En qué sector trabajas?</p>
+          <p class="f-hint">Elige la opción más cercana</p>
           <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'industry','Healthcare')">Healthcare</button>
-            <button class="f-opt" onclick="pick(this,'industry','Finance')">Finance</button>
-            <button class="f-opt" onclick="pick(this,'industry','Education')">Education</button>
-            <button class="f-opt" onclick="pick(this,'industry','Retail')">Retail</button>
-            <button class="f-opt" onclick="pick(this,'industry','Tech')">Tech</button>
-            <button class="f-opt" onclick="pick(this,'industry','Professional Services')">Professional Services</button>
+            <button class="f-opt" onclick="pick(this,'industry','Sanidad')">Sanidad</button>
+            <button class="f-opt" onclick="pick(this,'industry','Finanzas')">Finanzas</button>
+            <button class="f-opt" onclick="pick(this,'industry','Educación')">Educación</button>
+            <button class="f-opt" onclick="pick(this,'industry','Comercio')">Comercio</button>
+            <button class="f-opt" onclick="pick(this,'industry','Tecnología')">Tecnología</button>
+            <button class="f-opt" onclick="pick(this,'industry','Servicios profesionales')">Servicios profesionales</button>
           </div>
-          <input class="f-input" id="f-industry" style="height:40px" placeholder="Or type your sector…" oninput="fa.industry=this.value">
+          <input class="f-input" id="f-industry" style="height:40px" placeholder="O escribe tu sector…" oninput="fa.industry=this.value">
           <div class="f-nav">
-            <button class="btn-back" onclick="prevStep()">← Back</button>
+            <button class="btn-back" onclick="prevStep()">← Atrás</button>
             <span class="f-prog">4 / 5</span>
-            <button class="btn-sm" onclick="nextStep()">Next →</button>
+            <button class="btn-sm" onclick="nextStep()">Siguiente →</button>
           </div>
         </div>
         <!-- Step 5 -->
         <div class="f-step">
-          <p class="f-q">What's the biggest obstacle right now?</p>
-          <p class="f-hint">What's actually in the way?</p>
+          <p class="f-q">¿Cuál es el mayor obstáculo ahora mismo?</p>
+          <p class="f-hint">¿Qué es lo que realmente está en el camino?</p>
           <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'obstacle','Staff resistance')">Staff resistance</button>
-            <button class="f-opt" onclick="pick(this,'obstacle','No clear use case')">No clear use case</button>
-            <button class="f-opt" onclick="pick(this,'obstacle','Technical setup')">Technical setup</button>
-            <button class="f-opt" onclick="pick(this,'obstacle','Time to implement')">Time to implement</button>
+            <button class="f-opt" onclick="pick(this,'obstacle','Resistencia del equipo')">Resistencia del equipo</button>
+            <button class="f-opt" onclick="pick(this,'obstacle','Sin caso de uso claro')">Sin caso de uso claro</button>
+            <button class="f-opt" onclick="pick(this,'obstacle','Configuración técnica')">Configuración técnica</button>
+            <button class="f-opt" onclick="pick(this,'obstacle','Falta de tiempo para implementar')">Falta de tiempo</button>
           </div>
-          <input class="f-input" id="f-obstacle" style="height:40px" placeholder="Something else?" oninput="fa.obstacle=this.value">
+          <input class="f-input" id="f-obstacle" style="height:40px" placeholder="¿Algo más?" oninput="fa.obstacle=this.value">
           <div class="f-nav">
-            <button class="btn-back" onclick="prevStep()">← Back</button>
+            <button class="btn-back" onclick="prevStep()">← Atrás</button>
             <span class="f-prog">5 / 5</span>
-            <button class="btn-sm" onclick="makeFormReport()">Get my report →</button>
+            <button class="btn-sm" onclick="makeFormReport()">Ver mi informe →</button>
           </div>
         </div>
       </div>
 
       <!-- Form report -->
       <div class="report-box" id="formReport">
-        <div class="report-hed">Your AI Readiness Snapshot</div>
+        <div class="report-hed">Tu Diagnóstico de Preparación para la IA</div>
         <div class="report-txt" id="formReportBody">
           <p id="fr1"></p><p id="fr2"></p><p id="fr3"></p>
         </div>
         <div class="report-actions">
-          <a href="contact.html" class="btn-fill">Let's talk →</a>
-          <button class="btn-text" onclick="resetForm()">Start over</button>
+          <a href="contact.html" class="btn-fill">Hablemos →</a>
+          <button class="btn-text" onclick="resetForm()">Empezar de nuevo</button>
         </div>
       </div>
 
@@ -1076,25 +1080,25 @@
 <footer>
   <div>
     <div class="foot-brand">Chris Chester</div>
-    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+    <div class="foot-sub">Enseña IA · Valencia, España</div>
   </div>
   <ul class="foot-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="#chatbot">Chat</a></li>
-    <li><a href="mailto:chris@christeachesai.com">Contact</a></li>
+    <li><a href="mailto:chriscteacher@gmail.com">Contacto</a></li>
   </ul>
 </footer>
 
 <script>
 // ── CHATBOT ──
 const botQuestions = [
-  "Have you tried using any AI tools to tackle this yet — and given up on them?",
-  "Understood. How big is the team this would affect?",
-  "Good to know. And what industry or sector are you in?",
-  "Got it. Last question — what's the biggest obstacle right now? Staff resistance, no clear use case, technical setup, or something else?",
+  "¿Has intentado usar alguna herramienta de IA para resolver esto — y la has abandonado?",
+  "Entendido. ¿Cuántas personas tiene el equipo que se vería afectado?",
+  "Muy bien. ¿Y en qué sector o industria trabajáis?",
+  "Perfecto. Última pregunta — ¿cuál es el mayor obstáculo ahora mismo? ¿Resistencia del equipo, falta de caso de uso claro, configuración técnica, u otra cosa?",
 ];
 
 let chatTurn = 0, chatCtx = {};
@@ -1119,9 +1123,9 @@ function botReply() {
       addMsg(botQuestions[chatTurn], 'bot');
       chatTurn++;
     } else {
-      addMsg("Thanks — that's enough for me to give you something specific. Here's your AI Readiness Snapshot:", 'bot');
+      addMsg("Gracias — con esto tengo suficiente para darte algo específico. Aquí tienes tu Diagnóstico de Preparación para la IA:", 'bot');
       setTimeout(() => {
-        const r = buildReport(chatCtx.industry||'your sector', chatCtx.size||'your team', chatCtx.work||'manual tasks', 'Not yet', chatCtx.obstacle||'implementation');
+        const r = buildReport(chatCtx.industry||'tu sector', chatCtx.size||'tu equipo', chatCtx.work||'tareas manuales', 'No probé nada', chatCtx.obstacle||'la implementación');
         document.getElementById('cr1').textContent = r[0];
         document.getElementById('cr2').textContent = r[1];
         document.getElementById('cr3').textContent = r[2];
@@ -1155,7 +1159,7 @@ function sendChat() {
 }
 
 function resetChat() {
-  chatMsgs.innerHTML = '<div class="msg bot">Hi! What does your team currently struggle with when using new tools?</div>';
+  chatMsgs.innerHTML = '<div class="msg bot">¡Hola! ¿Con qué está luchando tu equipo desde el punto de vista operativo en este momento?</div>';
   document.getElementById('chatReport').classList.remove('show');
   qrRow.style.display = '';
   chatTurn = 0; chatCtx = {};
@@ -1170,14 +1174,14 @@ function toggleForm() {
   const btn = document.getElementById('toggleBtn');
   const isOpen = panel.classList.contains('open');
   panel.classList.toggle('open');
-  btn.textContent = isOpen ? 'Get your free AI Readiness Mini-Report →' : 'Close the form ↑';
+  btn.textContent = isOpen ? 'Obtén tu mini-informe gratuito de preparación para la IA →' : 'Cerrar el formulario ↑';
 }
 
 function showStep(n) {
   document.querySelectorAll('.f-step').forEach((s,i) => s.classList.toggle('active', i+1===n));
   curStep = n;
 }
-function nextStep() { if(curStep<4) showStep(curStep+1); }
+function nextStep() { if(curStep<5) showStep(curStep+1); }
 function prevStep() { if(curStep>1) showStep(curStep-1); }
 
 function pick(el, key, val) {
@@ -1187,17 +1191,17 @@ function pick(el, key, val) {
 }
 
 function makeFormReport() {
-  const industry = fa.industry || document.getElementById('f-industry').value || 'your sector';
-  const size = fa.size || 'your team';
-  const work = fa.work || document.getElementById('f-work').value || 'manual tasks';
-  const ai = fa.ai || 'Not yet';
-  const obstacle = fa.obstacle || document.getElementById('f-obstacle').value || 'implementation';
+  const industry = fa.industry || document.getElementById('f-industry').value || 'tu sector';
+  const size = fa.size || 'tu equipo';
+  const work = fa.work || document.getElementById('f-work').value || 'tareas manuales';
+  const ai = fa.ai || 'No probé nada';
+  const obstacle = fa.obstacle || document.getElementById('f-obstacle').value || 'la implementación';
   const r = buildReport(industry, size, work, ai, obstacle);
   document.getElementById('fr1').textContent = r[0];
   document.getElementById('fr2').textContent = r[1];
   document.getElementById('fr3').textContent = r[2];
   document.getElementById('formPanel').classList.remove('open');
-  document.getElementById('toggleBtn').textContent = 'Get your free AI Readiness Mini-Report →';
+  document.getElementById('toggleBtn').textContent = 'Obtén tu mini-informe gratuito de preparación para la IA →';
   const box = document.getElementById('formReport');
   box.classList.add('show');
   box.scrollIntoView({behavior:'smooth',block:'nearest'});
@@ -1207,7 +1211,7 @@ function resetForm() {
   Object.keys(fa).forEach(k=>delete fa[k]);
   document.getElementById('formReport').classList.remove('show');
   document.getElementById('formPanel').classList.add('open');
-  document.getElementById('toggleBtn').textContent = 'Close the form ↑';
+  document.getElementById('toggleBtn').textContent = 'Cerrar el formulario ↑';
   showStep(1);
   document.querySelectorAll('.f-opt').forEach(b=>b.classList.remove('on'));
   ['f-work','f-industry','f-obstacle'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
@@ -1216,35 +1220,35 @@ function resetForm() {
 // ── REPORT GENERATOR ──
 function buildReport(industry, size, work, ai, obstacle) {
   const aiLower = (ai || '').toLowerCase();
-  const notTried = aiLower.includes('not tried') || aiLower.includes('not yet') || aiLower === 'not yet';
-  const triedStopped = aiLower.includes('tried') || aiLower.includes('stopped') || aiLower.includes('mixed');
+  const notTried = aiLower.includes('no probé') || aiLower.includes('not tried') || aiLower.includes('not yet') || aiLower.includes('no,');
+  const triedStopped = aiLower.includes('probé') || aiLower.includes('tried') || aiLower.includes('stopped') || aiLower.includes('mixed') || aiLower.includes('valor') || aiLower.includes('usando');
 
   const p1 = notTried
-    ? `You haven't tried any AI tools yet — which is actually a good position to be in. You get to choose what to try based on your specific problem, rather than cleaning up a rushed decision someone made earlier. Teams in ${industry} who map the problem first almost always get better results than those who buy a tool first and figure it out later.`
+    ? `Todavía no has probado herramientas de IA — lo cual es en realidad una buena posición. Puedes elegir qué probar en función de tu problema específico, en lugar de limpiar una mala decisión tomada con prisa. Los equipos en ${industry} que primero mapean el problema casi siempre obtienen mejores resultados que los que compran la herramienta primero y lo descubren después.`
     : triedStopped
-    ? `You've tried something and it didn't stick — that's the most common situation I see in ${industry}. It almost never means the tool was wrong. It usually means the setup wasn't right, or the team didn't get enough support to actually use it. That's a fixable problem.`
-    : `You're already using tools, which means you have something to build on. The question now is whether your team actually trusts what the tools give them, or just tolerates it. That gap between using something and relying on something is usually where most of the remaining value is sitting.`;
+    ? `Has probado algo y no ha funcionado — esa es la situación más común que veo en ${industry}. Casi nunca significa que la herramienta fuera incorrecta. Por lo general, significa que la configuración no era la adecuada, o que el equipo no tuvo suficiente apoyo para usarla realmente. Es un problema que tiene solución.`
+    : `Ya estás usando herramientas, lo que significa que tienes algo en lo que construir. La pregunta ahora es si tu equipo realmente confía en lo que les dan las herramientas, o simplemente las tolera. Esa brecha entre usar algo y depender de algo es donde suele estar la mayor parte del valor restante.`;
 
   const p2 = (work && work.length > 5)
-    ? `Based on what you've described, the most immediate opportunity for a team of ${size} is to take the one task eating the most time and build one clean, repeatable process around it — with a clear step where someone checks the output before it goes any further. That alone typically cuts the time spent on that task by 40–60% within the first month.`
-    : `For a team of ${size} in ${industry}, the quick win is almost always to find the single most repetitive task and fix that one thing first — not a full overhaul, just one visible improvement the team can see and measure.`;
+    ? `Basándome en lo que has descrito, la oportunidad más inmediata para un equipo de ${size} es tomar la tarea que más tiempo consume y construir un proceso limpio y repetible alrededor de ella — con un paso claro donde alguien revise el resultado antes de que llegue más lejos. Eso solo suele reducir el tiempo dedicado a esa tarea en un 40–60% en el primer mes.`
+    : `Para un equipo de ${size} en ${industry}, la solución rápida es casi siempre encontrar la tarea más repetitiva y arreglar esa sola cosa primero — no una transformación completa, solo una mejora visible que el equipo pueda ver y medir.`;
 
-  const p3 = obstacle === 'Staff resistance'
-    ? `Staff resistance is the obstacle I know best. I've spent over 20 years working with people who were told to adopt something new and didn't want to. The pushback is almost never about the tool itself — it's about not knowing what it will do, and worrying it makes them look bad. Once people can predict what a tool gives them, the resistance usually disappears on its own.`
-    : obstacle === 'No clear use case'
-    ? `Not having a clear use case is actually good news — it means you haven't made a bad investment yet. A half-day look at how your team actually spends its time almost always turns up two or three obvious places where hours are being lost to something that could be handled differently. That's usually where I start.`
-    : obstacle === 'Technical setup'
-    ? `The technical side is real, but it's almost always simpler than it looks. Most of the complexity tends to disappear once you match the right tool to the actual task, rather than reaching for whatever gets the most attention right now.`
-    : `The obstacle you're describing — ${obstacle.toLowerCase()} — is one I've helped teams work through before. The path usually starts with an honest look at what the team actually does each day, and building a plan that doesn't ask everyone to change everything at once.`;
+  const p3 = obstacle === 'Resistencia del equipo'
+    ? `La resistencia del equipo es el obstáculo que mejor conozco. He pasado más de 20 años trabajando con personas a las que se les pidió adoptar algo nuevo y no querían. El rechazo casi nunca es sobre la herramienta en sí — es sobre no saber qué va a hacer, y preocuparse de quedar mal. Una vez que las personas pueden predecir lo que una herramienta les da, la resistencia suele desaparecer por sí sola.`
+    : obstacle === 'Sin caso de uso claro'
+    ? `No tener un caso de uso claro es en realidad una buena noticia — significa que todavía no has hecho una mala inversión. Una revisión de media jornada de cómo tu equipo gasta su tiempo casi siempre revela dos o tres lugares obvios donde se están perdiendo horas en algo que podría manejarse de otra forma. Por ahí es por donde suelo empezar.`
+    : obstacle === 'Configuración técnica'
+    ? `El lado técnico es real, pero casi siempre es más sencillo de lo que parece. La mayor parte de la complejidad tiende a desaparecer una vez que se combina la herramienta correcta con la tarea correcta, en lugar de recurrir a lo que más atención recibe en este momento.`
+    : `El obstáculo que describes — ${obstacle.toLowerCase()} — es uno con el que he ayudado a equipos antes. El camino generalmente empieza con una mirada honesta a lo que el equipo hace realmente cada día, y construyendo un plan que no le pida a todos que cambien todo a la vez.`;
 
   return [p1, p2, p3];
 }
 
 // ── SCROLL REVEAL ──
 const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
-}, {threshold:0.07});
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);} });
+},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 </script>
 </body>
 </html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZNZ5H494K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3ZNZ5H494K');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Chris Teaches AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #1c1a16;
+    --ink-muted:  #58534d;
+    --ink-faint:  #9a9590;
+    --paper:      #faf8f3;
+    --paper-warm: #f3ede2;
+    --card:       #ffffff;
+    --accent:     #c05c2b;
+    --accent-lt:  #f0dfd4;
+    --accent-dk:  #8c3d18;
+    --teal:       #2a7a6a;
+    --teal-lt:    #d0ebe7;
+    --gold:       #b87c2a;
+    --gold-lt:    #f5e8cf;
+    --border:     #e0dbd2;
+    --border-mid: #c8c2b6;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+    --mono:  'DM Mono', monospace;
+    --page-max: 1080px;
+    --page-pad: 6%;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--page-pad);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 2.6rem; font-weight: 600;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .nav-brand em { color: var(--accent); font-style: normal; }
+  .nav-brand span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 2px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; color: var(--ink-muted);
+    text-decoration: none; transition: color 0.18s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 500; }
+  .nav-chat {
+    background: var(--ink) !important;
+    color: #fff !important;
+    padding: 0.38rem 1rem;
+    border-radius: 4px; font-weight: 500 !important;
+    transition: background 0.18s !important;
+  }
+  .nav-chat:hover { background: var(--accent) !important; }
+  .nav-lang {
+    font-family: var(--mono);
+    font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.22rem 0.55rem; border-radius: 3px;
+    border: 1px solid var(--border-mid) !important;
+    color: var(--ink-faint) !important;
+    text-decoration: none;
+  }
+  .nav-lang:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
+
+  /* ─── SHARED ─── */
+  .section-wrap {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+  }
+
+  /* ─── BLOG HERO ─── */
+  .blog-hero {
+    border-bottom: 1px solid var(--border);
+    padding: 4.5rem 0 3.5rem;
+  }
+  .blog-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 1.1rem;
+  }
+  .blog-eyebrow::before {
+    content: ''; width: 14px; height: 1px; background: var(--accent);
+  }
+  .blog-h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.2;
+    color: var(--ink); max-width: 680px; margin-bottom: 1rem;
+  }
+  .blog-sub {
+    font-size: 0.925rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.75; max-width: 540px;
+  }
+
+  /* ─── FILTER BAR ─── */
+  .filter-bar {
+    border-bottom: 1px solid var(--border);
+  }
+  .filter-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 1.4rem var(--page-pad);
+    display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+  }
+  .filter-label {
+    font-family: var(--mono);
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-faint); margin-right: 0.4rem;
+  }
+  .filter-pill {
+    font-family: var(--sans);
+    font-size: 0.78rem; font-weight: 400;
+    padding: 0.3rem 0.9rem; border-radius: 100px;
+    border: 1px solid var(--border);
+    background: var(--card); color: var(--ink-muted);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .filter-pill:hover { border-color: var(--border-mid); color: var(--ink); }
+  .filter-pill.active {
+    background: var(--accent); border-color: var(--accent);
+    color: #fff; font-weight: 500;
+  }
+
+  /* ─── ARTICLES SECTION ─── */
+  .articles-section { padding: 3.5rem 0 4rem; }
+  .articles-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .article-card {
+    background: var(--card);
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.75rem;
+    display: flex; flex-direction: column; gap: 0.7rem;
+    transition: border-color 0.18s, box-shadow 0.18s;
+  }
+  .article-card:hover {
+    border-color: var(--border-mid);
+    box-shadow: 0 4px 18px rgba(28,26,22,0.06);
+  }
+  .article-card-meta {
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+  }
+  .topic-pill {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 0.18rem 0.6rem;
+    border-radius: 100px; display: inline-block;
+  }
+  .topic-adoption   { background: var(--accent-lt); color: var(--accent-dk); }
+  .topic-automation { background: var(--teal-lt);   color: var(--teal); }
+  .topic-training   { background: var(--gold-lt);   color: var(--gold); }
+  .topic-readiness  { background: #edeae6;           color: var(--ink-faint); }
+  .read-time {
+    font-family: var(--mono); font-size: 0.66rem; color: var(--ink-faint);
+  }
+  .article-title {
+    font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+    line-height: 1.35; color: var(--ink);
+  }
+  .article-excerpt {
+    font-size: 0.875rem; color: var(--ink-muted); line-height: 1.7; font-weight: 300;
+  }
+  .article-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: auto; padding-top: 0.5rem;
+  }
+  .article-link {
+    font-size: 0.83rem; color: var(--ink-faint);
+    text-decoration: none; transition: color 0.15s;
+  }
+  .article-link:hover { color: var(--accent); }
+  .article-date {
+    font-family: var(--mono); font-size: 0.65rem; color: var(--ink-faint);
+  }
+  .articles-note {
+    margin-top: 2.5rem;
+    text-align: center; font-style: italic;
+    font-size: 0.85rem; color: var(--ink-faint);
+  }
+
+  /* ─── CTA BAND ─── */
+  .closing-band {
+    background: var(--ink); color: var(--paper);
+    padding: 4.5rem 0;
+  }
+  .closing-inner {
+    max-width: var(--page-max);
+    margin: 0 auto; padding: 0 var(--page-pad);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .closing-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    font-weight: 600; line-height: 1.25;
+    letter-spacing: -0.02em; color: var(--paper);
+    margin-bottom: 1rem;
+  }
+  .closing-sub {
+    font-size: 0.925rem; color: #9a9590; font-weight: 300; line-height: 1.8;
+  }
+  .closing-actions {
+    display: flex; flex-direction: column; gap: 1rem; justify-content: center;
+  }
+  .btn-fill {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--accent); color: #fff;
+    padding: 0.8rem 1.75rem; border-radius: 4px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: background 0.18s, transform 0.12s;
+  }
+  .btn-fill:hover { background: var(--accent-dk); transform: translateY(-1px); }
+  .btn-outline-light {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: transparent; color: #9a9590;
+    padding: 0.78rem 1.75rem; border-radius: 4px;
+    border: 1px solid #3a3830;
+    font-size: 0.9rem; font-weight: 400; text-decoration: none;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .btn-outline-light:hover { border-color: #6a6460; color: var(--paper); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--paper-warm); border-top: 1px solid var(--border);
+    padding: 2.25rem var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+  .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
+  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
+  .foot-links a:hover { color: var(--accent); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 840px) {
+    :root { --page-pad: 5%; }
+    .nav-links { display: none; }
+    .nav-brand { font-size: 1.8rem; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .closing-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+    .foot-links { flex-wrap: wrap; gap: 1rem; }
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contacto</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Hablemos ↓</a></li>
+    <li><a href="../blog.html" class="nav-lang">EN</a></li>
+  </ul>
+</nav>
+
+<!-- ── BLOG HERO ── -->
+<div class="blog-hero">
+  <div class="section-wrap reveal">
+    <div class="blog-eyebrow">Perspectivas · Habilitación en IA</div>
+    <h1 class="blog-h1">Reflexiones en voz alta sobre la adopción de la IA, la formación y los equipos en medio del proceso.</h1>
+    <p class="blog-sub">Artículos cortos para fundadores y responsables de equipos que navegan la brecha entre comprar herramientas de IA y usarlas de verdad.</p>
+  </div>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Filtrar:</span>
+    <button class="filter-pill active" data-filter="all">Todos</button>
+    <button class="filter-pill" data-filter="Adopción de IA">Adopción de IA</button>
+    <button class="filter-pill" data-filter="Automatización">Automatización</button>
+    <button class="filter-pill" data-filter="Formación en IA">Formación en IA</button>
+    <button class="filter-pill" data-filter="Preparación para IA">Preparación para IA</button>
+  </div>
+</div>
+
+<!-- ── ARTICLES ── -->
+<section class="articles-section">
+  <div class="section-wrap">
+    <div class="articles-grid reveal">
+
+      <article class="article-card" data-topic="Adopción de IA">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-adoption">Adopción de IA</span>
+          <span class="read-time">5 min</span>
+        </div>
+        <h2 class="article-title">Por qué la mayoría de las implantaciones de IA fracasan en la tercera semana — y qué hacer en su lugar</h2>
+        <p class="article-excerpt">La herramienta se despliega. El equipo recibe una demo. Tres semanas después, nadie la está usando. Aquí está el patrón que veo en casi todos los fracasos, y el único cambio que lo soluciona.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Leer artículo →</a>
+          <span class="article-date">Mayo 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="Adopción de IA">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-adoption">Adopción de IA</span>
+          <span class="read-time">4 min</span>
+        </div>
+        <h2 class="article-title">El error del fundador: comprar la herramienta antes de mapear el problema</h2>
+        <p class="article-excerpt">La mayoría de los fundadores que vienen a mí ya han gastado dinero en suscripciones de IA. Las herramientas no son el problema. La pieza que falta es casi siempre la misma.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Leer artículo →</a>
+          <span class="article-date">Mayo 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="Automatización">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-automation">Automatización</span>
+          <span class="read-time">6 min</span>
+        </div>
+        <h2 class="article-title">La regla del 20%: cómo encontrar la única tarea que vale la pena automatizar primero</h2>
+        <p class="article-excerpt">No automatizas todo. Encuentras la única tarea repetitiva que, si se elimina, libera el mayor tiempo de reflexión — y luego construyes alrededor de eso. Así es como lo encuentro.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Leer artículo →</a>
+          <span class="article-date">Abril 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="Automatización">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-automation">Automatización</span>
+          <span class="read-time">4 min</span>
+        </div>
+        <h2 class="article-title">Cómo es realmente una auditoría de procesos — y qué produce</h2>
+        <p class="article-excerpt">No es un informe de consultoría que nadie lee. Es un mapa de una página de dónde va realmente el tiempo de tu equipo, con tres recomendaciones específicas ordenadas por impacto. Aquí está el formato que uso.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Leer artículo →</a>
+          <span class="article-date">Abril 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="Formación en IA">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-training">Formación en IA</span>
+          <span class="read-time">7 min</span>
+        </div>
+        <h2 class="article-title">La resistencia del equipo a la IA no es un problema de moral. Es un problema de idioma.</h2>
+        <p class="article-excerpt">Cuando un miembro del equipo dice "no confío en lo que me da", no está siendo difícil. Está en la Etapa 1 de una curva de aprendizaje que he visto cientos de veces. Esto es lo que significa para la formación.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Leer artículo →</a>
+          <span class="article-date">Marzo 2026</span>
+        </div>
+      </article>
+
+      <article class="article-card" data-topic="Formación en IA">
+        <div class="article-card-meta">
+          <span class="topic-pill topic-training">Formación en IA</span>
+          <span class="read-time">5 min</span>
+        </div>
+        <h2 class="article-title">Alfabetización en prompts: la habilidad que le falta a tu equipo y que nadie está enseñando</h2>
+        <p class="article-excerpt">Saber usar ChatGPT no es lo mismo que saber promotearlo bien. La brecha entre esas dos cosas es donde se estanca la mayor parte de la adopción de la IA en el trabajo.</p>
+        <div class="article-footer">
+          <a href="#" class="article-link">Leer artículo →</a>
+          <span class="article-date">Marzo 2026</span>
+        </div>
+      </article>
+
+    </div>
+    <p class="articles-note">Más artículos próximamente. Suscríbete a través del formulario a continuación para recibirlos primero.</p>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="closing-band">
+  <div class="closing-inner reveal">
+    <div>
+      <h2 class="closing-headline">¿Tienes alguna pregunta sobre estos temas?</h2>
+      <p class="closing-sub">El chatbot de la página principal es un buen punto de partida — o escríbeme directamente.</p>
+    </div>
+    <div class="closing-actions">
+      <a href="index.html#chatbot" class="btn-fill">Iniciar una conversación →</a>
+      <a href="mailto:chriscteacher@gmail.com" class="btn-outline-light">chriscteacher@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Enseña IA · Valencia, España</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#chatbot">Chat</a></li>
+    <li><a href="mailto:chriscteacher@gmail.com">Contacto</a></li>
+  </ul>
+</footer>
+
+<script>
+const pills = document.querySelectorAll('.filter-pill');
+const cards = document.querySelectorAll('.article-card');
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const filter = pill.dataset.filter;
+    cards.forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.topic === filter) ? '' : 'none';
+    });
+  });
+});
+
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

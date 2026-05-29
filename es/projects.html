@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZNZ5H494K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-3ZNZ5H494K');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3ZNZ5H494K');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects — Chris Teaches AI</title>
+<title>Proyectos — Chris Chester</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -90,8 +85,6 @@
     transition: background 0.18s !important;
   }
   .nav-chat:hover { background: var(--accent) !important; }
-  .nav-lang { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 3px; border: 1px solid var(--border-mid) !important; color: var(--ink-faint) !important; text-decoration: none; }
-  .nav-lang:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
 
   /* ── PAGE HEADER ── */
   .page-header {
@@ -325,6 +318,10 @@
   .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
   .foot-links a:hover { color: var(--accent); }
 
+  /* ── NAV LANG TOGGLE ── */
+  .nav-lang { font-family:var(--mono); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.22rem 0.55rem; border-radius:3px; border:1px solid var(--border-mid) !important; color:var(--ink-faint) !important; text-decoration:none; }
+  .nav-lang:hover { border-color:var(--accent) !important; color:var(--accent) !important; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 840px) {
     :root { --page-pad: 5%; }
@@ -347,31 +344,32 @@
 <nav>
   <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html" class="active">Projects</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
-    <li><a href="es/projects.html" class="nav-lang">ES</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html" class="active">Proyectos</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contacto</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Hablemos ↓</a></li>
+    <li><a href="../projects.html" class="nav-lang">EN</a></li>
   </ul>
 </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner reveal">
-    <div class="eyebrow">Selected work</div>
-    <h1 class="page-title">Four projects. Two hats. One point to prove.</h1>
-    <p class="page-sub">Each project here started as a real problem. These aren't exercises — they're working tools that demonstrate the full method: understand the problem, build the solution, hand it over so someone can use it. The GitHub is open.</p>
+    <div class="eyebrow">Trabajo seleccionado</div>
+    <h1 class="page-title">Cuatro proyectos. Dos sombreros. Un punto que demostrar.</h1>
+    <p class="page-sub">Cada proyecto aquí empezó como un problema real. Estos no son ejercicios — son herramientas funcionales que demuestran el método completo: entender el problema, construir la solución, entregársela a alguien para que pueda usarla. El GitHub está abierto.</p>
   </div>
 </div>
 
 <!-- FILTER BAR -->
 <div class="filter-bar">
   <div class="filter-bar-inner">
-    <button class="filter-btn on" onclick="filter('all', this)">All projects</button>
-    <button class="filter-btn" onclick="filter('pipeline', this)">AI Pipelines</button>
-    <button class="filter-btn" onclick="filter('analysis', this)">Data Analysis</button>
-    <button class="filter-btn" onclick="filter('scraping', this)">Scraping & Automation</button>
+    <button class="filter-btn on" onclick="filter('all', this)">Todos los proyectos</button>
+    <button class="filter-btn" onclick="filter('pipeline', this)">Pipelines de IA</button>
+    <button class="filter-btn" onclick="filter('analysis', this)">Análisis de datos</button>
+    <button class="filter-btn" onclick="filter('scraping', this)">Scraping y automatización</button>
   </div>
 </div>
 
@@ -392,20 +390,20 @@
         </div>
 
         <h2 class="proj-title">Lead Scout</h2>
-        <p class="proj-hook">Built by an AI adoption trainer who got tired of searching for clients manually.</p>
+        <p class="proj-hook">Construido por un formador de adopción de IA que se cansó de buscar clientes manualmente.</p>
 
         <div class="bbar">
           <div class="bbar-cell">
-            <div class="bbar-label">Before</div>
-            <div class="bbar-text">Manually searching LinkedIn and Google for companies that might need AI training — hours of tab-switching with no consistent scoring or output.</div>
+            <div class="bbar-label">Antes</div>
+            <div class="bbar-text">Buscando manualmente en LinkedIn y Google empresas que pudieran necesitar formación en IA — horas de cambio de pestañas sin puntuación ni resultado consistente.</div>
           </div>
           <div class="bbar-cell">
-            <div class="bbar-label">Build</div>
-            <div class="bbar-text">A five-stage pipeline: discover → score → classify → find contact → draft email. Results stream live to a UI as each company clears the pipeline.</div>
+            <div class="bbar-label">Proceso</div>
+            <div class="bbar-text">Un pipeline de cinco etapas: descubrir → puntuar → clasificar → encontrar contacto → redactar email. Los resultados se transmiten en tiempo real a la interfaz mientras cada empresa supera el pipeline.</div>
           </div>
           <div class="bbar-cell">
-            <div class="bbar-label">Result</div>
-            <div class="bbar-text">Select an industry and region, click Scout — get scored leads with a named contact and a personalised cold email draft, in minutes.</div>
+            <div class="bbar-label">Resultado</div>
+            <div class="bbar-text">Selecciona un sector y una región, haz clic en Scout — obtienes contactos puntuados con el nombre de la persona de contacto y un borrador de email frío personalizado, en minutos.</div>
           </div>
         </div>
 
@@ -422,9 +420,9 @@
         <div class="proj-card-foot">
           <a class="github-link" href="https://github.com/PCChester/Lead-Scout" target="_blank" rel="noopener">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            View on GitHub
+            Ver en GitHub
           </a>
-          <a class="proj-cta" href="https://github.com/PCChester/Lead-Scout" target="_blank" rel="noopener">Read the README →</a>
+          <a class="proj-cta" href="https://github.com/PCChester/Lead-Scout" target="_blank" rel="noopener">Leer el README →</a>
         </div>
       </div>
 
@@ -439,20 +437,20 @@
         </div>
 
         <h2 class="proj-title">Bellabeat Case Study</h2>
-        <p class="proj-hook">The data contradicted the hypothesis — and that turned out to be the finding.</p>
+        <p class="proj-hook">Los datos contradijeron la hipótesis — y ese resultó ser el hallazgo.</p>
 
         <div class="bbar">
           <div class="bbar-cell">
-            <div class="bbar-label">Before</div>
-            <div class="bbar-text">Bellabeat lacked a data-driven argument for which product feature to build next. Competitor feature comparisons existed, but no user behaviour data to validate the priority.</div>
+            <div class="bbar-label">Antes</div>
+            <div class="bbar-text">Bellabeat no tenía un argumento basado en datos para decidir qué característica de producto construir a continuación. Existían comparaciones con competidores, pero no había datos de comportamiento de usuario para validar la prioridad.</div>
           </div>
           <div class="bbar-cell">
-            <div class="bbar-label">Build</div>
-            <div class="bbar-text">End-to-end analysis of 30 Fitbit users' activity, sleep, and heart rate data — cleaned in SQL, feature-engineered in R, visualised in Tableau. Google Data Analytics capstone.</div>
+            <div class="bbar-label">Proceso</div>
+            <div class="bbar-text">Análisis completo de datos de actividad, sueño y frecuencia cardíaca de 30 usuarios de Fitbit — limpiados en SQL, con ingeniería de características en R, visualizados en Tableau. Proyecto de certificación de Análisis de Datos de Google.</div>
           </div>
           <div class="bbar-cell">
-            <div class="bbar-label">Result</div>
-            <div class="bbar-text">Users slept poorly and then worked out harder — not less. That compensation pattern was the finding. It invalidated the performance feature on the roadmap and validated a Burnout Prevention feature instead. One dataset. One redirected product decision.</div>
+            <div class="bbar-label">Resultado</div>
+            <div class="bbar-text">Los usuarios dormían mal y luego hacían más ejercicio — no menos. Ese patrón de compensación fue el hallazgo. Invalidó la función de rendimiento del roadmap y validó en su lugar una función de Prevención del Burnout. Un conjunto de datos. Una decisión de producto redirigida.</div>
           </div>
         </div>
 
@@ -466,9 +464,9 @@
         <div class="proj-card-foot">
           <a class="github-link" href="https://github.com/PCChester/Bellabeat-Case-Study" target="_blank" rel="noopener">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            View on GitHub
+            Ver en GitHub
           </a>
-          <a class="proj-cta" href="https://public.tableau.com/app/profile/chris.chester/vizzes" target="_blank" rel="noopener">View on Tableau →</a>
+          <a class="proj-cta" href="https://public.tableau.com/app/profile/chris.chester/vizzes" target="_blank" rel="noopener">Ver en Tableau →</a>
         </div>
       </div>
 
@@ -483,20 +481,20 @@
         </div>
 
         <h2 class="proj-title">Developer Portfolio Scanner</h2>
-        <p class="proj-hook">Recruiters spend hours manually browsing developer sites. This automates that.</p>
+        <p class="proj-hook">Los reclutadores pasan horas revisando portfolios de desarrolladores manualmente. Esto lo automatiza.</p>
 
         <div class="bbar">
           <div class="bbar-cell">
-            <div class="bbar-label">Before</div>
-            <div class="bbar-text">A recruiter looking for available developers visits portfolio sites one by one — checking for availability signals, inferring skills, copy-pasting into a spreadsheet. Slow, inconsistent, and manual.</div>
+            <div class="bbar-label">Antes</div>
+            <div class="bbar-text">Un reclutador que busca desarrolladores disponibles visita los portfolios uno a uno — buscando señales de disponibilidad, infiriendo habilidades, copiando y pegando en una hoja de cálculo. Lento, inconsistente y manual.</div>
           </div>
           <div class="bbar-cell">
-            <div class="bbar-label">Build</div>
-            <div class="bbar-text">A modular Python scraper that detects availability signals and extracts skills across 25 tech categories using regex. v2 added Pandas cleaning, score normalisation, and PNG chart output.</div>
+            <div class="bbar-label">Proceso</div>
+            <div class="bbar-text">Un scraper modular en Python que detecta señales de disponibilidad y extrae habilidades en 25 categorías tecnológicas usando regex. La v2 añadió limpieza con Pandas, normalización de puntuaciones y salida de gráficos PNG.</div>
           </div>
           <div class="bbar-cell">
-            <div class="bbar-label">Result</div>
-            <div class="bbar-text">Give it a list of URLs and get back a clean, scored dataset of developer availability and skills — plus visualisation charts — in seconds instead of hours.</div>
+            <div class="bbar-label">Resultado</div>
+            <div class="bbar-text">Dale una lista de URLs y obtén un conjunto de datos limpio y puntuado con disponibilidad y habilidades de desarrolladores — más gráficos de visualización — en segundos en lugar de horas.</div>
           </div>
         </div>
 
@@ -511,9 +509,9 @@
         <div class="proj-card-foot">
           <a class="github-link" href="https://github.com/PCChester/Developer-Portfolio-Scanner" target="_blank" rel="noopener">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            View on GitHub
+            Ver en GitHub
           </a>
-          <a class="proj-cta" href="https://github.com/PCChester/Developer-Portfolio-Scanner" target="_blank" rel="noopener">Read the README →</a>
+          <a class="proj-cta" href="https://github.com/PCChester/Developer-Portfolio-Scanner" target="_blank" rel="noopener">Leer el README →</a>
         </div>
       </div>
 
@@ -529,20 +527,20 @@
         </div>
 
         <h2 class="proj-title">Sales Performance Analyzer</h2>
-        <p class="proj-hook">Most companies have more sales data than time to look at it.</p>
+        <p class="proj-hook">La mayoría de las empresas tienen más datos de ventas que tiempo para analizarlos.</p>
 
         <div class="bbar">
           <div class="bbar-cell">
-            <div class="bbar-label">Before</div>
-            <div class="bbar-text">A sales manager ends the week with a CSV export and a Monday meeting to prepare for. The analysis that should take an afternoon gets compressed into twenty minutes of gut-feel summary.</div>
+            <div class="bbar-label">Antes</div>
+            <div class="bbar-text">Un director de ventas termina la semana con una exportación CSV y una reunión el lunes para la que prepararse. El análisis que debería tomar una tarde se comprime en veinte minutos de resumen intuitivo.</div>
           </div>
           <div class="bbar-cell">
-            <div class="bbar-label">Build</div>
-            <div class="bbar-text">A Python pipeline that loads the CSV, runs Pandas analysis across categories, regions, and monthly trends, then sends a structured summary to Claude for a plain-English executive report.</div>
+            <div class="bbar-label">Proceso</div>
+            <div class="bbar-text">Un pipeline en Python que carga el CSV, ejecuta análisis con Pandas por categorías, regiones y tendencias mensuales, y envía un resumen estructurado a Claude para un informe ejecutivo en lenguaje sencillo.</div>
           </div>
           <div class="bbar-cell">
-            <div class="bbar-label">Result</div>
-            <div class="bbar-text">A formatted report with revenue breakdown, trend analysis, anomaly flagging, and three concrete recommendations — generated in seconds, saved to disk.</div>
+            <div class="bbar-label">Resultado</div>
+            <div class="bbar-text">Un informe formateado con desglose de ingresos, análisis de tendencias, detección de anomalías y tres recomendaciones concretas — generado en segundos, guardado en disco.</div>
           </div>
         </div>
 
@@ -556,9 +554,9 @@
         <div class="proj-card-foot">
           <a class="github-link" href="https://github.com/PCChester/sales-performance-analyzer" target="_blank" rel="noopener">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            View on GitHub
+            Ver en GitHub
           </a>
-          <a class="proj-cta" href="https://github.com/PCChester/sales-performance-analyzer" target="_blank" rel="noopener">Read the README →</a>
+          <a class="proj-cta" href="https://github.com/PCChester/sales-performance-analyzer" target="_blank" rel="noopener">Leer el README →</a>
         </div>
       </div>
 
@@ -569,7 +567,7 @@
 <!-- GITHUB STRIP -->
 <div class="github-strip">
   <div class="github-strip-inner reveal">
-    <p>Everything here is public, documented, and open to scrutiny.<br>Please do so!</p>
+    <p>Todo aquí es público, documentado y abierto al escrutinio.<br>¡Por favor, hazlo!</p>
     <a class="btn-github" href="https://github.com/PCChester" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       github.com/PCChester
@@ -581,40 +579,31 @@
 <footer>
   <div>
     <div class="foot-brand">Chris Chester</div>
-    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+    <div class="foot-sub">Enseña IA · Valencia, España</div>
   </div>
   <ul class="foot-links">
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="index.html#chatbot">Chat</a></li>
-    <li><a href="mailto:chris@christeachesai.com">Contact</a></li>
+    <li><a href="mailto:chriscteacher@gmail.com">Contacto</a></li>
   </ul>
 </footer>
 
 <script>
-// ── FILTER ──
 function filter(tag, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-
   document.querySelectorAll('.proj-card').forEach(card => {
-    if (tag === 'all') {
-      card.classList.remove('hidden');
-    } else {
-      const tags = card.dataset.tags || '';
-      tags.includes(tag) ? card.classList.remove('hidden') : card.classList.add('hidden');
-    }
+    card.style.display = (tag === 'all' || card.dataset.tags.includes(tag)) ? '' : 'none';
   });
 }
 
-// ── SCROLL REVEAL ──
 const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
-  });
-}, { threshold: 0.07 });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);} });
+},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 </script>
 </body>
 </html>

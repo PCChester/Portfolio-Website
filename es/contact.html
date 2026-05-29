@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <!-- Google tag (gtag.js) -->
@@ -11,7 +11,7 @@
   gtag('config', 'G-3ZNZ5H494K');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Chris Chester</title>
+<title>Contacto — Chris Chester</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -82,7 +82,14 @@
     font-weight: 500 !important; transition: background 0.18s !important;
   }
   .nav-chat:hover { background: var(--accent) !important; }
-  .nav-lang { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 3px; border: 1px solid var(--border-mid) !important; color: var(--ink-faint) !important; text-decoration: none; }
+  .nav-lang {
+    font-family: var(--mono);
+    font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.22rem 0.55rem; border-radius: 3px;
+    border: 1px solid var(--border-mid) !important;
+    color: var(--ink-faint) !important;
+    text-decoration: none;
+  }
   .nav-lang:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
 
   /* ── MAIN LAYOUT ── */
@@ -237,11 +244,13 @@
 <nav>
   <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
-    <li><a href="es/contact.html" class="nav-lang">ES</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="active">Contacto</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Hablemos ↓</a></li>
+    <li><a href="../contact.html" class="nav-lang">EN</a></li>
   </ul>
 </nav>
 
@@ -251,15 +260,15 @@
 
     <!-- Left -->
     <div class="reveal">
-      <div class="eyebrow">Get in touch</div>
-      <h1 class="contact-headline">Let's find out if I'm the right fit.</h1>
+      <div class="eyebrow">Contacta</div>
+      <h1 class="contact-headline">Veamos si encajo bien.</h1>
       <p class="contact-sub">
-        No contact form, no automated response. Just a real email to a real person who will read it and reply.
+        Sin formulario de contacto, sin respuesta automática. Solo un email real a una persona real que lo leerá y responderá.
       </p>
       <p class="contact-sub" style="margin-top: 1rem;">
-        If you're interested in my profile but would like a CV first, shoot me a quick email requesting one.
+        Si te interesa mi perfil pero primero quieres ver el CV, escríbeme un email rápido y te lo mando.
       </p>
-      <div class="availability">Available · EU &amp; US time zones</div>
+      <div class="availability">Disponible · Zonas horarias UE y EE.UU.</div>
     </div>
 
     <!-- Right: cards -->
@@ -276,7 +285,7 @@
         <div class="card-content">
           <div class="card-label">Email</div>
           <div class="card-value">chriscteacher@gmail.com</div>
-          <div class="card-hint">Always replies within a day</div>
+          <div class="card-hint">Siempre respondo en menos de un día</div>
         </div>
         <div class="card-arrow">→</div>
       </a>
@@ -293,7 +302,7 @@
         <div class="card-content">
           <div class="card-label">LinkedIn</div>
           <div class="card-value">Chris Chester</div>
-          <div class="card-hint">Connect or send a message</div>
+          <div class="card-hint">Conéctate o envíame un mensaje</div>
         </div>
         <div class="card-arrow">→</div>
       </a>
@@ -309,21 +318,21 @@
 <footer>
   <div>
     <div class="foot-brand">Chris Chester</div>
-    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+    <div class="foot-sub">Enseña IA · Valencia, España</div>
   </div>
   <ul class="foot-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#chatbot">Chat</a></li>
+    <li><a href="mailto:chriscteacher@gmail.com">Contacto</a></li>
   </ul>
 </footer>
 
 <script>
 const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
-  });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
 }, { threshold: 0.07 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 </script>

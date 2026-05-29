@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZNZ5H494K"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3ZNZ5H494K');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Chris Chester</title>
+<title>Sobre mí — Chris Chester</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,6 +23,8 @@
     --accent-dk:  #8c3d18;
     --teal:       #2a7a6a;
     --teal-lt:    #d0ebe7;
+    --gold:       #b87c2a;
+    --gold-lt:    #f5e8cf;
     --border:     #e0dbd2;
     --border-mid: #c8c2b6;
     --serif: 'Lora', Georgia, serif;
@@ -76,8 +81,6 @@
     font-weight: 500 !important; transition: background 0.18s !important;
   }
   .nav-chat:hover { background: var(--accent) !important; }
-  .nav-lang { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 3px; border: 1px solid var(--border-mid) !important; color: var(--ink-faint) !important; text-decoration: none; }
-  .nav-lang:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
 
   /* ── PAGE LAYOUT ── */
   .page-wrap {
@@ -352,6 +355,10 @@
   .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
   .foot-links a:hover { color: var(--accent); }
 
+  /* ── NAV LANG TOGGLE ── */
+  .nav-lang { font-family:var(--mono); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.22rem 0.55rem; border-radius:3px; border:1px solid var(--border-mid) !important; color:var(--ink-faint) !important; text-decoration:none; }
+  .nav-lang:hover { border-color:var(--accent) !important; color:var(--accent) !important; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 840px) {
     :root { --page-pad: 5%; }
@@ -375,13 +382,13 @@
 <nav>
   <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html" class="active">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
-    <li><a href="es/about.html" class="nav-lang">ES</a></li>
+    <li><a href="contact.html">Contacto</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Hablemos ↓</a></li>
+    <li><a href="../about.html" class="nav-lang">EN</a></li>
   </ul>
 </nav>
 
@@ -390,20 +397,20 @@
   <div class="about-hero reveal">
 
     <div>
-      <div class="eyebrow">About Chris Chester</div>
+      <div class="eyebrow">Sobre Chris Chester</div>
       <h1 class="about-h1">
-        AI is the most powerful tool most teams have ever been given.<br>
-        <em>Nobody showed them how to use it.</em>
+        La IA es la herramienta más poderosa que la mayoría de los equipos ha recibido jamás.<br>
+        <em>Nadie les enseñó a usarla.</em>
       </h1>
       <div class="stat-callout" style="margin: 1.75rem 0;">
         <div class="stat-big">5%</div>
         <div class="stat-context">
-          That's the share of generative AI projects that deliver measurable business impact, according to MIT's 2025 State of AI in Business report — based on 150 executive interviews, 350 employee surveys, and 300 public AI deployments. The technology isn't the problem. The people surrounding it are.
+          Esa es la proporción de proyectos de IA generativa que generan un impacto empresarial medible, según el informe del MIT sobre el Estado de la IA en los Negocios de 2025 — basado en 150 entrevistas a ejecutivos, 350 encuestas a empleados y 300 despliegues públicos de IA. La tecnología no es el problema. Las personas que la rodean, sí.
           <cite class="stat-cite">MIT Project NANDA · State of AI in Business, 2025</cite>
         </div>
       </div>
       <p class="about-lead">
-        The other 95% didn't fail because AI isn't remarkable — it is. They stalled because teams were handed something extraordinary and left to figure it out alone. Closing that gap is what I do.
+        El otro 95% no fracasó porque la IA no sea extraordinaria — lo es. Se estancaron porque los equipos recibieron algo extraordinario y los dejaron solos para que lo descubrieran. Cerrar esa brecha es lo que hago.
       </p>
     </div>
 
@@ -416,59 +423,59 @@
     <div class="about-section-inner reveal">
 
       <div class="section-label-col">
-        <div class="sec-tag">The origin</div>
-        <h2 class="sec-title">Thirty years of crossing borders</h2>
+        <div class="sec-tag">El origen</div>
+        <h2 class="sec-title">Treinta años cruzando fronteras</h2>
       </div>
 
       <div>
         <p class="body-text">
-          I moved to Austria in 1995 as a stranger in a strange land — no shared language, no familiar cultural shorthand. Within a year, I was teaching others how to navigate that exact experience. What started as English as a Second Language classes became corporate communication training, and a career built entirely around one question: how do you help someone say what they mean, and be understood?
+          Me mudé a Austria en 1995 como un extraño en tierra extraña — sin idioma compartido, sin referencias culturales familiares. En un año, ya enseñaba a otros a navegar esa misma experiencia. Lo que empezó como clases de inglés como segundo idioma se convirtió en formación en comunicación corporativa, y una carrera construida enteramente alrededor de una pregunta: ¿cómo ayudas a alguien a decir lo que quiere decir, y a que lo entiendan?
         </p>
 
         <div class="timeline">
           <div class="tl-item">
             <div class="tl-year">1995 – 1998</div>
             <div class="tl-place">Austria</div>
-            <div class="tl-desc">Arrived as a stranger, started teaching English as a Second Language and corporate communication within a year. Three years learning what it really means to cross a cultural and language barrier.</div>
+            <div class="tl-desc">Llegué como un extraño, empecé a enseñar inglés como segundo idioma y comunicación corporativa en menos de un año. Tres años aprendiendo lo que realmente significa cruzar una barrera cultural y lingüística.</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">1998 – 2000</div>
-            <div class="tl-place">New York City</div>
-            <div class="tl-desc">Two years in the city that teaches you to communicate fast or not at all. Continued teaching and sharpened the ability to read a room.</div>
+            <div class="tl-place">Nueva York</div>
+            <div class="tl-desc">Dos años en la ciudad que te enseña a comunicarte rápido o no comunicarte. Seguí enseñando y afilé la capacidad de leer una sala.</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2000 – 2009</div>
-            <div class="tl-place">Germany</div>
-            <div class="tl-desc">Nine years training professionals across industries in communication, presentation, and business English. Built systems for diagnosing where communication breaks down — and fixing it.</div>
+            <div class="tl-place">Alemania</div>
+            <div class="tl-desc">Nueve años formando a profesionales de distintos sectores en comunicación, presentación e inglés de negocios. Construí sistemas para diagnosticar dónde se rompe la comunicación — y arreglarla.</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2009 – 2013</div>
-            <div class="tl-place">The World</div>
-            <div class="tl-desc">Became a SCUBA instructor and spent four years teaching people to breathe underwater — across 36 countries on five continents. Same skill, different medium: calm someone's fear, build their confidence, set them free.</div>
+            <div class="tl-place">El Mundo</div>
+            <div class="tl-desc">Me hice instructor de buceo y pasé cuatro años enseñando a personas a respirar bajo el agua — en 36 países de cinco continentes. La misma habilidad, diferente medio: calmar el miedo de alguien, construir su confianza, liberarlo.</div>
           </div>
           <div class="tl-item highlight">
-            <div class="tl-year">2013 – Present</div>
-            <div class="tl-place">Valencia, Spain</div>
-            <div class="tl-desc">Returned to language and corporate communication training, and began building AI automation workflows. Noticed the same pattern everywhere: great tools, untrained teams. Decided to be the person who fixes that.</div>
+            <div class="tl-year">2013 – Presente</div>
+            <div class="tl-place">Valencia, España</div>
+            <div class="tl-desc">Volví a la formación en comunicación e idiomas, y empecé a construir flujos de trabajo de automatización con IA. Noté el mismo patrón en todas partes: grandes herramientas, equipos sin formar. Decidí ser la persona que lo soluciona.</div>
           </div>
         </div>
 
         <div class="stat-cards">
           <div class="stat-card">
             <div class="stat-num">30<em>+</em></div>
-            <div class="stat-lbl">years teaching</div>
+            <div class="stat-lbl">años enseñando</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">9</div>
-            <div class="stat-lbl">countries lived in</div>
+            <div class="stat-lbl">países vividos</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">36</div>
-            <div class="stat-lbl">countries visited</div>
+            <div class="stat-lbl">países visitados</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">100<em>s</em></div>
-            <div class="stat-lbl">of students</div>
+            <div class="stat-lbl">de alumnos</div>
           </div>
         </div>
       </div>
@@ -483,39 +490,39 @@
     <div class="about-section-inner reveal">
 
       <div class="section-label-col">
-        <div class="sec-tag">Why this matters now</div>
-        <h2 class="sec-title">Learning AI is like learning a language</h2>
+        <div class="sec-tag">Por qué esto importa ahora</div>
+        <h2 class="sec-title">Aprender IA es como aprender un idioma</h2>
       </div>
 
       <div>
         <p class="body-text">
-          I've spent three decades helping people move through the same learning curve — whether the subject was English grammar, a pressure gauge 20 metres underwater, or a boardroom presentation in a second language. The progression is always the same.
+          He pasado tres décadas ayudando a personas a recorrer la misma curva de aprendizaje — ya fuera el tema la gramática inglesa, un manómetro a 20 metros de profundidad, o una presentación en sala de juntas en un segundo idioma. La progresión es siempre la misma.
         </p>
 
         <div class="analogy-grid">
           <div class="analogy-card">
             <div class="analogy-stage">Stage 1</div>
-            <div class="analogy-lang">Vocabulary</div>
-            <div class="analogy-ai">What is this tool? What do these terms mean? Why does it sometimes give me nonsense?</div>
+            <div class="analogy-lang">Vocabulario</div>
+            <div class="analogy-ai">¿Qué es esta herramienta? ¿Qué significan estos términos? ¿Por qué a veces me da respuestas sin sentido?</div>
           </div>
           <div class="analogy-card">
             <div class="analogy-stage">Stage 2</div>
-            <div class="analogy-lang">Grammar</div>
-            <div class="analogy-ai">How do I structure a prompt to get useful output? What does context actually change?</div>
+            <div class="analogy-lang">Gramática</div>
+            <div class="analogy-ai">¿Cómo estructuro un prompt para obtener un resultado útil? ¿Qué cambia realmente el contexto?</div>
           </div>
           <div class="analogy-card">
             <div class="analogy-stage">Stage 3</div>
-            <div class="analogy-lang">Fluency</div>
-            <div class="analogy-ai">The tool stops feeling like a chore and becomes how you work. You stop noticing you're using it.</div>
+            <div class="analogy-lang">Fluidez</div>
+            <div class="analogy-ai">La herramienta deja de parecer una carga y se convierte en tu forma de trabajar. Dejas de darte cuenta de que la estás usando.</div>
           </div>
         </div>
 
         <p class="body-text">
-          When a team member says "I don't understand why it gave me that answer," most technical consultants see a prompt error. I see a language acquisition problem — and I know exactly which stage that person is on, and what they need next.
+          Cuando un miembro del equipo dice "no entiendo por qué me ha dado esa respuesta", la mayoría de los consultores técnicos ven un error de prompt. Yo veo una etapa del aprendizaje — y sé exactamente en qué punto está esa persona, y qué necesita a continuación.
         </p>
 
         <blockquote class="pullquote">
-          "I spent 30 years teaching humans to communicate with each other. Now I teach humans and machines to work together."
+          "Pasé 30 años enseñando a las personas a comunicarse entre sí. Ahora enseño a las personas y las máquinas a trabajar juntas."
         </blockquote>
       </div>
 
@@ -529,19 +536,19 @@
     <div class="about-section-inner reveal">
 
       <div class="section-label-col">
-        <div class="sec-tag">Who I work with</div>
-        <h2 class="sec-title">The gap I work in</h2>
+        <div class="sec-tag">Con quién trabajo</div>
+        <h2 class="sec-title">La brecha en la que trabajo</h2>
       </div>
 
       <div>
         <p class="body-text">
-          I'm most useful to teams that are mid-adoption: past the decision to use AI, but not yet getting consistent value from it. The tool exists. The team hasn't embraced it. That's where I come in.
+          Soy más útil a los equipos que están en medio de la adopción: más allá de la decisión de usar IA, pero que todavía no obtienen un valor consistente de ella. La herramienta existe. El equipo no la ha adoptado. Ahí es donde entro yo.
         </p>
         <p class="body-text">
-          I don't just build the workflow — I stay until the team knows how to use it, adapt it, and trust it. Because that's when the ROI actually shows up.
+          No solo construyo el flujo de trabajo — me quedo hasta que el equipo sabe cómo usarlo, adaptarlo y confiar en él. Porque es entonces cuando el ROI realmente aparece.
         </p>
         <p class="body-text">
-          If that sounds like what you need, let's talk.
+          Si eso es lo que necesitas, hablemos.
         </p>
       </div>
 
@@ -553,12 +560,12 @@
 <div class="closing-band">
   <div class="closing-inner reveal">
     <div>
-      <h2 class="closing-headline">Ready to close the gap?</h2>
-      <p class="closing-sub">Whether you need an audit, a build, or just a conversation about where your team is stuck — I'm easy to reach and straight to the point.</p>
+      <h2 class="closing-headline">¿Listo para cerrar la brecha?</h2>
+      <p class="closing-sub">Tanto si necesitas una auditoría, una construcción, o simplemente una conversación sobre dónde se está atascando tu equipo — soy fácil de contactar y voy al grano.</p>
     </div>
     <div class="closing-actions">
-      <a href="index.html#chatbot" class="btn-fill">Start the conversation →</a>
-      <a href="index.html#engagements" class="btn-outline-light">See how it works →</a>
+      <a href="index.html#chatbot" class="btn-fill">Iniciar la conversación →</a>
+      <a href="index.html#engagements" class="btn-outline-light">Ver cómo funciona →</a>
     </div>
   </div>
 </div>
@@ -567,25 +574,23 @@
 <footer>
   <div>
     <div class="foot-brand">Chris Chester</div>
-    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+    <div class="foot-sub">Enseña IA · Valencia, España</div>
   </div>
   <ul class="foot-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="index.html#chatbot">Chat</a></li>
-    <li><a href="mailto:chris@christeachesai.com">Contact</a></li>
+    <li><a href="mailto:chriscteacher@gmail.com">Contacto</a></li>
   </ul>
 </footer>
 
 <script>
 const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
-  });
-}, { threshold: 0.07 });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);} });
+},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 </script>
 </body>
 </html>
