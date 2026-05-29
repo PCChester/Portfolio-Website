@@ -1,51 +1,52 @@
 # Chris Chester — Portfolio Website
 
-> *"I build the AI workflows your team will actually use — and I stay to make sure they know how."*
+> *"I help small and mid-sized teams adopt AI tools — and actually use them."*
 
-A personal portfolio site for Chris Chester, AI Enablement Architect and trainer. Built to show the range: the technical side (automation projects, data pipelines, Python) and the human side (25+ years teaching people to communicate across boundaries — most recently, the boundary between humans and machines).
+A personal portfolio site for Chris Chester, AI Enablement Architect based in Valencia, Spain. Built to show the full range: automation projects and data pipelines on one side, 25+ years of teaching people to communicate across boundaries on the other — most recently, the boundary between humans and machines.
 
 **Live site:** [christeachesai.netlify.app](https://christeachesai.netlify.app/)
 
 ---
 
-## What's here
+## Pages
 
-A static, four-page site built with plain HTML, CSS, and a little vanilla JavaScript. No frameworks, no build tools, no dependencies — just files that open in a browser.
+A static site built with plain HTML, CSS, and vanilla JavaScript. No frameworks, no build tools, no dependencies.
 
 | Page | Purpose |
 |---|---|
-| `index.html` | Hero, service overview, diagnostic chatbot, AI Readiness mini-report form |
-| `about.html` | The Translator narrative, origin story, skills breakdown |
-| `projects.html` | Portfolio cards in Before → Build → Result format |
-| `contact.html` | Scheduling and direct contact |
+| `index.html` | Hero, service phases, engagement packages, featured projects, diagnostic chatbot + AI Readiness form |
+| `about.html` | The Translator narrative, 30-year origin story, language-learning analogy, closing CTA |
+| `projects.html` | Four portfolio cards in Before → Build → Result format with filter bar |
+| `blog.html` | Article grid with topic filter pills, placeholder articles across AI Adoption / Workflow Automation / AI Training |
+| `contact.html` | Email and LinkedIn cards — no form, no automation |
+| `es/` | Full Spanish translation of all five pages, with EN ↔ ES toggle in every nav |
 
 ---
 
 ## The diagnostic chatbot
 
-The homepage includes a live **"Am I a good fit for you?"** chatbot, powered by the Anthropic API (Claude). This isn't a gimmick — it's a working demonstration of exactly the kind of thing I build for clients.
+The homepage includes a working **AI Readiness chatbot**. It's not a gimmick — it's a demonstration of the kind of interaction design I build for clients.
 
 **How it works:**
-1. The bot opens with a single question about what the team struggles with when adopting new tools
-2. Quick-reply buttons cover the four most common friction points (reversion to manual work, prompting gaps, no clear process, fear of replacement) — or the visitor can type freely
-3. The bot asks 2–3 follow-up questions to collect context: team size, industry, current AI usage
-4. After the third exchange, it sends the full conversation to Claude via the Anthropic API and returns a personalised **AI Readiness Snapshot** — three paragraphs covering where the team likely sits on the adoption curve, the most relevant quick win, and what training typically looks like for a team in that situation
 
-There's also a parallel **5-question form** for people who prefer structured input over conversation. Same context gathering, same kind of report.
+1. Opens with an operational question: *"What is your team struggling with from an operational standpoint right now?"*
+2. Quick-reply buttons cover the most common pain points (call volume, invoice handling, email overload, repetitive admin) — or the visitor types freely
+3. Follows up with four questions: prior AI tool experience, team size, industry, biggest current obstacle
+4. After the final exchange it generates a personalised **AI Readiness Snapshot** — three plain-English paragraphs covering where the team likely sits, the most relevant quick win, and what the path forward typically looks like
 
-Both are live on the homepage. The chatbot is the pitch and the product demo at the same time.
+There is also a parallel **5-step form** for visitors who prefer structured input over conversation. Same questions, same report output.
 
-**Stack:** Vanilla JS frontend → Anthropic API (`claude-sonnet`) → response rendered inline
+**Important:** the report is generated entirely client-side by a `buildReport()` JavaScript function — no API call, no backend. The chatbot is a UX demonstration, not a live AI integration.
 
 ---
 
 ## Design
 
-The goal was editorial warmth over tech-cold polish. The kind of site a thoughtful human made, not a template.
+Editorial warmth over tech-cold polish.
 
-- **Fonts:** Lora (serif headlines), DM Sans (body), DM Mono (code/labels)
-- **Palette:** Warm cream paper tones, terracotta accent, teal, gold
-- **Layout:** Mobile-first, no framework, CSS custom properties throughout
+- **Fonts:** Lora (serif headlines), DM Sans (body), DM Mono (labels/code)
+- **Palette:** Warm cream paper, terracotta accent (`#c05c2b`), teal (`#2a7a6a`), gold (`#b87c2a`)
+- **Layout:** CSS custom properties throughout, no framework, mobile-responsive
 
 ---
 
@@ -53,54 +54,54 @@ The goal was editorial warmth over tech-cold polish. The kind of site a thoughtf
 
 Each card uses a **Before → Build → Result** format — because the point isn't the code, it's the problem it solved.
 
-1. **Job/Client Lead Gen Pipeline** — Finds companies actively adopting AI, identifies the right contact, and surfaces their email via Hunter.io. Built as a practical alternative to Apollo and Clay.
-2. **Bellabeat Case Study** — Google Data Analytics capstone. Full pipeline: Google Sheets → SQL (BigQuery) → R/tidyverse → Tableau. Key finding: users who slept poorly trained harder the next day — a compensatory over-exertion pattern that pointed toward a Burnout Prevention feature, not a performance optimisation one. [View on GitHub](https://github.com/PCChester/Bellabeat-Case-Study)
-3. **Developer Portfolio Scanner** — A Python scraper that takes a list of portfolio URLs and returns a scored dataset of developer availability and skills, plus PNG charts. Built for recruiters spending hours on manual browsing.
-4. **Sales Performance Analyzer** — A Python pipeline that loads a sales CSV, runs Pandas analysis, and sends a structured summary to Claude for a plain-English executive report. Revenue breakdowns, trend analysis, anomaly flagging, and three concrete recommendations — in seconds.
+**Lead Scout**
+Finds companies in any target area, scores them, identifies a named contact, and drafts a personalised cold email. A five-stage pipeline that replaced hours of manual LinkedIn and Google research.
+[GitHub](https://github.com/PCChester/Lead-Scout) · Stack: Python, Flask, Anthropic API, Tavily API, Hunter.io, BeautifulSoup, SSE
+
+**Bellabeat Case Study**
+Google Data Analytics capstone. Full pipeline from raw data to strategic recommendation. Key finding: users who slept poorly trained harder the next day — a compensatory over-exertion pattern that pointed toward a Burnout Prevention feature rather than a performance optimisation.
+[GitHub](https://github.com/PCChester/Bellabeat-Case-Study) · Stack: SQL (BigQuery), R/tidyverse, Tableau
+
+**Developer Portfolio Scanner**
+Takes a list of portfolio URLs and returns a scored dataset of developer availability and skills across 25 tech categories, plus PNG visualisation charts. Built for recruiters losing hours to manual browsing.
+[GitHub](https://github.com/PCChester/Developer-Portfolio-Scanner) · Stack: Python, BeautifulSoup, Pandas, Matplotlib
+
+**Sales Performance Analyzer**
+Loads a sales CSV, runs Pandas analysis across categories, regions, and monthly trends, then sends a structured summary to Claude for a plain-English executive report — revenue breakdown, trend analysis, anomaly flagging, three concrete recommendations.
+[GitHub](https://github.com/PCChester/sales-performance-analyzer) · Stack: Python, Pandas, Anthropic SDK
 
 ---
 
-## The positioning (in plain English)
+## The positioning
 
-I spent 25+ years teaching people to communicate across cultural and linguistic boundaries. ESL. Corporate communication. SCUBA instruction. The job was always the same: take something unfamiliar and make it usable.
+I spent 30 years teaching people to communicate across cultural and linguistic boundaries — ESL, corporate communication, SCUBA instruction across 36 countries. The job was always the same: take something unfamiliar, break down the fear, build fluency.
 
-AI adoption is exactly the same problem. Teams aren't failing because the tools are wrong — they're failing because nobody stayed long enough to make sure the team understood them, trusted them, and knew what to do when they got a strange answer.
+AI adoption is structurally identical. Teams aren't failing because the tools are wrong. They're failing because nobody stayed long enough to make sure the team understood them, trusted them, and knew what to do when something unexpected came back.
 
-That's the gap. That's where I work.
+**Three ways I work:**
 
-**The three things I do:**
-1. **Audit & Strategy** — Find where your team is losing time and map the 20% of tasks worth automating first
-2. **Build** — Design and build the workflow, agent, or pipeline that solves the problem
-3. **Train & Enable** — Stay until the team knows how to use it, adapt it, and trust it — that's when the ROI shows up
-
----
-
-## Tech stack
-
-- HTML5 / CSS3 / Vanilla JS
-- Anthropic API (Claude) — powers the diagnostic chatbot
-- Google Fonts (Lora, DM Sans, DM Mono)
-- No build process, no npm, no framework
-- Deployed as static files
+1. **AI Quickstart** — Workflow audit and one working proof of concept, for teams just getting started
+2. **Full Adoption Sprint** — Assessment, custom prompt library, training sessions, and SOPs, for teams with unused tools
+3. **Custom Build + Train** — A scoped solution built and handed over with the team fully onboarded
 
 ---
 
 ## Running locally
 
-No setup required for most of the site. Just clone and open:
+No setup required. Clone and open:
 
 ```bash
-git clone https://github.com/PCChester/[repo-name].git
-cd [repo-name]
+git clone https://github.com/PCChester/Portfolio-Website.git
+cd Portfolio-Website
 open index.html
 ```
 
-**Note:** The chatbot requires an Anthropic API key. Add yours to the relevant config or environment variable before testing that feature locally.
+The Spanish pages are in the `es/` subfolder and work the same way — open `es/index.html` directly or navigate via the ES toggle in any nav bar.
 
 ---
 
 ## Contact
 
-- **Email:** [chriscteacher@gmail.com]
-- **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/peter-christopher-chester-8b262353/)
-- **Tableau:** [Chris Chester Tableau](https://public.tableau.com/app/profile/chris.chester/vizzes)
+- **Email:** [chriscteacher@gmail.com](mailto:chriscteacher@gmail.com)
+- **LinkedIn:** [Chris Chester](https://www.linkedin.com/in/peter-christopher-chester-8b262353/)
+- **Tableau:** [Chris Chester Tableau Public](https://public.tableau.com/app/profile/chris.chester/vizzes)
