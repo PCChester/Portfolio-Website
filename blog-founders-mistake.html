@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The founder's mistake: buying the tool before mapping the problem — Chris Chester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a16;--ink-muted:#58534d;--ink-faint:#9a9590;--paper:#faf8f3;--paper-warm:#f3ede2;--card:#ffffff;--accent:#c05c2b;--accent-lt:#f0dfd4;--accent-dk:#8c3d18;--teal:#2a7a6a;--teal-lt:#d0ebe7;--gold:#b87c2a;--gold-lt:#f5e8cf;--border:#e0dbd2;--border-mid:#c8c2b6;--serif:'Lora',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;--page-max:1080px;--page-pad:6%;--article-max:680px;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 var(--page-pad);height:60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-0.025em;line-height:1.1;}
+  .nav-brand em{color:var(--accent);font-style:normal;}
+  .nav-brand span{display:block;font-family:var(--mono);font-size:0.6rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px;}
+  .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+  .nav-links a{font-size:0.875rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-chat{background:var(--ink)!important;color:#fff!important;padding:0.38rem 1rem;border-radius:4px;font-weight:500!important;transition:background 0.18s!important;}
+  .nav-chat:hover{background:var(--accent)!important;}
+  .article-wrap{max-width:var(--page-max);margin:0 auto;padding:3.5rem var(--page-pad) 5rem;display:grid;grid-template-columns:var(--article-max) 1fr;gap:5rem;align-items:start;}
+  .article-back{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);text-decoration:none;margin-bottom:2rem;transition:color 0.16s;}
+  .article-back:hover{color:var(--accent);}
+  .article-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
+  .meta-tag{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--accent-lt);color:var(--accent-dk);padding:0.2rem 0.65rem;border-radius:20px;}
+  .meta-time{font-family:var(--mono);font-size:0.68rem;color:var(--ink-faint);letter-spacing:0.05em;}
+  .article-h1{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;line-height:1.2;letter-spacing:-0.025em;color:var(--ink);margin-bottom:1rem;}
+  .article-lede{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--ink-muted);line-height:1.7;border-left:3px solid var(--accent);padding-left:1.25rem;margin-bottom:2rem;}
+  .article-body p{font-size:0.975rem;color:var(--ink-muted);line-height:1.85;margin-bottom:1.4rem;font-weight:300;}
+  .article-body h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;margin:2.5rem 0 0.85rem;}
+  .article-body strong{color:var(--ink);font-weight:500;}
+  .pullquote{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.65;color:var(--ink);background:var(--paper-warm);border:1px solid var(--border);border-left:4px solid var(--accent);padding:1.4rem 1.75rem;border-radius:0 8px 8px 0;margin:2rem 0;}
+
+  /* SPEND VS IMPACT CHART */
+  .spend-chart{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.75rem;margin:2.25rem 0;}
+  .chart-title{font-family:var(--mono);font-size:0.63rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:1.5rem;}
+  .bubble-row{display:flex;align-items:center;gap:1.25rem;margin-bottom:1.1rem;}
+  .bubble-row:last-child{margin-bottom:0;}
+  .bubble{border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--mono);font-size:0.65rem;font-weight:500;letter-spacing:0.04em;color:#fff;}
+  .bubble-label-col{flex:1;}
+  .bubble-name{font-size:0.875rem;color:var(--ink);font-weight:500;margin-bottom:0.15rem;}
+  .bubble-desc{font-size:0.78rem;color:var(--ink-faint);}
+
+  /* ORDER OF OPERATIONS */
+  .order-graphic{margin:2.25rem 0;}
+  .order-row{display:flex;align-items:stretch;gap:0;margin-bottom:2px;}
+  .order-num{width:40px;flex-shrink:0;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.75rem;font-weight:500;border-radius:6px 0 0 6px;}
+  .order-body{flex:1;background:var(--card);border:1px solid var(--border);border-left:none;border-radius:0 6px 6px 0;padding:1rem 1.25rem;}
+  .order-step{font-weight:500;font-size:0.9rem;color:var(--ink);margin-bottom:0.2rem;}
+  .order-detail{font-size:0.82rem;color:var(--ink-muted);line-height:1.55;}
+  .order-num.accent{background:var(--accent);}
+  .order-num.teal{background:var(--teal);}
+
+  /* COST OF WRONG ORDER */
+  .cost-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .cost-cell{background:var(--paper-warm);padding:1.25rem 1.3rem;}
+  .cost-icon{font-size:1.5rem;margin-bottom:0.6rem;}
+  .cost-title{font-size:0.875rem;font-weight:500;color:var(--ink);margin-bottom:0.35rem;}
+  .cost-desc{font-size:0.8rem;color:var(--ink-muted);line-height:1.6;}
+
+  /* SIDEBAR */
+  .article-sidebar{position:sticky;top:80px;}
+  .sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:1rem;}
+  .sidebar-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:0.75rem;}
+  .sidebar-card h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;}
+  .sidebar-card p{font-size:0.82rem;color:var(--ink-muted);line-height:1.65;font-weight:300;margin-bottom:1rem;}
+  .btn-fill{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#fff;padding:0.55rem 1.2rem;border-radius:4px;font-size:0.825rem;font-weight:500;text-decoration:none;transition:background 0.18s;}
+  .btn-fill:hover{background:var(--accent-dk);}
+  .sidebar-toc a{display:block;font-size:0.82rem;color:var(--ink-muted);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid var(--border);transition:color 0.16s;}
+  .sidebar-toc a:last-child{border-bottom:none;}
+  .sidebar-toc a:hover{color:var(--accent);}
+  .cta-band{background:var(--ink);padding:3.5rem var(--page-pad);}
+  .cta-inner{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .cta-copy h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--paper);letter-spacing:-0.02em;margin-bottom:0.5rem;}
+  .cta-copy p{font-size:0.9rem;color:#9a9590;font-weight:300;line-height:1.7;}
+  footer{background:var(--paper-warm);border-top:1px solid var(--border);padding:2.25rem var(--page-pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+  .foot-brand{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);}
+  .foot-sub{font-size:0.76rem;color:var(--ink-faint);margin-top:0.18rem;font-weight:300;}
+  .foot-links{display:flex;gap:1.4rem;list-style:none;}
+  .foot-links a{font-size:0.8rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .foot-links a:hover{color:var(--accent);}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.55s,transform 0.55s;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(max-width:900px){.article-wrap{grid-template-columns:1fr;gap:0;}.article-sidebar{position:static;margin-top:3rem;}.nav-links{display:none;}.nav-brand{font-size:1.8rem;}.cost-grid{grid-template-columns:1fr;}.cta-inner{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<div class="article-wrap">
+  <main>
+    <a class="article-back" href="blog.html">← Back to blog</a>
+    <header class="reveal">
+      <div class="article-meta">
+        <span class="meta-tag">AI Adoption</span>
+        <span class="meta-time">May 2026 · 4 min read</span>
+      </div>
+      <h1 class="article-h1">The founder's mistake: buying the tool before mapping the problem</h1>
+      <p class="article-lede">Most founders who come to me have already spent money on AI subscriptions. The tools aren't the issue. The missing piece is almost always the same thing.</p>
+    </header>
+
+    <div class="article-body reveal">
+
+      <p>A founder I worked with last year had four active AI subscriptions. ChatGPT, Claude, Notion AI, and a specialist tool for their industry. Total spend: around €400 a month. Usage across the team: sporadic. ROI: close to zero.</p>
+
+      <p>When I asked which business problem each tool was solving, there was a long pause. "We thought they'd figure it out," she said. "The tools are so capable — we assumed the team would find the uses."</p>
+
+      <p>This is the founder's mistake. And it's remarkably common.</p>
+
+      <!-- SPEND vs IMPACT -->
+      <div class="spend-chart reveal">
+        <div class="chart-title">Where most teams are when they call me</div>
+        <div class="bubble-row">
+          <div class="bubble" style="width:72px;height:72px;background:var(--accent);font-size:1rem;">💸</div>
+          <div class="bubble-label-col">
+            <div class="bubble-name">High spend, low clarity</div>
+            <div class="bubble-desc">Multiple subscriptions active. No defined use cases. Team using tools ad hoc or not at all.</div>
+          </div>
+        </div>
+        <div class="bubble-row">
+          <div class="bubble" style="width:56px;height:56px;background:var(--gold);font-size:0.9rem;">🔍</div>
+          <div class="bubble-label-col">
+            <div class="bubble-name">One tool, unclear fit</div>
+            <div class="bubble-desc">Committed to a platform. Not sure it's the right one. Team using it for low-value tasks.</div>
+          </div>
+        </div>
+        <div class="bubble-row">
+          <div class="bubble" style="width:44px;height:44px;background:var(--teal);font-size:0.85rem;">🎯</div>
+          <div class="bubble-label-col">
+            <div class="bubble-name">Problem-first, then tool</div>
+            <div class="bubble-desc">This is where you want to be. Tool chosen because it solves a specific, named problem.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>The instinct isn't wrong — the order is</h2>
+
+      <p>Founders who invest in AI tools early are doing the right thing. The instinct to equip the team, to stay ahead, to not get left behind — that's sound thinking. The mistake isn't the investment. It's the sequence.</p>
+
+      <p>Most teams buy first and ask questions later. They see a compelling demo, read about what competitors are doing, feel the pressure to modernise — and they subscribe. Then they try to retrofit the tool onto their existing workflows and wonder why it doesn't stick.</p>
+
+      <p>The teams that get real ROI from AI do it in the opposite order. They map the problem first — specifically, they identify the tasks that are eating the most time with the least payoff — and then they find the tool that fits those tasks. That inversion changes everything.</p>
+
+      <div class="pullquote">"The question isn't 'what can this tool do?' It's 'what is currently costing us the most time, and is there a tool that solves exactly that?'"</div>
+
+      <h2>The right order of operations</h2>
+
+      <div class="order-graphic reveal">
+        <div class="order-row">
+          <div class="order-num accent">1</div>
+          <div class="order-body">
+            <div class="order-step">Map the bottlenecks</div>
+            <div class="order-detail">Spend half a day with the team listing every repetitive task that happens more than twice a week. Don't judge. Just list.</div>
+          </div>
+        </div>
+        <div class="order-row" style="margin-top:2px;">
+          <div class="order-num accent">2</div>
+          <div class="order-body">
+            <div class="order-step">Score by time and pain</div>
+            <div class="order-detail">Which tasks take longest? Which ones frustrate people most? The intersection of slow and painful is where automation pays off fastest.</div>
+          </div>
+        </div>
+        <div class="order-row" style="margin-top:2px;">
+          <div class="order-num accent">3</div>
+          <div class="order-body">
+            <div class="order-step">Pick one task to start</div>
+            <div class="order-detail">Not three. Not five. One. Solve it properly before moving to the next. A single visible win builds more momentum than five half-finished automations.</div>
+          </div>
+        </div>
+        <div class="order-row" style="margin-top:2px;">
+          <div class="order-num teal">4</div>
+          <div class="order-body">
+            <div class="order-step">Now choose the tool</div>
+            <div class="order-detail">With a specific task defined, the tool choice becomes obvious — or at least much narrower. You're no longer evaluating features. You're evaluating fit.</div>
+          </div>
+        </div>
+        <div class="order-row" style="margin-top:2px;">
+          <div class="order-num teal">5</div>
+          <div class="order-body">
+            <div class="order-step">Build and hand over</div>
+            <div class="order-detail">Deploy the solution, document it, and train the people who'll use it. Then repeat with the next bottleneck.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>What buying first actually costs you</h2>
+
+      <p>The subscription fees are usually the smallest part of the cost. What gets lost is harder to measure but much more significant.</p>
+
+      <div class="cost-grid reveal">
+        <div class="cost-cell">
+          <div class="cost-icon">🕐</div>
+          <div class="cost-title">Team time</div>
+          <div class="cost-desc">Every hour spent exploring a tool that wasn't designed for your problem is an hour not spent on work. Multiply by team size.</div>
+        </div>
+        <div class="cost-cell">
+          <div class="cost-icon">😤</div>
+          <div class="cost-title">Goodwill</div>
+          <div class="cost-desc">Teams that try a tool and get nothing from it develop resistance. The next rollout — even a better one — faces a credibility deficit before it starts.</div>
+        </div>
+        <div class="cost-cell">
+          <div class="cost-icon">📉</div>
+          <div class="cost-title">Momentum</div>
+          <div class="cost-desc">Failed AI initiatives create inertia. The question stops being "what should we automate next?" and becomes "should we even bother?"</div>
+        </div>
+      </div>
+
+      <h2>What to do if you've already bought</h2>
+
+      <p>If you're already subscribed to tools that aren't delivering, you don't need to cancel and start over. You need to do the problem-mapping exercise you should have done first — and then figure out which of your existing tools, if any, fits the problems you've identified.</p>
+
+      <p>Sometimes the tool you have is right and just needs to be deployed differently. Sometimes you're using a Swiss Army knife for a job that needs a scalpel. Either way, the answer starts with getting clear on the problem — not the tool.</p>
+
+      <p>That half-day audit is often the most valuable thing I do with a new client. It costs nothing except time, and it tends to completely reframe what the next six months look like.</p>
+
+    </div>
+  </main>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">About the author</div>
+      <h3>Chris Chester</h3>
+      <p>AI Enablement Architect based in Valencia, Spain. 30 years helping people learn things that intimidate them — most recently, AI.</p>
+      <a href="contact.html" class="btn-fill">Get in touch →</a>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <nav class="sidebar-toc">
+        <a href="#">The instinct isn't wrong — the order is</a>
+        <a href="#">The right order of operations</a>
+        <a href="#">What buying first actually costs</a>
+        <a href="#">What to do if you've already bought</a>
+      </nav>
+    </div>
+    <div class="sidebar-card" style="background:var(--accent-lt);border-color:var(--accent-lt);">
+      <div class="sidebar-label" style="color:var(--accent-dk);">Free resource</div>
+      <h3>AI Readiness Snapshot</h3>
+      <p>5 questions. A personalised assessment of where your team is and what to do next.</p>
+      <a href="index.html#chatbot" class="btn-fill">Try it →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-copy">
+      <h2>Already subscribed to tools that aren't working?</h2>
+      <p>Let's do the audit. Half a day, a clear picture of where your time is going, and a plan that fits what you actually need.</p>
+    </div>
+    <a href="contact.html" class="btn-fill" style="font-size:0.9rem;padding:0.7rem 1.6rem;">Start the conversation →</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

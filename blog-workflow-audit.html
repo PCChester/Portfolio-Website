@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What a workflow audit actually looks like — and what it produces — Chris Chester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a16;--ink-muted:#58534d;--ink-faint:#9a9590;--paper:#faf8f3;--paper-warm:#f3ede2;--card:#ffffff;--accent:#c05c2b;--accent-lt:#f0dfd4;--accent-dk:#8c3d18;--teal:#2a7a6a;--teal-lt:#d0ebe7;--gold:#b87c2a;--gold-lt:#f5e8cf;--border:#e0dbd2;--border-mid:#c8c2b6;--serif:'Lora',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;--page-max:1080px;--page-pad:6%;--article-max:680px;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 var(--page-pad);height:60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-0.025em;line-height:1.1;}
+  .nav-brand em{color:var(--accent);font-style:normal;}
+  .nav-brand span{display:block;font-family:var(--mono);font-size:0.6rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px;}
+  .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+  .nav-links a{font-size:0.875rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-chat{background:var(--ink)!important;color:#fff!important;padding:0.38rem 1rem;border-radius:4px;font-weight:500!important;transition:background 0.18s!important;}
+  .nav-chat:hover{background:var(--accent)!important;}
+
+  .article-wrap{max-width:var(--page-max);margin:0 auto;padding:3.5rem var(--page-pad) 5rem;display:grid;grid-template-columns:var(--article-max) 1fr;gap:5rem;align-items:start;}
+  .article-back{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);text-decoration:none;margin-bottom:2rem;transition:color 0.16s;}
+  .article-back:hover{color:var(--accent);}
+  .article-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
+  .meta-tag{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--teal-lt);color:var(--teal);padding:0.2rem 0.65rem;border-radius:20px;}
+  .meta-time{font-family:var(--mono);font-size:0.68rem;color:var(--ink-faint);letter-spacing:0.05em;}
+  .article-h1{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;line-height:1.2;letter-spacing:-0.025em;color:var(--ink);margin-bottom:1rem;}
+  .article-lede{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--ink-muted);line-height:1.7;border-left:3px solid var(--teal);padding-left:1.25rem;margin-bottom:2rem;}
+  .article-body p{font-size:0.975rem;color:var(--ink-muted);line-height:1.85;margin-bottom:1.4rem;font-weight:300;}
+  .article-body h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;margin:2.5rem 0 0.85rem;}
+  .article-body strong{color:var(--ink);font-weight:500;}
+  .pullquote{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.65;color:var(--ink);background:var(--paper-warm);border:1px solid var(--border);border-left:4px solid var(--teal);padding:1.4rem 1.75rem;border-radius:0 8px 8px 0;margin:2rem 0;}
+
+  /* REALITY MAP — 3 BUCKETS */
+  .reality-map{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .rm-header{background:var(--ink);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+  .rm-header-label{font-family:var(--mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:#9a9590;}
+  .rm-header-title{font-family:var(--serif);font-size:0.95rem;color:#fff;font-style:italic;}
+  .rm-buckets{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+  .rm-bucket{background:var(--card);padding:1.4rem 1.4rem 1.6rem;}
+  .rm-bucket.heavy{border-top:3px solid var(--teal);}
+  .rm-bucket.friction{border-top:3px solid var(--gold);}
+  .rm-bucket.ghost{border-top:3px solid var(--accent);}
+  .rm-icon{font-size:1.5rem;margin-bottom:0.65rem;}
+  .rm-bucket-title{font-weight:600;font-size:0.9rem;color:var(--ink);margin-bottom:0.2rem;}
+  .rm-bucket-sub{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.7rem;}
+  .heavy .rm-bucket-sub{color:var(--teal);}
+  .friction .rm-bucket-sub{color:var(--gold);}
+  .ghost .rm-bucket-sub{color:var(--accent);}
+  .rm-bucket-desc{font-size:0.82rem;color:var(--ink-muted);line-height:1.6;}
+  .rm-examples{margin-top:0.75rem;display:flex;flex-direction:column;gap:0.3rem;}
+  .rm-ex{font-size:0.75rem;color:var(--ink-faint);display:flex;align-items:baseline;gap:0.4rem;}
+  .rm-ex::before{content:'→';flex-shrink:0;color:var(--border-mid);}
+
+  /* RULE OF 3 TABLE */
+  .rule3-table{width:100%;border-collapse:collapse;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .rule3-table th{background:var(--paper-warm);padding:0.8rem 1rem;text-align:left;font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-faint);font-weight:400;border-bottom:1px solid var(--border);}
+  .rule3-table td{padding:1rem 1rem;border-bottom:1px solid var(--border);font-size:0.85rem;color:var(--ink-muted);vertical-align:top;line-height:1.55;}
+  .rule3-table tr:last-child td{border-bottom:none;}
+  .rule3-table td:first-child{font-family:var(--mono);font-size:0.7rem;font-weight:500;color:var(--ink-faint);white-space:nowrap;}
+  .rule3-table td strong{color:var(--ink);display:block;margin-bottom:0.2rem;}
+  .priority-badge{display:inline-block;font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;padding:0.18rem 0.5rem;border-radius:3px;margin-bottom:0.4rem;}
+  .p-quick{background:var(--teal-lt);color:var(--teal);}
+  .p-struct{background:var(--gold-lt);color:var(--gold);}
+  .p-strat{background:var(--accent-lt);color:var(--accent-dk);}
+
+  /* BEFORE / AFTER: REPORT vs AUDIT */
+  .compare-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .compare-cell{background:var(--card);padding:1.4rem 1.5rem;}
+  .compare-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;}
+  .compare-cell.bad .compare-label{color:#d94f3d;}
+  .compare-cell.good .compare-label{color:var(--teal);}
+  .compare-list{display:flex;flex-direction:column;gap:0.5rem;}
+  .compare-item{font-size:0.84rem;color:var(--ink-muted);display:flex;align-items:baseline;gap:0.5rem;line-height:1.5;}
+  .compare-item::before{font-size:0.75rem;flex-shrink:0;}
+  .bad .compare-item::before{content:'✗';color:#d94f3d;}
+  .good .compare-item::before{content:'✓';color:var(--teal);}
+
+  /* OUTCOME STAT */
+  .outcome-stat{background:var(--teal);border-radius:10px;padding:1.75rem 2rem;margin:2.25rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center;}
+  .os-num{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:#fff;line-height:1;}
+  .os-label{font-size:0.78rem;color:rgba(255,255,255,0.75);margin-top:0.4rem;line-height:1.5;font-weight:300;}
+
+  /* SIDEBAR */
+  .article-sidebar{position:sticky;top:80px;}
+  .sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:1rem;}
+  .sidebar-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:0.75rem;}
+  .sidebar-card h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;}
+  .sidebar-card p{font-size:0.82rem;color:var(--ink-muted);line-height:1.65;font-weight:300;margin-bottom:1rem;}
+  .btn-fill{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#fff;padding:0.55rem 1.2rem;border-radius:4px;font-size:0.825rem;font-weight:500;text-decoration:none;transition:background 0.18s;}
+  .btn-fill:hover{background:var(--accent-dk);}
+  .sidebar-toc a{display:block;font-size:0.82rem;color:var(--ink-muted);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid var(--border);transition:color 0.16s;}
+  .sidebar-toc a:last-child{border-bottom:none;}
+  .sidebar-toc a:hover{color:var(--accent);}
+
+  .cta-band{background:var(--teal);padding:3.5rem var(--page-pad);}
+  .cta-inner{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .cta-copy h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;letter-spacing:-0.02em;margin-bottom:0.5rem;}
+  .cta-copy p{font-size:0.9rem;color:rgba(255,255,255,0.7);font-weight:300;line-height:1.7;}
+  .btn-fill-light{display:inline-flex;align-items:center;gap:0.4rem;background:#fff;color:var(--teal);padding:0.7rem 1.6rem;border-radius:4px;font-size:0.9rem;font-weight:500;text-decoration:none;transition:background 0.18s;}
+  .btn-fill-light:hover{background:var(--teal-lt);}
+  footer{background:var(--paper-warm);border-top:1px solid var(--border);padding:2.25rem var(--page-pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+  .foot-brand{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);}
+  .foot-sub{font-size:0.76rem;color:var(--ink-faint);margin-top:0.18rem;font-weight:300;}
+  .foot-links{display:flex;gap:1.4rem;list-style:none;}
+  .foot-links a{font-size:0.8rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .foot-links a:hover{color:var(--accent);}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.55s,transform 0.55s;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:900px){.article-wrap{grid-template-columns:1fr;gap:0;}.article-sidebar{position:static;margin-top:3rem;}.nav-links{display:none;}.nav-brand{font-size:1.8rem;}.rm-buckets,.compare-wrap{grid-template-columns:1fr;}.outcome-stat{grid-template-columns:1fr 1fr;}.cta-inner{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<div class="article-wrap">
+  <main>
+    <a class="article-back" href="blog.html">← Back to blog</a>
+
+    <header class="reveal">
+      <div class="article-meta">
+        <span class="meta-tag">Workflow Automation</span>
+        <span class="meta-time">April 2026 · 4 min read</span>
+      </div>
+      <h1 class="article-h1">What a workflow audit actually looks like — and what it produces</h1>
+      <p class="article-lede">It's not a consulting report nobody reads. It's a one-page map of where your team's time actually goes, with three specific recommendations ranked by impact. Here's the format I use.</p>
+    </header>
+
+    <div class="article-body">
+
+      <p class="reveal">When most business leaders hear the words "workflow audit," they brace for the corporate tax: a 40-page PDF full of jargon, destined to sit in a shared drive completely unread. That version exists. I don't do that version.</p>
+
+      <p class="reveal">A useful workflow audit isn't a post-mortem on your business. It's a diagnostic — active, visual, and designed to produce decisions, not observations. It shows you exactly how your business operates in reality versus on paper. And the gap between those two things is almost always where the money is going.</p>
+
+      <h2 class="reveal">The core deliverable: a one-page Reality Map</h2>
+
+      <p class="reveal">Instead of a massive report, the centrepiece of a good audit is a single visual page. Think of it as a GPS for your operations. It shows exactly where your team's hours, energy, and budget are going — sorted into three buckets.</p>
+
+      <!-- REALITY MAP -->
+      <div class="reality-map reveal">
+        <div class="rm-header">
+          <div class="rm-header-label">The Reality Map — three buckets</div>
+          <div class="rm-header-title">Where the time actually goes</div>
+        </div>
+        <div class="rm-buckets">
+          <div class="rm-bucket heavy">
+            <div class="rm-icon">💼</div>
+            <div class="rm-bucket-title">The Heavy Lifting</div>
+            <div class="rm-bucket-sub">High-value work</div>
+            <div class="rm-bucket-desc">The strategic, revenue-generating tasks your team should be doing. The ones that move things forward.</div>
+            <div class="rm-examples">
+              <div class="rm-ex">Closing deals</div>
+              <div class="rm-ex">Client strategy calls</div>
+              <div class="rm-ex">Product refinement</div>
+            </div>
+          </div>
+          <div class="rm-bucket friction">
+            <div class="rm-icon">🔧</div>
+            <div class="rm-bucket-title">The Friction</div>
+            <div class="rm-bucket-sub">Hidden bottlenecks</div>
+            <div class="rm-bucket-desc">Where work stalls. Double-handling, manual copy-pasting, and the process debt your team silently works around every day.</div>
+            <div class="rm-examples">
+              <div class="rm-ex">Data re-entry between tools</div>
+              <div class="rm-ex">Approval loops with no owner</div>
+              <div class="rm-ex">Inconsistent handoff formats</div>
+            </div>
+          </div>
+          <div class="rm-bucket ghost">
+            <div class="rm-icon">👻</div>
+            <div class="rm-bucket-title">The Ghosts</div>
+            <div class="rm-bucket-sub">Invisible drain</div>
+            <div class="rm-bucket-desc">Micro-tasks that swallow 15 minutes at a time. Invisible individually. Catastrophic in aggregate.</div>
+            <div class="rm-examples">
+              <div class="rm-ex">Manual follow-up emails</div>
+              <div class="rm-ex">Hunting down asset files</div>
+              <div class="rm-ex">Updating the same data in two places</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pullquote">"Most founders think they have a people problem or a software problem. The Reality Map almost always proves they have a plumbing problem — the pipes connecting their people and tools are broken."</div>
+
+      <p class="reveal">That reframe matters. Because you can't hire your way out of a plumbing problem. You can't buy new software to fix it either — at least, not without knowing exactly which pipe is broken first.</p>
+
+      <h2 class="reveal">The output: three recommendations, not twenty-five</h2>
+
+      <p class="reveal">Clarity without action is just an expensive observation. A lean audit doesn't give you 25 things to fix. It gives you three — rigorously prioritised by ease of implementation and financial impact.</p>
+
+      <!-- RULE OF 3 TABLE -->
+      <table class="rule3-table reveal">
+        <thead>
+          <tr>
+            <th>Priority</th>
+            <th>Type</th>
+            <th>Focus</th>
+            <th>Expected outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>
+              <span class="priority-badge p-quick">Quick win</span><br>
+              <strong>Eliminate or automate</strong>
+              Low-hanging fruit — tasks that can be removed or handled by a simple workflow today.
+            </td>
+            <td>e.g. automating lead routing or template generation</td>
+            <td>Immediate time back — typically 5–10 hours per week — with zero operational friction.</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>
+              <span class="priority-badge p-struct">Structural fix</span><br>
+              <strong>Process realignment</strong>
+              Fixing a core bottleneck that's creating downstream chaos.
+            </td>
+            <td>e.g. standardising data handoffs between sales and delivery</td>
+            <td>Drastic reduction in human error and communication lag across the team.</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>
+              <span class="priority-badge p-strat">Strategic shift</span><br>
+              <strong>Tech stack optimisation</strong>
+              The longer-term move that sets up scale.
+            </td>
+            <td>e.g. replacing disconnected legacy tools with a unified pipeline</td>
+            <td>Prepares the business to double capacity without doubling headcount.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- OUTCOME STATS -->
+      <div class="outcome-stat reveal">
+        <div>
+          <div class="os-num">½ day</div>
+          <div class="os-label">How long the audit takes — not weeks, not months</div>
+        </div>
+        <div>
+          <div class="os-num">1 page</div>
+          <div class="os-label">The Reality Map — everything on one visual you can actually act on</div>
+        </div>
+        <div>
+          <div class="os-num">3</div>
+          <div class="os-label">Recommendations — specific, ranked, and ready to execute</div>
+        </div>
+      </div>
+
+      <h2 class="reveal">Why this format works when the other one doesn't</h2>
+
+      <p class="reveal">The difference between a useful audit and a useless one isn't depth — it's format. A 40-page report asks your leadership to do too much work to extract the decision. A one-page map and three ranked recommendations do that work for them.</p>
+
+      <!-- COMPARE -->
+      <div class="compare-wrap reveal">
+        <div class="compare-cell bad">
+          <div class="compare-label">❌ The traditional consulting report</div>
+          <div class="compare-list">
+            <div class="compare-item">Dense paragraphs of jargon no one reads past page 3</div>
+            <div class="compare-item">25 recommendations with no clear priority order</div>
+            <div class="compare-item">Conclusions that require another meeting to interpret</div>
+            <div class="compare-item">Team sees it as criticism, not a tool</div>
+            <div class="compare-item">Sits in a shared drive, completely unread, for six months</div>
+          </div>
+        </div>
+        <div class="compare-cell good">
+          <div class="compare-label">✓ The one-page Reality Map + Rule of 3</div>
+          <div class="compare-list">
+            <div class="compare-item">Single visual that fits on a screen — no scrolling required</div>
+            <div class="compare-item">Three ranked actions your team can start this week</div>
+            <div class="compare-item">Team sees their daily frustrations validated, not judged</div>
+            <div class="compare-item">Leadership can make a go/no-go decision in the same meeting</div>
+            <div class="compare-item">Gets used — because it was built to be used</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="reveal">Your team can look at a one-page map and instantly see their daily frustrations reflected back at them. That recognition creates buy-in — which is usually the thing that's missing when an improvement initiative stalls before it starts.</p>
+
+      <p class="reveal">An audit shouldn't tell you how to rebuild the whole clock from scratch. It should show you exactly which gear is jammed, how much it's costing you, and the three turns of the wrench required to fix it. That's the whole job.</p>
+
+    </div>
+  </main>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">About the author</div>
+      <h3>Chris Chester</h3>
+      <p>AI Enablement Architect based in Valencia, Spain. I run workflow audits as the starting point for every new engagement — because you can't automate what you haven't mapped.</p>
+      <a href="contact.html" class="btn-fill">Get in touch →</a>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <nav class="sidebar-toc">
+        <a href="#">The one-page Reality Map</a>
+        <a href="#">The Rule of 3 action plan</a>
+        <a href="#">Why this format works</a>
+      </nav>
+    </div>
+    <div class="sidebar-card" style="background:var(--teal-lt);border-color:var(--teal-lt);">
+      <div class="sidebar-label" style="color:var(--teal);">Interested?</div>
+      <h3>Book a half-day audit</h3>
+      <p>One session. One Reality Map. Three ranked recommendations you can act on immediately.</p>
+      <a href="contact.html" class="btn-fill" style="background:var(--teal);">Let's talk →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-copy">
+      <h2>Want to see what your Reality Map looks like?</h2>
+      <p>Half a day. One page. Three things to fix. No jargon, no 40-page report nobody reads.</p>
+    </div>
+    <a href="contact.html" class="btn-fill-light">Start the conversation →</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

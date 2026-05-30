@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How AI became my project partner: a look behind the scenes — Chris Chester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a16;--ink-muted:#58534d;--ink-faint:#9a9590;--paper:#faf8f3;--paper-warm:#f3ede2;--card:#ffffff;--accent:#c05c2b;--accent-lt:#f0dfd4;--accent-dk:#8c3d18;--teal:#2a7a6a;--teal-lt:#d0ebe7;--gold:#b87c2a;--gold-lt:#f5e8cf;--border:#e0dbd2;--border-mid:#c8c2b6;--serif:'Lora',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;--page-max:1080px;--page-pad:6%;--article-max:680px;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 var(--page-pad);height:60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-0.025em;line-height:1.1;}
+  .nav-brand em{color:var(--accent);font-style:normal;}
+  .nav-brand span{display:block;font-family:var(--mono);font-size:0.6rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px;}
+  .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+  .nav-links a{font-size:0.875rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-chat{background:var(--ink)!important;color:#fff!important;padding:0.38rem 1rem;border-radius:4px;font-weight:500!important;transition:background 0.18s!important;}
+  .nav-chat:hover{background:var(--accent)!important;}
+
+  .article-wrap{max-width:var(--page-max);margin:0 auto;padding:3.5rem var(--page-pad) 5rem;display:grid;grid-template-columns:var(--article-max) 1fr;gap:5rem;align-items:start;}
+  .article-back{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);text-decoration:none;margin-bottom:2rem;transition:color 0.16s;}
+  .article-back:hover{color:var(--accent);}
+  .article-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
+  .meta-tag{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--teal-lt);color:var(--teal);padding:0.2rem 0.65rem;border-radius:20px;}
+  .meta-tag-2{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--gold-lt);color:var(--gold);padding:0.2rem 0.65rem;border-radius:20px;}
+  .meta-time{font-family:var(--mono);font-size:0.68rem;color:var(--ink-faint);letter-spacing:0.05em;}
+  .article-h1{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;line-height:1.2;letter-spacing:-0.025em;color:var(--ink);margin-bottom:1rem;}
+  .article-lede{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--ink-muted);line-height:1.7;border-left:3px solid var(--teal);padding-left:1.25rem;margin-bottom:2rem;}
+  .article-body p{font-size:0.975rem;color:var(--ink-muted);line-height:1.85;margin-bottom:1.4rem;font-weight:300;}
+  .article-body h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;margin:2.5rem 0 0.85rem;}
+  .article-body strong{color:var(--ink);font-weight:500;}
+  .pullquote{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.65;color:var(--ink);background:var(--paper-warm);border:1px solid var(--border);border-left:4px solid var(--teal);padding:1.4rem 1.75rem;border-radius:0 8px 8px 0;margin:2rem 0;}
+
+  /* PROJECT CONTEXT BANNER */
+  .project-banner{background:var(--ink);border-radius:10px;padding:1.5rem 1.75rem;margin:0 0 2.25rem;display:flex;gap:2rem;align-items:center;}
+  .pb-icon{font-size:2.5rem;flex-shrink:0;}
+  .pb-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:#9a9590;margin-bottom:0.35rem;}
+  .pb-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:#fff;margin-bottom:0.25rem;}
+  .pb-desc{font-size:0.82rem;color:#9a9590;line-height:1.55;}
+
+  /* ROLE CARDS — 3 WAYS AI HELPED */
+  .role-cards{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .role-card{background:var(--card);display:grid;grid-template-columns:56px 1fr;align-items:stretch;}
+  .role-num{background:var(--paper-warm);display:flex;align-items:flex-start;justify-content:center;padding-top:1.25rem;font-family:var(--mono);font-size:0.68rem;color:var(--ink-faint);font-weight:500;}
+  .role-body{padding:1.25rem 1.4rem;}
+  .role-tag{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.4rem;}
+  .role-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;}
+  .role-split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.75rem;}
+  .role-col-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.35rem;}
+  .role-col-label.mine{color:var(--accent-dk);}
+  .role-col-label.ai{color:var(--teal);}
+  .role-col-text{font-size:0.82rem;color:var(--ink-muted);line-height:1.6;}
+
+  /* DISCOVERY CALLOUT */
+  .discovery{background:var(--gold-lt);border:1px solid var(--gold-lt);border-radius:10px;padding:1.6rem 1.75rem;margin:2.25rem 0;}
+  .discovery-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.75rem;}
+  .discovery-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:0.6rem;}
+  .discovery-desc{font-size:0.875rem;color:var(--ink-muted);line-height:1.7;}
+
+  /* PRINCIPLE GRAPHIC */
+  .principle-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;margin:2.25rem 0;}
+  .principle-cell{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.3rem;text-align:center;}
+  .principle-icon{font-size:1.5rem;margin-bottom:0.5rem;}
+  .principle-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-faint);margin-bottom:0.35rem;}
+  .principle-title{font-size:0.9rem;font-weight:500;color:var(--ink);}
+  .principle-arrow{font-size:1.5rem;color:var(--border-mid);text-align:center;}
+
+  /* SIDEBAR */
+  .article-sidebar{position:sticky;top:80px;}
+  .sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:1rem;}
+  .sidebar-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:0.75rem;}
+  .sidebar-card h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;}
+  .sidebar-card p{font-size:0.82rem;color:var(--ink-muted);line-height:1.65;font-weight:300;margin-bottom:1rem;}
+  .btn-fill{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#fff;padding:0.55rem 1.2rem;border-radius:4px;font-size:0.825rem;font-weight:500;text-decoration:none;transition:background 0.18s;}
+  .btn-fill:hover{background:var(--accent-dk);}
+  .sidebar-toc a{display:block;font-size:0.82rem;color:var(--ink-muted);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid var(--border);transition:color 0.16s;}
+  .sidebar-toc a:last-child{border-bottom:none;}
+  .sidebar-toc a:hover{color:var(--accent);}
+
+  .cta-band{background:var(--ink);padding:3.5rem var(--page-pad);}
+  .cta-inner{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .cta-copy h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--paper);letter-spacing:-0.02em;margin-bottom:0.5rem;}
+  .cta-copy p{font-size:0.9rem;color:#9a9590;font-weight:300;line-height:1.7;}
+  footer{background:var(--paper-warm);border-top:1px solid var(--border);padding:2.25rem var(--page-pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+  .foot-brand{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);}
+  .foot-sub{font-size:0.76rem;color:var(--ink-faint);margin-top:0.18rem;font-weight:300;}
+  .foot-links{display:flex;gap:1.4rem;list-style:none;}
+  .foot-links a{font-size:0.8rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .foot-links a:hover{color:var(--accent);}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.55s,transform 0.55s;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:900px){.article-wrap{grid-template-columns:1fr;gap:0;}.article-sidebar{position:static;margin-top:3rem;}.nav-links{display:none;}.nav-brand{font-size:1.8rem;}.role-split{grid-template-columns:1fr;}.principle-wrap{grid-template-columns:1fr;}.principle-arrow{transform:rotate(90deg);}.cta-inner{flex-direction:column;}.project-banner{flex-direction:column;gap:1rem;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<div class="article-wrap">
+  <main>
+    <a class="article-back" href="blog.html">← Back to blog</a>
+
+    <header class="reveal">
+      <div class="article-meta">
+        <span class="meta-tag">AI Training</span>
+        <span class="meta-tag-2">Behind the scenes</span>
+        <span class="meta-time">April 2026 · 5 min read</span>
+      </div>
+      <h1 class="article-h1">How AI became my project partner: a look behind the scenes</h1>
+      <p class="article-lede">I used AI to complete my Google Data Analytics capstone — not to do the work, but to elevate it. Here's exactly what that looked like, and why the distinction matters.</p>
+    </header>
+
+    <div class="article-body">
+
+      <p class="reveal">When I finished my Data Analytics certificate, I faced a challenge that a lot of people hit after completing a course: taking polished theory and applying it to a real, open-ended project with no guardrails and no answers at the back of the book.</p>
+
+      <p class="reveal">The Bellabeat Case Study became that challenge. And I used AI as a project partner throughout — not to generate my analysis, but to stress-test it, sharpen it, and make sure what I'd found actually came across in the final report. Here's an honest account of how that worked.</p>
+
+      <!-- PROJECT BANNER -->
+      <div class="project-banner reveal">
+        <div class="pb-icon">📊</div>
+        <div>
+          <div class="pb-label">The project</div>
+          <div class="pb-title">Bellabeat Case Study — Google Data Analytics Capstone</div>
+          <div class="pb-desc">Analysis of 30 Fitbit users' activity, sleep, and heart rate data. Goal: identify which product feature Bellabeat should prioritise next, backed by data. Tools: SQL (BigQuery), R / tidyverse, Tableau.</div>
+        </div>
+      </div>
+
+      <p class="reveal">The analysis itself — every line of code, every visualisation, every data cleaning decision — was mine. What AI helped with was the layer on top: making sure the insights I'd found were communicated as clearly and persuasively as the data deserved.</p>
+
+      <h2 class="reveal">Three roles AI played — and what I actually asked it to do</h2>
+
+      <div class="role-cards reveal">
+
+        <div class="role-card">
+          <div class="role-num">01</div>
+          <div class="role-body">
+            <div class="role-tag">Role one</div>
+            <div class="role-title">Post-certificate instructor</div>
+            <p style="font-size:0.875rem;color:var(--ink-muted);margin:0.5rem 0 0.75rem;line-height:1.65;">After completing my analysis, I needed to know if my argument was strong enough for a professional audience. I used AI as a reviewer — not to tell me what to think, but to tell me whether what I thought was coming across.</p>
+            <div class="role-split">
+              <div>
+                <div class="role-col-label mine">My work</div>
+                <div class="role-col-text">Completed analysis identifying new features based on user data patterns.</div>
+              </div>
+              <div>
+                <div class="role-col-label ai">AI's role</div>
+                <div class="role-col-text">Checked argument strength, data support, and final strategy against the brief. Confirmed the <em>what</em> but pushed me to improve the <em>how</em>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-num">02</div>
+          <div class="role-body">
+            <div class="role-tag">Role two</div>
+            <div class="role-title">Structural assistant</div>
+            <p style="font-size:0.875rem;color:var(--ink-muted);margin:0.5rem 0 0.75rem;line-height:1.65;">The most powerful help came in turning good analysis into a great report structure. My data showed two distinct user groups — a Majority Audience and a High-Risk segment — but I was treating them as separate findings rather than a connected argument.</p>
+            <div class="role-split">
+              <div>
+                <div class="role-col-label mine">My work</div>
+                <div class="role-col-text">Identified the two user segments. Hadn't explicitly linked them in the executive summary.</div>
+              </div>
+              <div>
+                <div class="role-col-label ai">AI's role</div>
+                <div class="role-col-text">Challenged me to connect them. Helped draft a paragraph that turned a good finding into the central strategic justification for the entire project.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-num">03</div>
+          <div class="role-body">
+            <div class="role-tag">Role three</div>
+            <div class="role-title">Final validator</div>
+            <p style="font-size:0.875rem;color:var(--ink-muted);margin:0.5rem 0 0.75rem;line-height:1.65;">Before finalising, I had a structural question: was it okay for my Key Findings section to contain mini-recommendations when my Executive Summary also had big-picture recommendations? I wasn't sure if that created confusion or useful layering.</p>
+            <div class="role-split">
+              <div>
+                <div class="role-col-label mine">My question</div>
+                <div class="role-col-text">Does the two-level recommendation structure undermine the executive summary or support it?</div>
+              </div>
+              <div>
+                <div class="role-col-label ai">AI's role</div>
+                <div class="role-col-text">Confirmed the structure is ideal for multi-stakeholder reports. Findings give proof; summary gives mandate. That distinction gave me the confidence to leave it as designed.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- THE DISCOVERY -->
+      <div class="discovery reveal">
+        <div class="discovery-label">The key finding — The Compensation Discovery</div>
+        <div class="discovery-title">Users who slept badly trained harder the next day — not less</div>
+        <div class="discovery-desc">The data showed a clear compensation pattern: poor sleep was followed by elevated activity, not recovery. That finding ran counter to the original hypothesis and ended up validating a Burnout Prevention feature over a performance optimisation one. Every bit of that insight came from the data. AI helped me make sure the report made it impossible to miss.</div>
+      </div>
+
+      <h2 class="reveal">The principle behind all of it</h2>
+
+      <p class="reveal">Looking back, there's a clean logic to how AI contributed at each stage — and a clear boundary it never crossed.</p>
+
+      <!-- PRINCIPLE GRAPHIC -->
+      <div class="principle-wrap reveal">
+        <div class="principle-cell">
+          <div class="principle-icon">🧠</div>
+          <div class="principle-label">Mine</div>
+          <div class="principle-title">The thinking, the analysis, the insight</div>
+        </div>
+        <div class="principle-arrow">→</div>
+        <div class="principle-cell">
+          <div class="principle-icon">🤝</div>
+          <div class="principle-label">AI's role</div>
+          <div class="principle-title">The review, the structure, the communication</div>
+        </div>
+      </div>
+
+      <div class="pullquote">"AI served as a project manager of sorts — one that ensured my insights were communicated clearly, strategically, and with maximum impact. It took my raw analysis and helped me refine it into something a professional audience could act on."</div>
+
+      <h2 class="reveal">Why this matters beyond one project</h2>
+
+      <p class="reveal">I tell this story because it's a concrete example of the kind of AI use that actually delivers value — and that's often missing from the conversation. The debate tends to swing between "AI wrote everything" and "AI is cheating." Neither captures what's actually useful.</p>
+
+      <p class="reveal">What's useful is treating AI the way you'd treat a very capable colleague who has no context about your work, your client, or your goals — but who can give you honest, structured feedback the moment you bring them up to speed. That framing changes what you ask for, how you interpret the response, and what you do with it.</p>
+
+      <p class="reveal">The output quality in the Bellabeat project was higher because I used AI at the right stage, for the right job, and kept the actual thinking where it belonged: with me. That's not a compromise. That's just good collaboration — with a new kind of partner.</p>
+
+    </div>
+  </main>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">About the author</div>
+      <h3>Chris Chester</h3>
+      <p>AI Enablement Architect based in Valencia, Spain. The Bellabeat project is in my portfolio — code, analysis, and all.</p>
+      <a href="projects.html" class="btn-fill">See the project →</a>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <nav class="sidebar-toc">
+        <a href="#">Three roles AI played</a>
+        <a href="#">The Compensation Discovery</a>
+        <a href="#">The principle behind it</a>
+        <a href="#">Why this matters beyond one project</a>
+      </nav>
+    </div>
+    <div class="sidebar-card" style="background:var(--teal-lt);border-color:var(--teal-lt);">
+      <div class="sidebar-label" style="color:var(--teal);">Want this for your team?</div>
+      <h3>AI as thinking partner</h3>
+      <p>I teach teams to use AI the way I used it here — to elevate work, not replace it. Let's talk about what that looks like for your context.</p>
+      <a href="contact.html" class="btn-fill" style="background:var(--teal);">Get in touch →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-copy">
+      <h2>Want your team to use AI like this?</h2>
+      <p>As a thinking partner, not a shortcut. As a tool that elevates the work, not one that replaces the person doing it.</p>
+    </div>
+    <a href="contact.html" class="btn-fill" style="font-size:0.9rem;padding:0.7rem 1.6rem;">Start the conversation →</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

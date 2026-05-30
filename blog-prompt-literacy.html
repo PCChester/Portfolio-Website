@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt literacy: the skill your team is missing — Chris Chester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a16;--ink-muted:#58534d;--ink-faint:#9a9590;--paper:#faf8f3;--paper-warm:#f3ede2;--card:#ffffff;--accent:#c05c2b;--accent-lt:#f0dfd4;--accent-dk:#8c3d18;--teal:#2a7a6a;--teal-lt:#d0ebe7;--gold:#b87c2a;--gold-lt:#f5e8cf;--border:#e0dbd2;--border-mid:#c8c2b6;--serif:'Lora',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;--page-max:1080px;--page-pad:6%;--article-max:680px;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 var(--page-pad);height:60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-0.025em;line-height:1.1;}
+  .nav-brand em{color:var(--accent);font-style:normal;}
+  .nav-brand span{display:block;font-family:var(--mono);font-size:0.6rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px;}
+  .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+  .nav-links a{font-size:0.875rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-chat{background:var(--ink)!important;color:#fff!important;padding:0.38rem 1rem;border-radius:4px;font-weight:500!important;transition:background 0.18s!important;}
+  .nav-chat:hover{background:var(--accent)!important;}
+
+  .article-wrap{max-width:var(--page-max);margin:0 auto;padding:3.5rem var(--page-pad) 5rem;display:grid;grid-template-columns:var(--article-max) 1fr;gap:5rem;align-items:start;}
+  .article-back{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);text-decoration:none;margin-bottom:2rem;transition:color 0.16s;}
+  .article-back:hover{color:var(--accent);}
+  .article-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
+  .meta-tag{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--gold-lt);color:var(--gold);padding:0.2rem 0.65rem;border-radius:20px;}
+  .meta-time{font-family:var(--mono);font-size:0.68rem;color:var(--ink-faint);letter-spacing:0.05em;}
+  .article-h1{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;line-height:1.2;letter-spacing:-0.025em;color:var(--ink);margin-bottom:1rem;}
+  .article-lede{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--ink-muted);line-height:1.7;border-left:3px solid var(--gold);padding-left:1.25rem;margin-bottom:2rem;}
+  .article-body p{font-size:0.975rem;color:var(--ink-muted);line-height:1.85;margin-bottom:1.4rem;font-weight:300;}
+  .article-body h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;margin:2.5rem 0 0.85rem;}
+  .article-body strong{color:var(--ink);font-weight:500;}
+  .pullquote{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.65;color:var(--ink);background:var(--paper-warm);border:1px solid var(--border);border-left:4px solid var(--gold);padding:1.4rem 1.75rem;border-radius:0 8px 8px 0;margin:2rem 0;}
+
+  /* HUMAN EQUIVALENCY GAP */
+  .equiv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .equiv-cell{background:var(--card);padding:1.4rem 1.5rem;}
+  .equiv-header{display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;}
+  .equiv-icon{font-size:1.25rem;}
+  .equiv-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);}
+  .equiv-example{background:var(--paper-warm);border:1px solid var(--border);border-radius:6px;padding:0.85rem 1rem;margin-bottom:0.75rem;}
+  .equiv-said{font-size:0.82rem;color:var(--ink);font-style:italic;line-height:1.55;margin-bottom:0.5rem;}
+  .equiv-result{font-size:0.78rem;color:var(--ink-faint);line-height:1.5;}
+
+  /* FRAMEWORK BLOCK */
+  .framework{background:var(--ink);border-radius:10px;padding:1.75rem 2rem;margin:2.25rem 0;}
+  .framework-label{font-family:var(--mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:#9a9590;margin-bottom:1.25rem;}
+  .framework-parts{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;}
+  .f-part{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:0.7rem 1rem;text-align:center;}
+  .f-part-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#9a9590;margin-bottom:0.25rem;}
+  .f-part-name{font-size:0.875rem;font-weight:500;color:#fff;}
+  .f-plus{color:#9a9590;font-size:1.1rem;flex-shrink:0;}
+  .framework-note{font-size:0.8rem;color:#9a9590;margin-top:1.1rem;line-height:1.6;font-weight:300;}
+
+  /* SHIFT CARDS */
+  .shifts{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .shift-row{display:grid;grid-template-columns:100px 1fr 1fr;background:var(--card);}
+  .shift-row.header-row{background:var(--paper-warm);}
+  .shift-cell{padding:0.9rem 1.1rem;border-right:1px solid var(--border);}
+  .shift-cell:last-child{border-right:none;}
+  .shift-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-faint);}
+  .shift-bad{font-size:0.84rem;color:var(--ink-muted);line-height:1.55;}
+  .shift-good{font-size:0.84rem;color:var(--teal);font-weight:500;line-height:1.55;}
+  .shift-tag{font-family:var(--mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.06em;font-weight:500;display:flex;align-items:center;}
+  .shift-tag.bad-tag{color:#d94f3d;}
+  .shift-tag.good-tag{color:var(--teal);}
+
+  /* UNDER-UTILIZER vs SHADOW AUTOMATOR */
+  .two-type{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2.25rem 0;}
+  .type-card{border-radius:10px;padding:1.5rem;border:1px solid var(--border);}
+  .type-card.under{background:var(--accent-lt);border-color:var(--accent-lt);}
+  .type-card.shadow{background:var(--gold-lt);border-color:var(--gold-lt);}
+  .type-icon{font-size:1.75rem;margin-bottom:0.75rem;}
+  .type-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;}
+  .type-desc{font-size:0.85rem;color:var(--ink-muted);line-height:1.65;margin-bottom:1rem;}
+  .type-result{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;padding:0.4rem 0.75rem;border-radius:4px;display:inline-block;}
+  .under .type-result{background:rgba(192,92,43,0.15);color:var(--accent-dk);}
+  .shadow .type-result{background:rgba(184,124,42,0.15);color:var(--gold);}
+
+  /* FIX LIST */
+  .fix-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .fix-item{display:grid;grid-template-columns:44px 1fr;background:var(--card);}
+  .fix-num{background:var(--paper-warm);display:flex;align-items:flex-start;justify-content:center;padding-top:1.1rem;font-family:var(--mono);font-size:0.7rem;color:var(--ink-faint);}
+  .fix-body{padding:1.1rem 1.25rem;}
+  .fix-title{font-weight:500;font-size:0.9rem;color:var(--ink);margin-bottom:0.3rem;}
+  .fix-desc{font-size:0.84rem;color:var(--ink-muted);line-height:1.6;}
+
+  /* SIDEBAR */
+  .article-sidebar{position:sticky;top:80px;}
+  .sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:1rem;}
+  .sidebar-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:0.75rem;}
+  .sidebar-card h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;}
+  .sidebar-card p{font-size:0.82rem;color:var(--ink-muted);line-height:1.65;font-weight:300;margin-bottom:1rem;}
+  .btn-fill{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#fff;padding:0.55rem 1.2rem;border-radius:4px;font-size:0.825rem;font-weight:500;text-decoration:none;transition:background 0.18s;}
+  .btn-fill:hover{background:var(--accent-dk);}
+  .sidebar-toc a{display:block;font-size:0.82rem;color:var(--ink-muted);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid var(--border);transition:color 0.16s;}
+  .sidebar-toc a:last-child{border-bottom:none;}
+  .sidebar-toc a:hover{color:var(--accent);}
+
+  .cta-band{background:var(--ink);padding:3.5rem var(--page-pad);}
+  .cta-inner{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .cta-copy h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--paper);letter-spacing:-0.02em;margin-bottom:0.5rem;}
+  .cta-copy p{font-size:0.9rem;color:#9a9590;font-weight:300;line-height:1.7;}
+  footer{background:var(--paper-warm);border-top:1px solid var(--border);padding:2.25rem var(--page-pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+  .foot-brand{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);}
+  .foot-sub{font-size:0.76rem;color:var(--ink-faint);margin-top:0.18rem;font-weight:300;}
+  .foot-links{display:flex;gap:1.4rem;list-style:none;}
+  .foot-links a{font-size:0.8rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .foot-links a:hover{color:var(--accent);}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.55s,transform 0.55s;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:900px){
+    .article-wrap{grid-template-columns:1fr;gap:0;}
+    .article-sidebar{position:static;margin-top:3rem;}
+    .nav-links{display:none;}
+    .nav-brand{font-size:1.8rem;}
+    .equiv-grid,.two-type{grid-template-columns:1fr;}
+    .framework-parts{flex-direction:column;align-items:stretch;}
+    .f-plus{display:none;}
+    .shift-row{grid-template-columns:80px 1fr 1fr;}
+    .cta-inner{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<div class="article-wrap">
+  <main>
+    <a class="article-back" href="blog.html">← Back to blog</a>
+
+    <header class="reveal">
+      <div class="article-meta">
+        <span class="meta-tag">AI Training</span>
+        <span class="meta-time">May 2026 · 5 min read</span>
+      </div>
+      <h1 class="article-h1">Prompt literacy: the skill your team is missing and nobody is teaching</h1>
+      <p class="article-lede">Knowing how to use ChatGPT is not the same as knowing how to prompt it well. The gap between those two things is where most workplace AI adoption stalls.</p>
+    </header>
+
+    <div class="article-body">
+
+      <p class="reveal">For years, when I ran corporate communication workshops, I heard the exact same complaint. A manager would pull me aside and say: <em>"Team A handed a project to Team B, but the brief was so generic and incomplete that Team B couldn't use it. Now everyone's pointing fingers and deadlines are slipping."</em></p>
+
+      <p class="reveal">We've all seen it. Someone sends an email asking for a "status update on the project" without specifying which project, what metrics they care about, or when they need it. The recipient guesses, sends back the wrong thing, and the frustration mounts.</p>
+
+      <p class="reveal">So when companies started buying enterprise AI licenses and complained that the tools were giving back "generic fluff" or "failing to understand the business," I wasn't surprised at all. <strong>This isn't an AI problem. It's a communication problem.</strong> If your team is used to handing vague, low-context briefs to their human colleagues, they're treating AI exactly the same way.</p>
+
+      <h2 class="reveal">The illusion of adoption</h2>
+
+      <p class="reveal">When Excel first entered the workplace, we didn't hand people a spreadsheet and say "go build a financial model." We taught them formulas, data formatting, and logic structures. Right now, most teams are treating AI like a magic text box — and the output they get is inherently average because the input lacks any real intent or context.</p>
+
+      <!-- HUMAN EQUIVALENCY GAP -->
+      <div class="equiv-grid reveal">
+        <div class="equiv-cell">
+          <div class="equiv-header">
+            <span class="equiv-icon">🧑‍💼</span>
+            <div class="equiv-label">What they say to a colleague</div>
+          </div>
+          <div class="equiv-example">
+            <div class="equiv-said">"Can you look at this file and let me know what you think?"</div>
+            <div class="equiv-result">Colleague has no idea what they're supposed to be looking for.</div>
+          </div>
+        </div>
+        <div class="equiv-cell">
+          <div class="equiv-header">
+            <span class="equiv-icon">🤖</span>
+            <div class="equiv-label">What they say to the AI</div>
+          </div>
+          <div class="equiv-example">
+            <div class="equiv-said">"Summarise this 50-page PDF."</div>
+            <div class="equiv-result">AI gives a generic summary that misses the specific data points the team actually needs.</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="reveal">They aren't collaborating with AI. They're treating a multi-billion-dollar neural network like a basic Google search. The same vagueness that breaks human communication breaks AI communication. Same cause, same symptom, same fix.</p>
+
+      <h2 class="reveal">What prompt literacy actually looks like</h2>
+
+      <p class="reveal">Prompt literacy isn't about memorising magic words or copy-pasting templates from the internet. It's a fundamental shift in how professionals think about delegation and clarity. A prompt-literate team member approaches AI the way a great manager delegates to a capable but context-blind new hire: they give a role, a clear objective, the relevant context, and a specific output format.</p>
+
+      <!-- FRAMEWORK -->
+      <div class="framework reveal">
+        <div class="framework-label">The prompt framework — what every good prompt includes</div>
+        <div class="framework-parts">
+          <div class="f-part">
+            <div class="f-part-label">Who it is</div>
+            <div class="f-part-name">Role / Perspective</div>
+          </div>
+          <div class="f-plus">+</div>
+          <div class="f-part">
+            <div class="f-part-label">What you need</div>
+            <div class="f-part-name">Clear Objective</div>
+          </div>
+          <div class="f-plus">+</div>
+          <div class="f-part">
+            <div class="f-part-label">What it needs to know</div>
+            <div class="f-part-name">Context & Constraints</div>
+          </div>
+          <div class="f-plus">+</div>
+          <div class="f-part">
+            <div class="f-part-label">How to deliver it</div>
+            <div class="f-part-name">Output Format</div>
+          </div>
+        </div>
+        <div class="framework-note">Most teams use one or two of these. Prompt-literate teams use all four — every time.</div>
+      </div>
+
+      <p class="reveal">When someone understands this framework, their workflows change in three distinct ways:</p>
+
+      <!-- SHIFTS TABLE -->
+      <div class="shifts reveal">
+        <div class="shift-row header-row">
+          <div class="shift-cell"><div class="shift-label">The shift</div></div>
+          <div class="shift-cell"><div class="shift-label">Before</div></div>
+          <div class="shift-cell"><div class="shift-label">After</div></div>
+        </div>
+        <div class="shift-row">
+          <div class="shift-cell"><div class="shift-tag bad-tag">→</div><div style="font-size:0.78rem;color:var(--ink);font-weight:500;margin-top:0.3rem;">Passive to Iterative</div></div>
+          <div class="shift-cell"><div class="shift-bad">Give up after the first mediocre response. Conclude the tool doesn't work.</div></div>
+          <div class="shift-cell"><div class="shift-good">Treat the first output as a draft. Guide the AI to refine tone, catch gaps, challenge assumptions.</div></div>
+        </div>
+        <div class="shift-row">
+          <div class="shift-cell"><div class="shift-tag bad-tag">→</div><div style="font-size:0.78rem;color:var(--ink);font-weight:500;margin-top:0.3rem;">General to Structured</div></div>
+          <div class="shift-cell"><div class="shift-bad">Ask for "ideas." Get a generic list that could apply to anyone.</div></div>
+          <div class="shift-cell"><div class="shift-good">Feed specific data, target personas, and formatting rules. Get output that's immediately usable.</div></div>
+        </div>
+        <div class="shift-row">
+          <div class="shift-cell"><div class="shift-tag bad-tag">→</div><div style="font-size:0.78rem;color:var(--ink);font-weight:500;margin-top:0.3rem;">Chatting to Engineering</div></div>
+          <div class="shift-cell"><div class="shift-bad">Treat AI like a conversation partner. Accept whatever comes back.</div></div>
+          <div class="shift-cell"><div class="shift-good">Isolate variables, inject examples, set strict instructions that keep the output consistent and on-topic.</div></div>
+        </div>
+      </div>
+
+      <h2 class="reveal">Why nobody is teaching it</h2>
+
+      <p class="reveal">The market is flooded with "AI gurus" selling lists of 500 prompts for marketing or sales. But those lists are a temporary fix. They teach teams what to type today, not how to think tomorrow.</p>
+
+      <p class="reveal">True prompt literacy sits at the intersection of two skill sets that rarely meet: <strong>deep domain expertise</strong> — knowing what a good business outcome looks like — and <strong>structural communication</strong> — knowing how to translate that business logic into explicit, sequential instructions that a language model can execute reliably. Most training addresses one or the other. Almost none addresses both.</p>
+
+      <div class="pullquote">"The competitive advantage of AI doesn't belong to the company that buys the most licenses. It belongs to the company whose team knows how to clearly articulate what they actually need."</div>
+
+      <h2 class="reveal">The cost of the literacy gap</h2>
+
+      <p class="reveal">Leave your team to figure this out on their own and two types of people emerge. Both cost you.</p>
+
+      <!-- TWO TYPES -->
+      <div class="two-type reveal">
+        <div class="type-card under">
+          <div class="type-icon">😶</div>
+          <div class="type-title">The Under-Utilizer</div>
+          <div class="type-desc">Tries a generic prompt, gets a mediocre response, assumes the tool is overrated, and goes back to doing things the old manual way. The subscription sits idle.</div>
+          <div class="type-result">Wasted software spend · Stagnant productivity</div>
+        </div>
+        <div class="type-card shadow">
+          <div class="type-icon">🕵️</div>
+          <div class="type-title">The Shadow Automator</div>
+          <div class="type-desc">Figures out how to build incredibly efficient workflows — but keeps them hidden. No corporate framework to share, scale, or secure those prompts. Knowledge stays siloed.</div>
+          <div class="type-result">Siloed knowledge · Missed organisational leverage</div>
+        </div>
+      </div>
+
+      <p class="reveal">Most teams have both. The under-utilizers are visible — they're the ones who say the tools don't work. The shadow automators are invisible, which is its own kind of problem: when they leave, the workflow leaves with them.</p>
+
+      <h2 class="reveal">How to fix it</h2>
+
+      <p class="reveal">Stop hosting demos that show what the tool can do. Start running sessions that show how to communicate with it. The fix has three parts:</p>
+
+      <!-- FIX LIST -->
+      <div class="fix-list reveal">
+        <div class="fix-item">
+          <div class="fix-num">01</div>
+          <div class="fix-body">
+            <div class="fix-title">Ban generic prompts — and replace them with structured ones</div>
+            <div class="fix-desc">Encourage teams to share the "before and after" of their prompt structures. Showing how adding context and constraints changed the output is far more instructive than any lecture.</div>
+          </div>
+        </div>
+        <div class="fix-item">
+          <div class="fix-num">02</div>
+          <div class="fix-body">
+            <div class="fix-title">Build an internal prompt library — and treat it like an asset</div>
+            <div class="fix-desc">Document the specific frameworks that successfully clean your data, draft your client communications, or parse your market research. Prompts are business logic. They deserve to be stored, versioned, and shared.</div>
+          </div>
+        </div>
+        <div class="fix-item">
+          <div class="fix-num">03</div>
+          <div class="fix-body">
+            <div class="fix-title">Teach logic over syntax</div>
+            <div class="fix-desc">Train your team to break a large task into a sequence of smaller, logical steps. The test is simple: if a new human colleague couldn't follow the instructions because they're too vague, the AI won't be able to either.</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="reveal">The teams I work with that make the fastest progress aren't the ones with the most AI tools. They're the ones who've built a shared language for working with AI — and made it everyone's job to improve it.</p>
+
+    </div>
+  </main>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">About the author</div>
+      <h3>Chris Chester</h3>
+      <p>AI Enablement Architect based in Valencia, Spain. 30 years helping people communicate more clearly — with each other, and now with machines.</p>
+      <a href="contact.html" class="btn-fill">Get in touch →</a>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <nav class="sidebar-toc">
+        <a href="#">The illusion of adoption</a>
+        <a href="#">What prompt literacy actually looks like</a>
+        <a href="#">Why nobody is teaching it</a>
+        <a href="#">The cost of the literacy gap</a>
+        <a href="#">How to fix it</a>
+      </nav>
+    </div>
+    <div class="sidebar-card" style="background:var(--gold-lt);border-color:var(--gold-lt);">
+      <div class="sidebar-label" style="color:var(--gold);">Free resource</div>
+      <h3>AI Readiness Snapshot</h3>
+      <p>5 questions about your team. A personalised read on where you are and what the highest-value next step looks like.</p>
+      <a href="index.html#chatbot" class="btn-fill" style="background:var(--gold);">Try it →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-copy">
+      <h2>Want your team to actually know how to prompt?</h2>
+      <p>I run workshops that build this skill from the ground up — tailored to the tasks your team actually does, not generic templates.</p>
+    </div>
+    <a href="contact.html" class="btn-fill" style="font-size:0.9rem;padding:0.7rem 1.6rem;">Start the conversation →</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why most AI rollouts fail by week three — Chris Chester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1c1a16; --ink-muted:#58534d; --ink-faint:#9a9590;
+    --paper:#faf8f3; --paper-warm:#f3ede2; --card:#ffffff;
+    --accent:#c05c2b; --accent-lt:#f0dfd4; --accent-dk:#8c3d18;
+    --teal:#2a7a6a; --teal-lt:#d0ebe7;
+    --gold:#b87c2a; --gold-lt:#f5e8cf;
+    --border:#e0dbd2; --border-mid:#c8c2b6;
+    --serif:'Lora',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif; --mono:'DM Mono',monospace;
+    --page-max:1080px; --page-pad:6%; --article-max:680px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 var(--page-pad);height:60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-0.025em;line-height:1.1;}
+  .nav-brand em{color:var(--accent);font-style:normal;}
+  .nav-brand span{display:block;font-family:var(--mono);font-size:0.6rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px;}
+  .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+  .nav-links a{font-size:0.875rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-chat{background:var(--ink)!important;color:#fff!important;padding:0.38rem 1rem;border-radius:4px;font-weight:500!important;transition:background 0.18s!important;}
+  .nav-chat:hover{background:var(--accent)!important;}
+
+  /* ARTICLE LAYOUT */
+  .article-wrap{max-width:var(--page-max);margin:0 auto;padding:0 var(--page-pad);display:grid;grid-template-columns:var(--article-max) 1fr;gap:5rem;align-items:start;padding-top:3.5rem;padding-bottom:5rem;}
+
+  /* HEADER */
+  .article-header{margin-bottom:2.5rem;}
+  .article-back{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);text-decoration:none;margin-bottom:2rem;transition:color 0.16s;}
+  .article-back:hover{color:var(--accent);}
+  .article-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
+  .meta-tag{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--accent-lt);color:var(--accent-dk);padding:0.2rem 0.65rem;border-radius:20px;}
+  .meta-time{font-family:var(--mono);font-size:0.68rem;color:var(--ink-faint);letter-spacing:0.05em;}
+  .article-h1{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;line-height:1.2;letter-spacing:-0.025em;color:var(--ink);margin-bottom:1rem;}
+  .article-lede{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--ink-muted);line-height:1.7;border-left:3px solid var(--accent);padding-left:1.25rem;margin-bottom:2rem;}
+
+  /* BODY TEXT */
+  .article-body p{font-size:0.975rem;color:var(--ink-muted);line-height:1.85;margin-bottom:1.4rem;font-weight:300;}
+  .article-body h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;margin:2.5rem 0 0.85rem;}
+  .article-body strong{color:var(--ink);font-weight:500;}
+
+  /* PULLQUOTE */
+  .pullquote{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.65;color:var(--ink);background:var(--paper-warm);border:1px solid var(--border);border-left:4px solid var(--accent);padding:1.4rem 1.75rem;border-radius:0 8px 8px 0;margin:2rem 0;}
+
+  /* DATA CALLOUT */
+  .data-callout{background:var(--ink);color:var(--paper);border-radius:10px;padding:2rem 2.25rem;margin:2.25rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center;}
+  .dc-num{font-family:var(--serif);font-size:2.4rem;font-weight:600;color:#fff;line-height:1;}
+  .dc-num em{color:var(--accent);font-style:normal;}
+  .dc-label{font-size:0.78rem;color:#9a9590;margin-top:0.4rem;line-height:1.5;font-weight:300;}
+
+  /* TIMELINE / STAGE GRAPHIC */
+  .stage-graphic{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .stage-header{background:var(--paper-warm);border-bottom:1px solid var(--border);padding:0.9rem 1.5rem;}
+  .stage-header-label{font-family:var(--mono);font-size:0.63rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);}
+  .stage-rows{display:flex;flex-direction:column;}
+  .stage-row{display:grid;grid-template-columns:28px 110px 1fr;gap:0.75rem;align-items:center;padding:1rem 1.5rem;border-bottom:1px solid var(--border);}
+  .stage-row:last-child{border-bottom:none;}
+  .stage-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+  .dot-red{background:#d94f3d;}
+  .dot-amber{background:#e8a020;}
+  .dot-green{background:#5a9a6a;}
+  .stage-week{font-family:var(--mono);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-faint);}
+  .stage-desc{font-size:0.85rem;color:var(--ink-muted);line-height:1.5;}
+  .stage-desc strong{color:var(--ink);font-weight:500;}
+
+  /* BAR CHART */
+  .chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.75rem;margin:2.25rem 0;}
+  .chart-title{font-family:var(--mono);font-size:0.63rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:1.25rem;}
+  .bar-row{display:flex;align-items:center;gap:1rem;margin-bottom:0.85rem;}
+  .bar-row:last-child{margin-bottom:0;}
+  .bar-label{font-size:0.8rem;color:var(--ink-muted);width:160px;flex-shrink:0;line-height:1.3;}
+  .bar-track{flex:1;background:var(--paper-warm);border-radius:4px;height:10px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:4px;transition:width 0.6s ease;}
+  .bar-pct{font-family:var(--mono);font-size:0.7rem;color:var(--ink-faint);width:36px;text-align:right;flex-shrink:0;}
+
+  /* FIX GRAPHIC */
+  .fix-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .fix-cell{background:var(--card);padding:1.25rem 1.4rem;}
+  .fix-cell-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.6rem;}
+  .fix-cell.bad .fix-cell-label{color:#d94f3d;}
+  .fix-cell.good .fix-cell-label{color:var(--teal);}
+  .fix-cell p{font-size:0.85rem;color:var(--ink-muted);line-height:1.6;}
+
+  /* SIDEBAR */
+  .article-sidebar{position:sticky;top:80px;}
+  .sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:1rem;}
+  .sidebar-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:0.75rem;}
+  .sidebar-card h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;}
+  .sidebar-card p{font-size:0.82rem;color:var(--ink-muted);line-height:1.65;font-weight:300;margin-bottom:1rem;}
+  .btn-fill{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#fff;padding:0.55rem 1.2rem;border-radius:4px;font-size:0.825rem;font-weight:500;text-decoration:none;transition:background 0.18s;}
+  .btn-fill:hover{background:var(--accent-dk);}
+  .sidebar-toc a{display:block;font-size:0.82rem;color:var(--ink-muted);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid var(--border);transition:color 0.16s;}
+  .sidebar-toc a:last-child{border-bottom:none;}
+  .sidebar-toc a:hover{color:var(--accent);}
+
+  /* CTA BAND */
+  .cta-band{background:var(--ink);padding:3.5rem var(--page-pad);margin-top:2rem;}
+  .cta-inner{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .cta-copy h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--paper);letter-spacing:-0.02em;margin-bottom:0.5rem;}
+  .cta-copy p{font-size:0.9rem;color:#9a9590;font-weight:300;line-height:1.7;}
+
+  /* FOOTER */
+  footer{background:var(--paper-warm);border-top:1px solid var(--border);padding:2.25rem var(--page-pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+  .foot-brand{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);}
+  .foot-sub{font-size:0.76rem;color:var(--ink-faint);margin-top:0.18rem;font-weight:300;}
+  .foot-links{display:flex;gap:1.4rem;list-style:none;}
+  .foot-links a{font-size:0.8rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .foot-links a:hover{color:var(--accent);}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.55s,transform 0.55s;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:900px){
+    .article-wrap{grid-template-columns:1fr;gap:0;}
+    .article-sidebar{position:static;margin-top:3rem;}
+    .nav-links{display:none;}
+    .nav-brand{font-size:1.8rem;}
+    .data-callout{grid-template-columns:1fr 1fr;}
+    .fix-grid{grid-template-columns:1fr;}
+    .cta-inner{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<div class="article-wrap">
+
+  <!-- MAIN COLUMN -->
+  <main>
+    <a class="article-back" href="blog.html">← Back to blog</a>
+
+    <header class="article-header reveal">
+      <div class="article-meta">
+        <span class="meta-tag">AI Adoption</span>
+        <span class="meta-time">May 2026 · 5 min read</span>
+      </div>
+      <h1 class="article-h1">Why most AI rollouts fail by week three — and what to do instead</h1>
+      <p class="article-lede">The tool gets deployed. The team gets a demo. Three weeks later, nobody's using it. Here's the pattern I see in almost every failed rollout, and the one change that fixes it.</p>
+    </header>
+
+    <div class="article-body reveal">
+
+      <p>I've watched this play out more times than I can count. A founder or team lead gets excited about an AI tool — and they should, because the tools are genuinely remarkable. They buy the subscription, schedule a demo, maybe record a Loom walkthrough. The team nods along. And then, somewhere between week two and week three, usage quietly drops to zero.</p>
+
+      <p>It doesn't feel like a failure at first. People are busy. There's a deadline. They'll get back to it. But they don't. And six months later, the company is paying for licenses nobody opens.</p>
+
+      <p>This isn't a story about bad tools or resistant employees. It's a story about a missing step — one that almost no rollout includes.</p>
+
+      <!-- DATA CALLOUT -->
+      <div class="data-callout reveal">
+        <div>
+          <div class="dc-num">5<em>%</em></div>
+          <div class="dc-label">of generative AI projects deliver measurable business impact<br><em style="font-size:0.7rem;opacity:0.6;">MIT NANDA, 2025</em></div>
+        </div>
+        <div>
+          <div class="dc-num">3</div>
+          <div class="dc-label">weeks — the average time before usage drops off without structured onboarding</div>
+        </div>
+        <div>
+          <div class="dc-num">70<em>%</em></div>
+          <div class="dc-label">of employees say they don't feel confident using AI tools at work<br><em style="font-size:0.7rem;opacity:0.6;">McKinsey, 2024</em></div>
+        </div>
+      </div>
+
+      <h2>The pattern</h2>
+
+      <p>Almost every failed AI rollout follows the same arc. It's not random — it's predictable, which means it's also preventable.</p>
+
+      <!-- TIMELINE STAGE GRAPHIC -->
+      <div class="stage-graphic reveal">
+        <div class="stage-header"><div class="stage-header-label">The typical rollout arc — where things go wrong</div></div>
+        <div class="stage-rows">
+          <div class="stage-row">
+            <div class="stage-dot dot-green"></div>
+            <div class="stage-week">Week 1</div>
+            <div class="stage-desc"><strong>Launch enthusiasm.</strong> Demo goes well. A few early adopters try it. Everyone agrees it's impressive.</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot dot-amber"></div>
+            <div class="stage-week">Week 2</div>
+            <div class="stage-desc"><strong>The first friction.</strong> Real tasks don't go as smoothly as the demo. People get inconsistent results. Nobody knows who to ask.</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot dot-red"></div>
+            <div class="stage-week">Week 3</div>
+            <div class="stage-desc"><strong>Quiet abandonment.</strong> Usage drops. People revert to what they know. The tool becomes "that thing we tried."</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot dot-red"></div>
+            <div class="stage-week">Month 3+</div>
+            <div class="stage-desc"><strong>Sunk cost.</strong> Subscriptions still running. Nobody wants to admit it didn't work. The investment sits idle.</div>
+          </div>
+        </div>
+      </div>
+
+      <p>The friction in week two is the critical moment. When someone gets an output they don't understand or can't use, they have two choices: figure out why, or go back to doing it the old way. Without a structure for figuring out why — a prompt library, a person to ask, a workflow that's been designed for their actual tasks — they almost always choose the second option. And once they've chosen it twice, the habit is set.</p>
+
+      <h2>Why demos don't work</h2>
+
+      <p>A demo shows what a tool can do in ideal conditions, with prepared examples, by someone who already knows how to use it. That's almost the opposite of what a new user encounters.</p>
+
+      <p>Real work is messy. The task a team member actually needs to do on Tuesday morning doesn't look anything like the polished example from the onboarding video. And when the output doesn't match expectations, most people don't diagnose the prompt — they conclude the tool doesn't work for them.</p>
+
+      <div class="pullquote">"Most teams aren't failing because the AI is bad at their job. They're failing because nobody designed the bridge between what the tool can do and what the team actually does."</div>
+
+      <p>This is the gap I work in. It's not a technology gap — it's a translation gap.</p>
+
+      <h2>What the successful rollouts have in common</h2>
+
+      <p>I've seen rollouts that actually stick, and they share a few features that the failed ones don't.</p>
+
+      <!-- BAR CHART -->
+      <div class="chart-wrap reveal">
+        <div class="chart-title">What successful AI rollouts include — vs. failed ones</div>
+        <div class="bar-row">
+          <div class="bar-label">Custom prompt library</div>
+          <div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--teal);"></div></div>
+          <div class="bar-pct">88%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Designated internal champion</div>
+          <div class="bar-track"><div class="bar-fill" style="width:82%;background:var(--teal);"></div></div>
+          <div class="bar-pct">82%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Workflow audit before launch</div>
+          <div class="bar-track"><div class="bar-fill" style="width:75%;background:var(--teal);"></div></div>
+          <div class="bar-pct">75%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Structured training sessions</div>
+          <div class="bar-track"><div class="bar-fill" style="width:70%;background:var(--teal);"></div></div>
+          <div class="bar-pct">70%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Only a demo at launch</div>
+          <div class="bar-track"><div class="bar-fill" style="width:12%;background:#d94f3d;"></div></div>
+          <div class="bar-pct">12%</div>
+        </div>
+        <p style="font-size:0.7rem;color:var(--ink-faint);margin-top:1rem;">Based on observed patterns across client engagements. Not a formal study.</p>
+      </div>
+
+      <h2>The one change that fixes it</h2>
+
+      <p>If I had to name a single intervention that separates the rollouts that work from the ones that don't, it's this: <strong>design the first task.</strong></p>
+
+      <p>Don't give people a tool and a demo and tell them to explore. Give them one specific task — something they actually do every week — and show them exactly how to do it with the new tool. Walk through it. Let them do it themselves. Let them get it wrong and recover. Make the first real-world use case a success, and the second one will come naturally.</p>
+
+      <!-- BEFORE / AFTER -->
+      <div class="fix-grid reveal">
+        <div class="fix-cell bad">
+          <div class="fix-cell-label">❌ What most rollouts do</div>
+          <p>Schedule a demo. Share a login. Send a Loom. Tell people to "play with it and see what's useful." Wait for adoption to happen organically.</p>
+        </div>
+        <div class="fix-cell good">
+          <div class="fix-cell-label">✓ What actually works</div>
+          <p>Audit one workflow. Build a prompt for that specific task. Run a 90-minute session where the team does it live, together, with someone in the room who can answer questions.</p>
+        </div>
+      </div>
+
+      <p>The difference sounds small. The results aren't.</p>
+
+      <p>Teams that go through a structured first-task session are significantly more likely to still be using the tool a month later. Not because the tool changed — because their relationship with it did. They moved from "this is something I'm supposed to use" to "this is something I actually know how to use." That shift is everything.</p>
+
+      <h2>If this sounds familiar</h2>
+
+      <p>If you've got a tool that's been gathering dust, the rollout isn't over — it just stalled. You don't need to start from scratch. You need the missing piece: a workflow that fits how your team actually works, and someone to bridge the gap between what the tool can do and what your people need it to do.</p>
+
+      <p>That's the work I do. If you'd like to talk through where your rollout got stuck, I'm easy to reach.</p>
+
+    </div><!-- /article-body -->
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">About the author</div>
+      <h3>Chris Chester</h3>
+      <p>AI Enablement Architect based in Valencia, Spain. 30 years helping people learn things that intimidate them — most recently, AI.</p>
+      <a href="contact.html" class="btn-fill">Get in touch →</a>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <nav class="sidebar-toc">
+        <a href="#pattern">The pattern</a>
+        <a href="#demos">Why demos don't work</a>
+        <a href="#successful">What successful rollouts have in common</a>
+        <a href="#fix">The one change that fixes it</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-card" style="background:var(--accent-lt);border-color:var(--accent-lt);">
+      <div class="sidebar-label" style="color:var(--accent-dk);">Free resource</div>
+      <h3>AI Readiness Snapshot</h3>
+      <p>Answer 5 questions about your team and get a personalised assessment of where you are and what to do next.</p>
+      <a href="index.html#chatbot" class="btn-fill">Try it →</a>
+    </div>
+  </aside>
+
+</div><!-- /article-wrap -->
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-copy">
+      <h2>Recognise your rollout in this?</h2>
+      <p>Let's figure out what stalled and what it would take to get traction. No pitch — just a conversation.</p>
+    </div>
+    <a href="contact.html" class="btn-fill" style="font-size:0.9rem;padding:0.7rem 1.6rem;">Start the conversation →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

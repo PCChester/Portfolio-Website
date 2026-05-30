@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"We spent two years on AI and mostly got anxiety" — Chris Chester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a16;--ink-muted:#58534d;--ink-faint:#9a9590;--paper:#faf8f3;--paper-warm:#f3ede2;--card:#ffffff;--accent:#c05c2b;--accent-lt:#f0dfd4;--accent-dk:#8c3d18;--teal:#2a7a6a;--teal-lt:#d0ebe7;--gold:#b87c2a;--gold-lt:#f5e8cf;--border:#e0dbd2;--border-mid:#c8c2b6;--serif:'Lora',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;--page-max:1080px;--page-pad:6%;--article-max:680px;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 var(--page-pad);height:60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-0.025em;line-height:1.1;}
+  .nav-brand em{color:var(--accent);font-style:normal;}
+  .nav-brand span{display:block;font-family:var(--mono);font-size:0.6rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px;}
+  .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+  .nav-links a{font-size:0.875rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-chat{background:var(--ink)!important;color:#fff!important;padding:0.38rem 1rem;border-radius:4px;font-weight:500!important;transition:background 0.18s!important;}
+  .nav-chat:hover{background:var(--accent)!important;}
+
+  .article-wrap{max-width:var(--page-max);margin:0 auto;padding:3.5rem var(--page-pad) 5rem;display:grid;grid-template-columns:var(--article-max) 1fr;gap:5rem;align-items:start;}
+  .article-back{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);text-decoration:none;margin-bottom:2rem;transition:color 0.16s;}
+  .article-back:hover{color:var(--accent);}
+  .article-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
+  .meta-tag{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--accent-lt);color:var(--accent-dk);padding:0.2rem 0.65rem;border-radius:20px;}
+  .meta-time{font-family:var(--mono);font-size:0.68rem;color:var(--ink-faint);letter-spacing:0.05em;}
+  .article-h1{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;line-height:1.2;letter-spacing:-0.025em;color:var(--ink);margin-bottom:0.6rem;}
+  .article-h1-sub{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink-faint);margin-bottom:1.5rem;}
+  .article-lede{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--ink-muted);line-height:1.7;border-left:3px solid var(--accent);padding-left:1.25rem;margin-bottom:2rem;}
+  .article-body p{font-size:0.975rem;color:var(--ink-muted);line-height:1.85;margin-bottom:1.4rem;font-weight:300;}
+  .article-body h2{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;margin:2.5rem 0 0.85rem;}
+  .article-body strong{color:var(--ink);font-weight:500;}
+
+  /* AUTHOR NOTE */
+  .author-note{background:var(--paper-warm);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.4rem;margin-bottom:2rem;font-size:0.82rem;color:var(--ink-faint);line-height:1.65;font-style:italic;}
+
+  /* DIALOGUE EXCHANGE */
+  .dialogue{margin:2rem 0;display:flex;flex-direction:column;gap:0.75rem;}
+  .d-line{display:grid;grid-template-columns:90px 1fr;gap:0.75rem;align-items:baseline;}
+  .d-speaker{font-family:var(--mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;padding-top:0.15rem;line-height:1.4;}
+  .d-speaker.daniel{color:var(--accent-dk);}
+  .d-speaker.marta{color:var(--teal);}
+  .d-text{font-family:var(--serif);font-size:0.96rem;color:var(--ink);line-height:1.65;font-style:italic;}
+
+  /* PULLQUOTE */
+  .pullquote{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.65;color:var(--ink);background:var(--paper-warm);border:1px solid var(--border);border-left:4px solid var(--accent);padding:1.4rem 1.75rem;border-radius:0 8px 8px 0;margin:2rem 0;}
+
+  /* PANIC PHASE STAT */
+  .panic-stat{background:var(--ink);border-radius:10px;padding:1.75rem 2rem;margin:2.25rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center;}
+  .ps-num{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:#fff;line-height:1;}
+  .ps-num em{color:var(--accent);font-style:normal;}
+  .ps-label{font-size:0.78rem;color:#9a9590;margin-top:0.4rem;line-height:1.5;font-weight:300;}
+
+  /* WHAT AI IS FOR — DEPARTMENTS */
+  .dept-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.25rem 0;}
+  .dept-cell{background:var(--card);padding:1.2rem 1.4rem;}
+  .dept-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:0.5rem;}
+  .dept-name{font-weight:600;font-size:0.9rem;color:var(--ink);margin-bottom:0.35rem;}
+  .dept-desc{font-size:0.82rem;color:var(--ink-muted);line-height:1.55;}
+
+  /* RESET RULES */
+  .reset-card{background:var(--paper-warm);border:1px solid var(--border);border-radius:10px;padding:1.6rem 1.75rem;margin:2.25rem 0;}
+  .reset-title{font-family:var(--mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:1rem;}
+  .reset-list{display:flex;flex-direction:column;gap:0.55rem;}
+  .reset-item{display:flex;align-items:baseline;gap:0.65rem;font-size:0.9rem;color:var(--ink-muted);}
+  .reset-item::before{content:'—';color:var(--accent);flex-shrink:0;font-weight:500;}
+  .reset-item strong{color:var(--ink);font-weight:500;}
+
+  /* SIDEBAR */
+  .article-sidebar{position:sticky;top:80px;}
+  .sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:1rem;}
+  .sidebar-label{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-faint);margin-bottom:0.75rem;}
+  .sidebar-card h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;}
+  .sidebar-card p{font-size:0.82rem;color:var(--ink-muted);line-height:1.65;font-weight:300;margin-bottom:1rem;}
+  .btn-fill{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#fff;padding:0.55rem 1.2rem;border-radius:4px;font-size:0.825rem;font-weight:500;text-decoration:none;transition:background 0.18s;}
+  .btn-fill:hover{background:var(--accent-dk);}
+  .sidebar-toc a{display:block;font-size:0.82rem;color:var(--ink-muted);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid var(--border);transition:color 0.16s;}
+  .sidebar-toc a:last-child{border-bottom:none;}
+  .sidebar-toc a:hover{color:var(--accent);}
+
+  .cta-band{background:var(--ink);padding:3.5rem var(--page-pad);}
+  .cta-inner{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .cta-copy h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--paper);letter-spacing:-0.02em;margin-bottom:0.5rem;}
+  .cta-copy p{font-size:0.9rem;color:#9a9590;font-weight:300;line-height:1.7;}
+  footer{background:var(--paper-warm);border-top:1px solid var(--border);padding:2.25rem var(--page-pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+  .foot-brand{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);}
+  .foot-sub{font-size:0.76rem;color:var(--ink-faint);margin-top:0.18rem;font-weight:300;}
+  .foot-links{display:flex;gap:1.4rem;list-style:none;}
+  .foot-links a{font-size:0.8rem;color:var(--ink-muted);text-decoration:none;transition:color 0.18s;}
+  .foot-links a:hover{color:var(--accent);}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.55s,transform 0.55s;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:900px){.article-wrap{grid-template-columns:1fr;gap:0;}.article-sidebar{position:static;margin-top:3rem;}.nav-links{display:none;}.nav-brand{font-size:1.8rem;}.panic-stat{grid-template-columns:1fr 1fr;}.dept-grid{grid-template-columns:1fr;}.cta-inner{flex-direction:column;}.d-line{grid-template-columns:70px 1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<div class="article-wrap">
+  <main>
+    <a class="article-back" href="blog.html">← Back to blog</a>
+
+    <header class="reveal">
+      <div class="article-meta">
+        <span class="meta-tag">AI Adoption</span>
+        <span class="meta-time">May 2026 · 7 min read</span>
+      </div>
+      <h1 class="article-h1">"We spent two years on AI and mostly got anxiety"</h1>
+      <div class="article-h1-sub">The AI Denial Syndrome — a composite portrait of how companies get stuck</div>
+      <p class="article-lede">The tools aren't the issue. They never were. What follows is a conversation that plays out — in one form or another — in almost every company I work with.</p>
+    </header>
+
+    <div class="article-body">
+
+      <div class="author-note reveal">
+        The following is a composite portrait drawn from conversations with C-suite leaders, managers, and business owners navigating failed AI rollouts. Names and details are fictional. The pattern is not.
+      </div>
+
+      <p class="reveal">By the time Daniel Cruz agreed to sit down, he had already done the thing many CEOs do when the AI pressure becomes unbearable: he bought a few software tools, announced an "AI transformation," sent out a motivational email, and hoped the magic would happen.</p>
+
+      <p class="reveal">It did not.</p>
+
+      <p class="reveal">Two years later, he had a pile of subscriptions, a team that had learned to nod politely in meetings while doing absolutely nothing differently, and the unsettling feeling that he had spent real money to build a very expensive illusion.</p>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"I thought I was being proactive. I read the headlines. I saw the competitors. I heard the speeches about productivity. Everyone said AI was the future. So I figured — fine, let's get ahead of it."</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"Turns out, 'getting ahead of it' is not the same thing as 'knowing what the hell you're doing.'"</div>
+        </div>
+      </div>
+
+      <p class="reveal">Enter Marta Velasco, an AI adoption consultant who has made a career walking into situations exactly like this without flinching, gasping, or using the phrase "digital transformation journey" unless she absolutely has to.</p>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"First — you are not the first CEO to buy the future and accidentally receive an anxiety subscription."</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"Second — you did not fail because AI doesn't work. You failed because you tried to install it like a trophy instead of integrating it like a tool."</div>
+        </div>
+      </div>
+
+      <h2 class="reveal">The panic phase</h2>
+
+      <!-- PANIC STATS -->
+      <div class="panic-stat reveal">
+        <div>
+          <div class="ps-num">95<em>%</em></div>
+          <div class="ps-label">of AI projects don't deliver measurable ROI — pressure to act without a plan is the common cause</div>
+        </div>
+        <div>
+          <div class="ps-num">2 yrs</div>
+          <div class="ps-label">The average time companies spend "exploring" AI before addressing the real adoption gap</div>
+        </div>
+        <div>
+          <div class="ps-num">70<em>%</em></div>
+          <div class="ps-label">of employees feel undertrained on the AI tools their company has already bought</div>
+        </div>
+      </div>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"At some point it stopped feeling like innovation and started feeling like a hostage situation. Every article said if we didn't adopt AI fast, we'd be left behind. So I started imagining our competitors as sleek cyborgs and us as a museum gift shop."</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"That's a very common stage."</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"The stage has terrible lighting."</div>
+        </div>
+      </div>
+
+      <p class="reveal">Many companies mistake urgency for strategy. They hear that AI is everywhere and assume the answer is to force it everywhere inside their own company too.</p>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"That's how you end up with a chatbot no one asked for, a workflow nobody trusts, and a finance team quietly returning to spreadsheets like soldiers retreating to a safe trench."</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"That is uncomfortably accurate."</div>
+        </div>
+      </div>
+
+      <h2 class="reveal">Where it went wrong</h2>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"You can't say 'we need AI' any more than you can say 'we need a forklift' and expect that to improve your company by itself. A forklift is great if you have pallets. Less great if you mainly have panic."</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"We definitely had panic."</div>
+        </div>
+      </div>
+
+      <p class="reveal">The truth was that AI had been introduced as a broad promise rather than a targeted assistant. Leadership talked about transformation, but employees heard layoffs. Leadership talked about efficiency, but employees heard surveillance. Leadership talked about innovation, but employees heard: <em>you will now be supervised by a very confident autocomplete feature.</em></p>
+
+      <div class="pullquote">"People are not usually resisting AI because they hate progress. They're resisting because the story around AI has been terrible. If workers think the goal is to replace them, they will protect themselves."</div>
+
+      <h2 class="reveal">What AI is actually for</h2>
+
+      <p class="reveal">So what should AI actually be doing inside a company? Not running the place. Handling the low-value work that stops good people from doing good work.</p>
+
+      <!-- DEPARTMENTS -->
+      <div class="dept-grid reveal">
+        <div class="dept-cell">
+          <div class="dept-label">Operations</div>
+          <div class="dept-name">Sort, summarise, reduce admin</div>
+          <div class="dept-desc">Routing work, summarising documents, eliminating repetitive data entry between systems.</div>
+        </div>
+        <div class="dept-cell">
+          <div class="dept-label">Sales</div>
+          <div class="dept-name">Draft outreach, organise leads</div>
+          <div class="dept-desc">First-draft emails, lead scoring, follow-up sequences — freeing reps for the conversations that actually close.</div>
+        </div>
+        <div class="dept-cell">
+          <div class="dept-label">Finance</div>
+          <div class="dept-name">Invoice handling, pattern spotting</div>
+          <div class="dept-desc">Reconciliation prep, anomaly detection, routine report generation — not replacing the CFO, removing the drudgery.</div>
+        </div>
+        <div class="dept-cell">
+          <div class="dept-label">HR</div>
+          <div class="dept-name">Onboarding, internal FAQs</div>
+          <div class="dept-desc">Answering the same twenty questions every new hire has. Structuring onboarding docs. First-pass policy summaries.</div>
+        </div>
+      </div>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"So I don't need to replace everyone?"</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"No. You need to stop using the word 'replace' like it's a strategy."</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"AI should make good people more effective. If it's only making everyone nervous, then you're not implementing AI. You're performing a group hallucination."</div>
+        </div>
+      </div>
+
+      <h2 class="reveal">The path back</h2>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"What if it's already too late?"</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"Too late for what? For expensive confusion? Maybe. For recovery? Absolutely not."</div>
+        </div>
+      </div>
+
+      <!-- RESET RULES -->
+      <div class="reset-card reveal">
+        <div class="reset-title">The reset — five rules that actually work</div>
+        <div class="reset-list">
+          <div class="reset-item"><strong>Pick one business problem,</strong> not ten. Specificity is the whole point.</div>
+          <div class="reset-item"><strong>Choose one team willing to pilot.</strong> Enthusiasm beats mandate every time.</div>
+          <div class="reset-item"><strong>Define one measurable outcome.</strong> If you can't measure it, you can't claim it worked.</div>
+          <div class="reset-item"><strong>Keep humans in charge of decisions.</strong> AI assists. People decide.</div>
+          <div class="reset-item"><strong>Be honest about what worked and what didn't.</strong> The debrief is half the learning.</div>
+        </div>
+      </div>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker daniel">Daniel</div>
+          <div class="d-text">"I thought AI was supposed to be revolutionary."</div>
+        </div>
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"It is. But most revolutions in business are actually just disciplined improvements wearing a dramatic jacket."</div>
+        </div>
+      </div>
+
+      <div class="dialogue reveal">
+        <div class="d-line">
+          <div class="d-speaker marta">Marta</div>
+          <div class="d-text">"The real choice is whether you want to be the person who uses new tools well, or the person who keeps buying them and hoping the confusion counts as strategy."</div>
+        </div>
+      </div>
+
+      <p class="reveal">By the end of the conversation, Daniel looked less like a man preparing to surrender and more like a man finally willing to stop pretending the problem was the technology.</p>
+
+      <p class="reveal">For the first time in two years, he didn't sound defeated. Just tired. Which, in a situation like this, is almost the beginning of hope.</p>
+
+    </div>
+  </main>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">About the author</div>
+      <h3>Chris Chester</h3>
+      <p>AI Enablement Architect based in Valencia, Spain. I've sat in a lot of conversations that sound like this one. The good news is they almost always have a recoverable path.</p>
+      <a href="contact.html" class="btn-fill">Get in touch →</a>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <nav class="sidebar-toc">
+        <a href="#">The panic phase</a>
+        <a href="#">Where it went wrong</a>
+        <a href="#">What AI is actually for</a>
+        <a href="#">The path back</a>
+      </nav>
+    </div>
+    <div class="sidebar-card" style="background:var(--accent-lt);border-color:var(--accent-lt);">
+      <div class="sidebar-label" style="color:var(--accent-dk);">Sound familiar?</div>
+      <h3>AI Readiness Snapshot</h3>
+      <p>5 questions. A personalised read on where your team is and what the most useful next step looks like.</p>
+      <a href="index.html#chatbot" class="btn-fill">Try it →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-copy">
+      <h2>Recognise your company in this?</h2>
+      <p>Most do. The good news is the path back is shorter than the two years it took to get here. Let's talk.</p>
+    </div>
+    <a href="contact.html" class="btn-fill" style="font-size:0.9rem;padding:0.7rem 1.6rem;">Start the conversation →</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
