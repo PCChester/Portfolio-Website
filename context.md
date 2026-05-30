@@ -39,9 +39,32 @@ A personal portfolio website for Chris Chester to attract employment as an AI Au
 - **index.html** — Hero, 3 service phases, 3 engagement packages, about band, 2 featured frameworks, diagnostic chatbot + AI Readiness mini-report form
 - **about.html** — The Translator narrative, 30-year origin story (Austria → NYC → Germany → World → Valencia), language analogy grid, closing CTA band
 - **projects.html** — 4 portfolio cards in Before/Build/Result format with filter bar
-- **blog.html** — Article grid with topic filter, 6 placeholder articles across AI Adoption / Workflow Automation / AI Training
+- **blog.html** — Article grid with topic filter, 6 live articles linked to their files
 - **contact.html** — Email and LinkedIn cards, no form
-- **es/** — Full Spanish translation of all 5 pages (index, about, projects, blog, contact) with EN/ES language toggle in nav
+- **es/** — Full Spanish translation of all 5 pages with EN/ES language toggle in nav
+- **blog-ai-rollouts.html** — Live article: "Why most AI rollouts fail by week three"
+- **blog-founders-mistake.html** — Live article: "The founder's mistake"
+- **blog-ai-denial-syndrome.html** — Live article: "We spent two years on AI and mostly got anxiety"
+- **blog-ai-project-partner.html** — Live article: "How AI became my project partner"
+- **blog-prompt-literacy.html** — Live article: "Prompt literacy: the skill your team is missing"
+- **blog-workflow-audit.html** — Live article: "What a workflow audit actually looks like"
+
+## Blog Article Features (all 6 articles)
+- Fixed sidebar with: About the author card, In this article TOC, Free resource CTA card
+- Social share strip (X, LinkedIn, Reddit, Bluesky, GitHub) with per-article share URLs
+- Giscus comments section (repo: PCChester/Portfolio-Website, data-repo-id: R_kgDOShyxxQ, data-category-id: DIC_kwDOShyxxc4C-Jhr, mapping: pathname)
+- Footer social icons (X, LinkedIn, Instagram, GitHub, Reddit, Bluesky)
+
+## Social Profiles
+- X: https://x.com/ChrisChes
+- LinkedIn: https://www.linkedin.com/in/peter-christopher-chester-8b262353/
+- Instagram: https://www.instagram.com/christopher_chester4056/
+- GitHub: https://github.com/PCChester
+- Reddit: https://www.reddit.com/user/chrischester2205/
+- Bluesky: https://bsky.app/profile/udou82.bsky.social
+
+## Footer Social Icons
+Added to all 15 pages (5 English, 5 Spanish, 6 blog articles): X, LinkedIn, Instagram, GitHub, Reddit, Bluesky.
 
 ## Chatbot & Form (index.html)
 - Opening question: "What is your team struggling with from an operational standpoint right now?"
@@ -56,6 +79,12 @@ A personal portfolio website for Chris Chester to attract employment as an AI Au
 - Style: editorial, warm, human — not techno or corporate
 - CSS variables used throughout, no framework, no build tools
 
+## Hosting & Deployment
+- Hosted on Netlify (Pro plan) — auto-deploys from GitHub main branch
+- Repo: https://github.com/PCChester/Portfolio-Website
+- Custom domain: pending (looking to buy one)
+- Giscus comments connected to GitHub Discussions on the Portfolio-Website repo
+
 ## Projects Featured
 - **Lead Scout** (COMPLETE) — 5-stage AI pipeline: discover → score → classify → find contact → draft cold email. GitHub: https://github.com/PCChester/Lead-Scout
 - **Bellabeat Case Study** (COMPLETE) — Google Data Analytics capstone. Key finding: compensatory over-exertion pattern → Burnout Prevention feature recommendation. GitHub: https://github.com/PCChester/Bellabeat-Case-Study
@@ -66,6 +95,8 @@ A personal portfolio website for Chris Chester to attract employment as an AI Au
 - Static HTML/CSS/Vanilla JS (site)
 - Python (automation projects)
 - Claude Code as primary build environment
+- Netlify Pro (hosting)
+- Giscus (comments via GitHub Discussions)
 
 ## Progress Log
 - [Session 1] Strategy, tone, target audience discussed; context file system created
@@ -73,9 +104,15 @@ A personal portfolio website for Chris Chester to attract employment as an AI Au
 - [Session 3+] Website built across multiple sessions (index, about, projects, contact)
 - [Session 3+] Brand confirmed: Chris Chester / Teaches AI
 - [Session 3+] Design system established (Lora/DM Sans/DM Mono, warm editorial palette)
-- [Recent] blog.html added with topic filter bar and 6 placeholder articles
+- [Recent] blog.html added with topic filter bar and 6 live articles
 - [Recent] Engagements section added to index.html (3 engagement packages)
 - [Recent] Chatbot reworked: new operational-focus opening question, 4-turn flow, fixed context capture
 - [Recent] AI Readiness form reworked to match chatbot flow (5 steps)
 - [Recent] buildReport() jargon removed — plain language throughout
 - [Recent] Full Spanish translation created in es/ folder with EN/ES nav toggle on all pages
+- [Today] 6 blog article HTML files added to root and wired up in blog.html
+- [Today] Sidebar TOC layout fixed (nav flex override bug)
+- [Today] Social share strip added to all 6 blog articles (X, LinkedIn, Reddit, Bluesky, GitHub)
+- [Today] Giscus comments added to all 6 blog articles
+- [Today] Footer social icons added to all 15 pages
+- [Today] Netlify upgraded to Pro after free tier ran out
