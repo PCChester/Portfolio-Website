@@ -17,26 +17,42 @@ A static site built with plain HTML, CSS, and vanilla JavaScript. No frameworks,
 | `index.html` | Hero, service phases, engagement packages, featured projects, diagnostic chatbot + AI Readiness form |
 | `about.html` | The Translator narrative, 30-year origin story, language-learning analogy, closing CTA |
 | `projects.html` | Four portfolio cards in Before → Build → Result format with filter bar |
-| `blog.html` | Article grid with topic filter pills, placeholder articles across AI Adoption / Workflow Automation / AI Training |
+| `blog.html` | Article grid with topic filter pills, 6 live articles |
 | `contact.html` | Email and LinkedIn cards — no form, no automation |
 | `es/` | Full Spanish translation of all five pages, with EN ↔ ES toggle in every nav |
+| `blog-ai-rollouts.html` | Why most AI rollouts fail by week three |
+| `blog-founders-mistake.html` | The founder's mistake: buying the tool before mapping the problem |
+| `blog-ai-denial-syndrome.html` | We spent two years on AI and mostly got anxiety |
+| `blog-ai-project-partner.html` | How AI became my project partner: a look behind the scenes |
+| `blog-prompt-literacy.html` | Prompt literacy: the skill your team is missing |
+| `blog-workflow-audit.html` | What a workflow audit actually looks like |
+
+---
+
+## Blog articles
+
+Each article has:
+- A sticky sidebar with an author card, in-page TOC, and a free resource CTA
+- A **social share strip** (X, LinkedIn, Reddit, Bluesky, GitHub) with per-article share URLs
+- A **Giscus comments section** powered by GitHub Discussions (repo: PCChester/Portfolio-Website)
+- Footer social icons across all pages
 
 ---
 
 ## The diagnostic chatbot
 
-The homepage includes a working **AI Readiness chatbot**. It's not a gimmick — it's a demonstration of the kind of interaction design I build for clients.
+The homepage includes a working **AI Readiness chatbot** — a demonstration of the kind of interaction design built for clients.
 
 **How it works:**
 
-1. Opens with an operational question: *"What is your team struggling with from an operational standpoint right now?"*
+1. Opens with: *"What is your team struggling with from an operational standpoint right now?"*
 2. Quick-reply buttons cover the most common pain points (call volume, invoice handling, email overload, repetitive admin) — or the visitor types freely
 3. Follows up with four questions: prior AI tool experience, team size, industry, biggest current obstacle
-4. After the final exchange it generates a personalised **AI Readiness Snapshot** — three plain-English paragraphs covering where the team likely sits, the most relevant quick win, and what the path forward typically looks like
+4. Generates a personalised **AI Readiness Snapshot** — three plain-English paragraphs
 
-There is also a parallel **5-step form** for visitors who prefer structured input over conversation. Same questions, same report output.
+There is also a parallel **5-step form** for visitors who prefer structured input. Same questions, same report.
 
-**Important:** the report is generated entirely client-side by a `buildReport()` JavaScript function — no API call, no backend. The chatbot is a UX demonstration, not a live AI integration.
+**Important:** the report is generated entirely client-side by a `buildReport()` JavaScript function — no API call, no backend.
 
 ---
 
@@ -86,9 +102,19 @@ AI adoption is structurally identical. Teams aren't failing because the tools ar
 
 ---
 
+## Tech stack
+
+- HTML5 / CSS3 / Vanilla JS
+- Netlify Pro (hosting, auto-deploys from GitHub main)
+- Giscus (comments via GitHub Discussions)
+- Google Fonts (Lora, DM Sans, DM Mono)
+- No build process, no npm, no framework
+
+---
+
 ## Running locally
 
-No setup required. Clone and open:
+No setup required for most of the site. Clone and open:
 
 ```bash
 git clone https://github.com/PCChester/Portfolio-Website.git
@@ -96,12 +122,19 @@ cd Portfolio-Website
 open index.html
 ```
 
-The Spanish pages are in the `es/` subfolder and work the same way — open `es/index.html` directly or navigate via the ES toggle in any nav bar.
+Note: Giscus comments only work on the live Netlify URL — they won't load from `file://`.
+
+The Spanish pages are in the `es/` subfolder — open `es/index.html` or navigate via the ES toggle in any nav bar.
 
 ---
 
-## Contact
+## Social
 
-- **Email:** [chriscteacher@gmail.com](mailto:chriscteacher@gmail.com)
+- **X:** [x.com/ChrisChes](https://x.com/ChrisChes)
 - **LinkedIn:** [Chris Chester](https://www.linkedin.com/in/peter-christopher-chester-8b262353/)
+- **Instagram:** [christopher_chester4056](https://www.instagram.com/christopher_chester4056/)
+- **GitHub:** [PCChester](https://github.com/PCChester)
+- **Reddit:** [chrischester2205](https://www.reddit.com/user/chrischester2205/)
+- **Bluesky:** [udou82.bsky.social](https://bsky.app/profile/udou82.bsky.social)
+- **Email:** [chriscteacher@gmail.com](mailto:chriscteacher@gmail.com)
 - **Tableau:** [Chris Chester Tableau Public](https://public.tableau.com/app/profile/chris.chester/vizzes)
