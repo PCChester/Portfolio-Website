@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZNZ5H494K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3ZNZ5H494K');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy &amp; Terms — Chris Teaches AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #1c1a16;
+    --ink-muted:  #58534d;
+    --ink-faint:  #9a9590;
+    --paper:      #faf8f3;
+    --paper-warm: #f3ede2;
+    --card:       #ffffff;
+    --accent:     #c05c2b;
+    --accent-lt:  #f0dfd4;
+    --accent-dk:  #8c3d18;
+    --border:     #e0dbd2;
+    --border-mid: #c8c2b6;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+    --mono:  'DM Mono', monospace;
+    --page-max: 1080px;
+    --page-pad: 6%;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--page-pad);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 2.6rem; font-weight: 600;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .nav-brand em { color: var(--accent); font-style: normal; }
+  .nav-brand span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 2px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; color: var(--ink-muted);
+    text-decoration: none; transition: color 0.18s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-chat {
+    background: var(--ink) !important; color: #fff !important;
+    padding: 0.38rem 1rem; border-radius: 4px;
+    font-weight: 500 !important; transition: background 0.18s !important;
+  }
+  .nav-chat:hover { background: var(--accent) !important; }
+
+  /* ── PAGE ── */
+  .page-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4.5rem var(--page-pad) 6rem;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.55rem;
+    margin-bottom: 1.25rem;
+  }
+  .eyebrow::before {
+    content: ''; width: 20px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 600; letter-spacing: -0.025em; line-height: 1.2;
+    color: var(--ink); margin-bottom: 0.5rem;
+  }
+
+  .page-sub {
+    font-size: 0.9rem; color: var(--ink-faint); font-weight: 300;
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--ink); letter-spacing: -0.015em;
+    margin: 2.5rem 0 0.65rem;
+  }
+
+  p {
+    font-size: 0.925rem; color: var(--ink-muted);
+    line-height: 1.85; font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  p strong { color: var(--ink); font-weight: 500; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  ul {
+    margin: 0.5rem 0 1rem 1.25rem;
+    font-size: 0.925rem; color: var(--ink-muted);
+    line-height: 1.85; font-weight: 300;
+  }
+
+  hr {
+    border: none; border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--paper-warm); border-top: 1px solid var(--border);
+    padding: 2.25rem var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+  .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
+  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
+  .foot-links a:hover { color: var(--accent); }
+
+  @media (max-width: 840px) {
+    :root { --page-pad: 5%; }
+    .nav-links { display: none; }
+    .nav-brand { font-size: 1.8rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
+  </ul>
+</nav>
+
+<!-- CONTENT -->
+<div class="page-wrap">
+  <div class="eyebrow">Legal</div>
+  <h1>Privacy &amp; Terms</h1>
+  <p class="page-sub">Last updated: May 2026</p>
+
+  <p>This site is operated by Chris Chester, trading as Chris Teaches AI, based in Valencia, Spain. It is a personal portfolio and professional services site. This page explains what data is collected when you visit, how it is used, and your rights.</p>
+
+  <hr>
+
+  <h2>What data is collected</h2>
+
+  <p><strong>Google Analytics (GA4)</strong><br>
+  This site uses Google Analytics to understand how visitors find and use it. GA4 collects anonymised data — pages visited, time spent, general location (country/city level), device type, and referral source. No personally identifiable information is collected by Analytics. Google's privacy policy applies to data processed by GA4.</p>
+
+  <p><strong>Giscus comments</strong><br>
+  The blog uses Giscus for comments, which is powered by GitHub Discussions. If you leave a comment, you must be logged into GitHub — your GitHub username and comment are stored publicly in the Portfolio-Website repository's Discussions. GitHub's privacy policy governs that data. I have no access to your GitHub account beyond what you post publicly.</p>
+
+  <p><strong>Contact emails</strong><br>
+  If you email me directly at <a href="mailto:chriscteacher@gmail.com">chriscteacher@gmail.com</a>, your email address and message are stored in my email inbox. They are not shared with any third party, not added to any mailing list, and deleted on request.</p>
+
+  <p><strong>No contact form</strong><br>
+  This site does not have a contact form, so no form submission data is collected or stored on any server.</p>
+
+  <hr>
+
+  <h2>Cookies</h2>
+
+  <p>Google Analytics sets cookies on your device to track sessions and distinguish users. These are analytics cookies only — no advertising or tracking cookies are used on this site. You can opt out of Google Analytics across all sites using <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google's opt-out browser add-on</a>.</p>
+
+  <hr>
+
+  <h2>Your rights (GDPR)</h2>
+
+  <p>If you are based in the EU or UK, you have rights under GDPR including the right to access, correct, or request deletion of any personal data I hold about you. Since this site collects very little personal data, in practice this means:</p>
+
+  <ul>
+    <li>You can ask me to delete any emails you have sent me.</li>
+    <li>You can delete your own Giscus comments via GitHub Discussions.</li>
+    <li>You can opt out of GA4 analytics using the Google opt-out tool above.</li>
+  </ul>
+
+  <p>To exercise any of these rights, email <a href="mailto:chriscteacher@gmail.com">chriscteacher@gmail.com</a>.</p>
+
+  <hr>
+
+  <h2>Terms of use</h2>
+
+  <p>The content on this site — articles, project descriptions, copy — is the work of Chris Chester. You are welcome to quote or reference it with attribution. Reproducing it in full without permission is not permitted.</p>
+
+  <p>The code for this site is available on <a href="https://github.com/PCChester/Portfolio-Website" target="_blank" rel="noopener">GitHub</a>. You are welcome to learn from it. Please do not clone it wholesale and present it as your own.</p>
+
+  <p>This site is provided as-is. While I do my best to keep it accurate and up to date, I make no guarantees about the completeness or reliability of its content.</p>
+
+  <hr>
+
+  <h2>Changes to this policy</h2>
+
+  <p>If this policy changes significantly, the "last updated" date at the top will reflect that. For minor changes, no notice will be given beyond updating this page.</p>
+
+  <p>Questions? Email <a href="mailto:chriscteacher@gmail.com">chriscteacher@gmail.com</a>.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<div style="background:var(--paper-warm);border-top:1px solid var(--border);padding:0.65rem var(--page-pad);display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:0.62rem;color:#9a9590;letter-spacing:0.05em;">
+  <span>© 2026 Chris Chester. All rights reserved.</span>
+  <a href="privacy.html" style="color:#9a9590;text-decoration:none;">Privacy &amp; Terms</a>
+</div>
+
+</body>
+</html>
