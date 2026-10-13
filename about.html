@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Chris Chester</title>
+<meta name="description" content="Thirty years of communication and leadership training, now including AI adoption — meet Chris Chester, based in Valencia, Spain.">
+<link rel="canonical" href="https://chrischesterconsulting.com/about.html">
+<meta property="og:title" content="About — Chris Chester">
+<meta property="og:description" content="Thirty years of communication and leadership training, now including AI adoption — meet Chris Chester, based in Valencia, Spain.">
+<meta property="og:url" content="https://chrischesterconsulting.com/about.html">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -62,6 +68,9 @@
     font-size: 0.6rem; font-weight: 400;
     letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--ink-faint); margin-top: 2px;
+  }
+  @media (max-width: 768px) {
+    .nav-brand span { display: none; }
   }
   .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -191,6 +200,9 @@
   }
   .body-text:last-child { margin-bottom: 0; }
 
+  .text-link { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .text-link:hover { text-decoration: underline; }
+
   /* ── TIMELINE ── */
   .timeline {
     margin: 2rem 0 0;
@@ -263,6 +275,7 @@
     overflow: hidden; margin: 1.75rem 0;
   }
 
+  .analogy-grid-4 { grid-template-columns: repeat(2, 1fr); }
   .analogy-card { background: var(--card); padding: 1.4rem 1.25rem; }
 
   .analogy-stage {
@@ -348,7 +361,7 @@
   }
   .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
   .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
-  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 1.4rem; list-style: none; }
   .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
   .foot-links a:hover { color: var(--accent); }
   .foot-social{display:flex;gap:0.85rem;align-items:center;}
@@ -372,21 +385,79 @@
   /* ── REVEAL ── */
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
   .reveal.in { opacity: 1; transform: none; }
+
+  /* ── COURSES DROPDOWN ── */
+  .nav-dd { position: relative; display: flex; align-items: center; height: 60px; }
+  .nav-dd > a::after { content: ' ▾'; font-size: 0.7em; color: var(--ink-faint); }
+  .nav-dd-menu {
+    display: none; position: absolute; top: 100%; left: -1rem; min-width: 250px;
+    list-style: none; background: var(--card, #fff); border: 1px solid var(--border);
+    border-radius: 6px; padding: 0.45rem 0; box-shadow: 0 10px 28px rgba(28,26,22,0.09); z-index: 120;
+  }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu a {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.55rem 1rem; font-size: 0.85rem; color: var(--ink-muted); text-decoration: none; white-space: nowrap;
+  }
+  .nav-dd-menu a:hover { background: var(--paper-warm); color: var(--ink); }
+  .nav-soon {
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--teal); background: var(--teal-lt); border-radius: 3px; padding: 0.12rem 0.45rem;
+  }
+
+  /* ── PHONE MENU ── */
+  .nav-toggle { display: none; background: none; border: 0; padding: 0.4rem; margin-right: -0.4rem; cursor: pointer; color: var(--ink); }
+  .nav-toggle svg { width: 26px; height: 26px; display: block; }
+  .nav-toggle .i-close { display: none; }
+  @media (max-width: 840px) {
+    .nav-toggle { display: inline-flex; }
+    nav.nav-open .nav-toggle .i-open { display: none; }
+    nav.nav-open .nav-toggle .i-close { display: block; }
+    nav.nav-open .nav-links {
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      box-shadow: 0 14px 30px rgba(28,26,22,0.10);
+      padding: 0.25rem var(--page-pad) 1.25rem;
+      max-height: calc(100vh - 60px); overflow-y: auto;
+    }
+    nav.nav-open .nav-links > li > a:not(.nav-chat):not(.nav-lang) {
+      display: block; padding: 0.85rem 0; font-size: 1rem; color: var(--ink);
+      border-bottom: 1px solid var(--border);
+    }
+    nav.nav-open .nav-dd { display: block; height: auto; }
+    nav.nav-open .nav-dd > a::after { content: ''; }
+    nav.nav-open .nav-dd-menu {
+      display: block; position: static; min-width: 0; box-shadow: none; border: 0;
+      border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; padding: 0.25rem 0 0.5rem 1rem;
+    }
+    nav.nav-open .nav-dd-menu a { padding: 0.5rem 0; font-size: 0.92rem; }
+    nav.nav-open .nav-links .nav-chat { display: block; text-align: center; margin-top: 1rem; padding: 0.75rem 1rem; }
+    nav.nav-open .nav-links .nav-lang { display: inline-block; margin-top: 0.9rem; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
-  <ul class="nav-links">
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Communication &amp; Leadership Training</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-open="Open menu" data-close="Close menu"><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <ul class="nav-links" id="site-menu">
     <li><a href="index.html">Home</a></li>
+    <li class="nav-dd"><a href="courses.html">Courses</a>
+    <ul class="nav-dd-menu">
+      <li><a href="courses.html#communication">Communication</a></li>
+      <li><a href="courses.html#leadership">Leadership and executive</a></li>
+      <li><a href="courses.html#ai-adoption">AI adoption</a></li>
+      <li><a href="courses.html#data-storytelling">Data storytelling</a></li>
+    </ul>
+    </li>
     <li><a href="about.html" class="active">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="recent-work.html">Recent work</a></li>
     <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
-    <li><a href="es/about.html" class="nav-lang">ES</a></li>
   </ul>
 </nav>
 
@@ -395,20 +466,9 @@
   <div class="about-hero reveal">
 
     <div>
-      <div class="eyebrow">About Chris Chester</div>
-      <h1 class="about-h1">
-        AI is the most powerful tool most teams have ever been given.<br>
-        <em>Nobody showed them how to use it.</em>
-      </h1>
-      <div class="stat-callout" style="margin: 1.75rem 0;">
-        <div class="stat-big">5%</div>
-        <div class="stat-context">
-          That's the share of generative AI projects that deliver measurable business impact, according to MIT's 2025 State of AI in Business report — based on 150 executive interviews, 350 employee surveys, and 300 public AI deployments. The technology isn't the problem. The people surrounding it are.
-          <cite class="stat-cite">MIT Project NANDA · State of AI in Business, 2025</cite>
-        </div>
-      </div>
+      <h1 class="about-h1">I've spent thirty years on one problem: helping people be understood when it matters.</h1>
       <p class="about-lead">
-        The other 95% didn't fail because AI isn't remarkable — it is. They stalled because teams were handed something extraordinary and left to figure it out alone. Closing that gap is what I do.
+        Austria in 1995, two years in New York, nine in Germany, four years teaching people to breathe underwater across five continents, and Valencia since 2013. The subject has changed — English, then corporate communication, then leadership, and now AI adoption. The underlying work hasn't moved an inch.
       </p>
     </div>
 
@@ -421,7 +481,6 @@
     <div class="about-section-inner reveal">
 
       <div class="section-label-col">
-        <div class="sec-tag">The origin</div>
         <h2 class="sec-title">Thirty years of crossing borders</h2>
       </div>
 
@@ -454,7 +513,7 @@
           <div class="tl-item highlight">
             <div class="tl-year">2013 – Present</div>
             <div class="tl-place">Valencia, Spain</div>
-            <div class="tl-desc">Returned to language and corporate communication training, and began building AI automation workflows. Noticed the same pattern everywhere: great tools, untrained teams. Decided to be the person who fixes that.</div>
+            <div class="tl-desc">Returned to corporate communication and leadership training, and built a catalogue of programmes for executives and cross-cultural teams. Added AI adoption training as the tools arrived and the same pattern reappeared: capable people, no one teaching them how to use what they'd been handed.</div>
           </div>
         </div>
 
@@ -482,36 +541,77 @@
   </div>
 </section>
 
+<!-- CATALOGUE -->
+<section class="about-section" id="catalogue">
+  <div class="page-wrap">
+    <div class="about-section-inner reveal">
+
+      <div class="section-label-col">
+        <h2 class="sec-title">Four families of programme</h2>
+      </div>
+
+      <div>
+        <p class="body-text">
+          The catalogue splits into four groups. Most engagements draw from more than one.
+        </p>
+
+        <div class="analogy-grid analogy-grid-4">
+          <div class="analogy-card">
+            <div class="analogy-lang">Communication</div>
+            <div class="analogy-ai">Presenting for decisions, persuasion and difficult conversations, client and stakeholder communication, strategy, reputation and crisis communication.</div>
+          </div>
+          <div class="analogy-card">
+            <div class="analogy-lang">Leadership and executive</div>
+            <div class="analogy-ai">Message discipline for executives and leaders, leading teams that hand work to AI, and turning internal experts into trainers.</div>
+          </div>
+          <div class="analogy-card">
+            <div class="analogy-lang">AI adoption</div>
+            <div class="analogy-ai">Briefing AI well and checking what it produces, finding the work worth handing to AI, and building internal AI champions.</div>
+          </div>
+          <div class="analogy-card">
+            <div class="analogy-lang">Data storytelling</div>
+            <div class="analogy-ai">Presenting analysis to decision-makers, and writing reports and dashboards that people understand and act on.</div>
+          </div>
+        </div>
+
+        <p class="body-text">
+          Delivered in English, in-house or online. Outlines and training material available upon request. <a href="courses.html" class="text-link">Browse the catalogue →</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- LANGUAGE ANALOGY -->
 <section class="about-section" id="approach">
   <div class="page-wrap">
     <div class="about-section-inner reveal">
 
       <div class="section-label-col">
-        <div class="sec-tag">Why this matters now</div>
-        <h2 class="sec-title">Learning AI is like learning a language</h2>
+        <h2 class="sec-title">Every skill under pressure is a language</h2>
       </div>
 
       <div>
         <p class="body-text">
-          I've spent three decades helping people move through the same learning curve — whether the subject was English grammar, a pressure gauge 20 metres underwater, or a boardroom presentation in a second language. The progression is always the same.
+          I've spent three decades helping people move through the same learning curve — whether the subject was English grammar, a pressure gauge 20 metres underwater, a boardroom presentation in a second language, a negotiation that could go either way, or a difficult conversation with someone who reports to you. Learning to use an AI tool well follows the identical curve. The progression is always the same.
         </p>
 
         <div class="analogy-grid">
           <div class="analogy-card">
             <div class="analogy-stage">Stage 1</div>
             <div class="analogy-lang">Vocabulary</div>
-            <div class="analogy-ai">What is this tool? What do these terms mean? Why does it sometimes give me nonsense?</div>
+            <div class="analogy-ai">What's the structure of a good argument? What do these negotiation terms mean? Why does this AI prompt keep giving me nonsense?</div>
           </div>
           <div class="analogy-card">
             <div class="analogy-stage">Stage 2</div>
             <div class="analogy-lang">Grammar</div>
-            <div class="analogy-ai">How do I structure a prompt to get useful output? What does context actually change?</div>
+            <div class="analogy-ai">How do I sequence a difficult message so it lands? How do I structure a prompt to get useful output?</div>
           </div>
           <div class="analogy-card">
             <div class="analogy-stage">Stage 3</div>
             <div class="analogy-lang">Fluency</div>
-            <div class="analogy-ai">The tool stops feeling like a chore and becomes how you work. You stop noticing you're using it.</div>
+            <div class="analogy-ai">The presentation, the hard conversation, the tool — none of it feels rehearsed any more. You stop noticing you're doing it.</div>
           </div>
         </div>
 
@@ -522,31 +622,39 @@
         <blockquote class="pullquote">
           "I spent 30 years teaching humans to communicate with each other. Now I teach humans and machines to work together."
         </blockquote>
+
+        <p class="body-text">
+          The AI strand exists because of one number: the technology works, the enablement around it doesn't.
+        </p>
+
+        <div class="stat-callout" style="margin: 1.75rem 0;">
+          <div class="stat-big">5%</div>
+          <div class="stat-context">
+            That's the share of generative AI projects that deliver measurable business impact, according to MIT's 2025 State of AI in Business report — based on 150 executive interviews, 350 employee surveys, and 300 public AI deployments. The technology isn't the problem. The people surrounding it are.
+            <cite class="stat-cite">MIT Project NANDA · State of AI in Business, 2025</cite>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- THE GAP -->
-<section class="about-section" id="gap" style="border-bottom: none;">
+<!-- WORKING TOGETHER -->
+<section class="about-section" id="working-together" style="border-bottom: none;">
   <div class="page-wrap">
     <div class="about-section-inner reveal">
 
       <div class="section-label-col">
-        <div class="sec-tag">Who I work with</div>
-        <h2 class="sec-title">The gap I work in</h2>
+        <h2 class="sec-title">How it works</h2>
       </div>
 
       <div>
         <p class="body-text">
-          I'm most useful to teams that are mid-adoption: past the decision to use AI, but not yet getting consistent value from it. The tool exists. The team hasn't embraced it. That's where I come in.
+          Programmes are built around the meetings and decisions your people are actually having — not generic case studies. Most start with a short conversation about where things are currently costing you time.
         </p>
         <p class="body-text">
-          I don't just build the workflow — I stay until the team knows how to use it, adapt it, and trust it. Because that's when the ROI actually shows up.
-        </p>
-        <p class="body-text">
-          If that sounds like what you need, let's talk.
+          Each course runs in a 2, 3 or 5 day format, in-house or online, for groups of up to 12.
         </p>
       </div>
 
@@ -558,12 +666,11 @@
 <div class="closing-band">
   <div class="closing-inner reveal">
     <div>
-      <h2 class="closing-headline">Ready to close the gap?</h2>
-      <p class="closing-sub">Whether you need an audit, a build, or just a conversation about where your team is stuck — I'm easy to reach and straight to the point.</p>
+      <h2 class="closing-headline">Ready to talk?</h2>
+      <p class="closing-sub">If you have a team that needs to communicate better, I'm easy to reach and straight to the point.</p>
     </div>
     <div class="closing-actions">
-      <a href="index.html#chatbot" class="btn-fill">Start the conversation →</a>
-      <a href="index.html#engagements" class="btn-outline-light">See how it works →</a>
+      <a href="contact.html" class="btn-fill">Start a conversation →</a>
     </div>
   </div>
 </div>
@@ -572,14 +679,16 @@
 <footer>
   <div>
     <div class="foot-brand">Chris Chester</div>
-    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+    <div class="foot-sub">Communication &amp; Leadership Training · Valencia, Spain</div>
   </div>
     <ul class="foot-links">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="recent-work.html">Recent work</a></li>
     <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="faq.html#training-providers">Training providers</a></li>
   </ul>
   <div class="foot-social">
     <a href="https://x.com/ChrisChes" target="_blank" rel="noopener" title="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -603,6 +712,20 @@ const ro = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.07 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+<script>
+(function () {
+  var nav = document.querySelector('nav'), btn = nav && nav.querySelector('.nav-toggle');
+  if (!btn) return;
+  function set(open) {
+    nav.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? btn.dataset.close : btn.dataset.open);
+  }
+  btn.addEventListener('click', function () { set(!nav.classList.contains('nav-open')); });
+  nav.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();
 </script>
 </body>
 </html>

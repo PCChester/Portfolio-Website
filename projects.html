@@ -75,6 +75,9 @@
     letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--ink-faint); margin-top: 2px;
   }
+  @media (max-width: 768px) {
+    .nav-brand span { display: none; }
+  }
   .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.875rem; color: var(--ink-muted);
@@ -321,7 +324,7 @@
   }
   .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
   .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
-  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 1.4rem; list-style: none; }
   .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
   .foot-links a:hover { color: var(--accent); }
   .foot-social{display:flex;gap:0.85rem;align-items:center;}
@@ -344,28 +347,85 @@
   /* ── REVEAL ── */
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
   .reveal.in { opacity: 1; transform: none; }
+
+  /* ── COURSES DROPDOWN ── */
+  .nav-dd { position: relative; display: flex; align-items: center; height: 60px; }
+  .nav-dd > a::after { content: ' ▾'; font-size: 0.7em; color: var(--ink-faint); }
+  .nav-dd-menu {
+    display: none; position: absolute; top: 100%; left: -1rem; min-width: 250px;
+    list-style: none; background: var(--card, #fff); border: 1px solid var(--border);
+    border-radius: 6px; padding: 0.45rem 0; box-shadow: 0 10px 28px rgba(28,26,22,0.09); z-index: 120;
+  }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu a {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.55rem 1rem; font-size: 0.85rem; color: var(--ink-muted); text-decoration: none; white-space: nowrap;
+  }
+  .nav-dd-menu a:hover { background: var(--paper-warm); color: var(--ink); }
+  .nav-soon {
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--teal); background: var(--teal-lt); border-radius: 3px; padding: 0.12rem 0.45rem;
+  }
+
+  /* ── PHONE MENU ── */
+  .nav-toggle { display: none; background: none; border: 0; padding: 0.4rem; margin-right: -0.4rem; cursor: pointer; color: var(--ink); }
+  .nav-toggle svg { width: 26px; height: 26px; display: block; }
+  .nav-toggle .i-close { display: none; }
+  @media (max-width: 840px) {
+    .nav-toggle { display: inline-flex; }
+    nav.nav-open .nav-toggle .i-open { display: none; }
+    nav.nav-open .nav-toggle .i-close { display: block; }
+    nav.nav-open .nav-links {
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      box-shadow: 0 14px 30px rgba(28,26,22,0.10);
+      padding: 0.25rem var(--page-pad) 1.25rem;
+      max-height: calc(100vh - 60px); overflow-y: auto;
+    }
+    nav.nav-open .nav-links > li > a:not(.nav-chat):not(.nav-lang) {
+      display: block; padding: 0.85rem 0; font-size: 1rem; color: var(--ink);
+      border-bottom: 1px solid var(--border);
+    }
+    nav.nav-open .nav-dd { display: block; height: auto; }
+    nav.nav-open .nav-dd > a::after { content: ''; }
+    nav.nav-open .nav-dd-menu {
+      display: block; position: static; min-width: 0; box-shadow: none; border: 0;
+      border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; padding: 0.25rem 0 0.5rem 1rem;
+    }
+    nav.nav-open .nav-dd-menu a { padding: 0.5rem 0; font-size: 0.92rem; }
+    nav.nav-open .nav-links .nav-chat { display: block; text-align: center; margin-top: 1rem; padding: 0.75rem 1rem; }
+    nav.nav-open .nav-links .nav-lang { display: inline-block; margin-top: 0.9rem; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
-  <ul class="nav-links">
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Communication &amp; Leadership Training</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-open="Open menu" data-close="Close menu"><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <ul class="nav-links" id="site-menu">
     <li><a href="index.html">Home</a></li>
+    <li class="nav-dd"><a href="courses.html">Courses</a>
+    <ul class="nav-dd-menu">
+      <li><a href="courses.html#communication">Communication</a></li>
+      <li><a href="courses.html#leadership">Leadership and executive</a></li>
+      <li><a href="courses.html#ai-adoption">AI adoption</a></li>
+      <li><a href="courses.html#data-storytelling">Data storytelling</a></li>
+    </ul>
+    </li>
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
     <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="index.html#chatbot" class="nav-chat">Let's chat ↓</a></li>
-    <li><a href="es/projects.html" class="nav-lang">ES</a></li>
   </ul>
 </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner reveal">
-    <div class="eyebrow">Selected work</div>
     <h1 class="page-title">Four projects. Two hats. One point to prove.</h1>
     <p class="page-sub">Each project here started as a real problem. These aren't exercises — they're working tools that demonstrate the full method: understand the problem, build the solution, hand it over so someone can use it. The GitHub is open.</p>
   </div>
@@ -587,14 +647,16 @@
 <footer>
   <div>
     <div class="foot-brand">Chris Chester</div>
-    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+    <div class="foot-sub">Communication &amp; Leadership Training · Valencia, Spain</div>
   </div>
     <ul class="foot-links">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="faq.html#training-providers">Training providers</a></li>
   </ul>
   <div class="foot-social">
     <a href="https://x.com/ChrisChes" target="_blank" rel="noopener" title="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -634,6 +696,20 @@ const ro = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.07 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+<script>
+(function () {
+  var nav = document.querySelector('nav'), btn = nav && nav.querySelector('.nav-toggle');
+  if (!btn) return;
+  function set(open) {
+    nav.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? btn.dataset.close : btn.dataset.open);
+  }
+  btn.addEventListener('click', function () { set(!nav.classList.contains('nav-open')); });
+  nav.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();
 </script>
 </body>
 </html>

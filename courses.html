@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZNZ5H494K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3ZNZ5H494K');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses — Chris Chester</title>
+<meta name="description" content="Communication, leadership, AI adoption and data storytelling courses for organisations. In-house or online, in English, for groups of up to 12.">
+<link rel="canonical" href="https://chrischesterconsulting.com/courses.html">
+<meta property="og:title" content="Courses — Chris Chester">
+<meta property="og:description" content="Communication, leadership, AI adoption and data storytelling courses for organisations. In-house or online, in English, for groups of up to 12.">
+<meta property="og:url" content="https://chrischesterconsulting.com/courses.html">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root {
+    --ink:        #1c1a16;
+    --ink-muted:  #58534d;
+    --ink-faint:  #9a9590;
+    --paper:      #faf8f3;
+    --paper-warm: #f3ede2;
+    --card:       #ffffff;
+    --accent:     #c05c2b;
+    --accent-lt:  #f0dfd4;
+    --accent-dk:  #8c3d18;
+    --teal:       #2a7a6a;
+    --teal-lt:    #d0ebe7;
+    --border:     #e0dbd2;
+    --border-mid: #c8c2b6;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+    --mono:  'DM Mono', monospace;
+    --page-max: 1080px;
+    --page-pad: 6%;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--page-pad);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 2.6rem; font-weight: 600;
+    color: var(--ink); text-decoration: none; letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .nav-brand em { color: var(--accent); font-style: normal; }
+  .nav-brand span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 2px;
+  }
+  @media (max-width: 768px) {
+    .nav-brand span { display: none; }
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; color: var(--ink-muted);
+    text-decoration: none; transition: color 0.18s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 500; }
+  .nav-chat {
+    background: var(--ink) !important; color: #fff !important;
+    padding: 0.38rem 1rem; border-radius: 4px;
+    font-weight: 500 !important; transition: background 0.18s !important;
+  }
+  .nav-chat:hover { background: var(--accent) !important; }
+  .nav-lang { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 3px; border: 1px solid var(--border-mid) !important; color: var(--ink-faint) !important; text-decoration: none; }
+  .nav-lang:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
+
+  /* ── PAGE LAYOUT ── */
+  .page-wrap {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+  }
+
+  /* ── OPENING HERO ── */
+  .about-hero {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    max-width: 680px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.55rem;
+    margin-bottom: 1.4rem;
+  }
+  .eyebrow::before {
+    content: ''; width: 20px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+
+  .about-h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 600; line-height: 1.22;
+    letter-spacing: -0.025em; color: var(--ink);
+  }
+  .about-h1 em {
+    display: block;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    color: var(--ink-muted); font-style: italic; font-weight: 300;
+    margin-top: 0.5rem; letter-spacing: -0.01em; line-height: 1.4;
+  }
+
+  /* Stat callout */
+  .stat-callout {
+    background: var(--ink);
+    border-radius: 10px;
+    padding: 2rem;
+    color: var(--paper);
+    display: flex; gap: 1.5rem; align-items: flex-start;
+  }
+
+  .stat-big {
+    font-family: var(--serif);
+    font-size: 3.8rem; font-weight: 600; line-height: 1;
+    color: var(--accent); flex-shrink: 0; letter-spacing: -0.03em;
+  }
+
+  .stat-context {
+    font-size: 0.875rem; line-height: 1.75; color: #b0a89e; font-weight: 300;
+  }
+
+  .stat-cite {
+    display: block; margin-top: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.62rem; letter-spacing: 0.06em; color: #6a6460;
+    text-transform: uppercase;
+  }
+
+  /* Lead paragraph */
+  .about-lead {
+    font-size: 1rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.85; margin-top: 1.75rem;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* ── SECTION ── */
+  .about-section {
+    padding: 4.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-section-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .section-label-col { padding-top: 0.25rem; }
+
+  .sec-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent); margin-bottom: 0.6rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .sec-tag::before { content: ''; width: 14px; height: 1px; background: var(--accent); }
+
+  .sec-title {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .body-text {
+    font-size: 0.95rem; color: var(--ink-muted); font-weight: 300;
+    line-height: 1.85; margin-bottom: 1.25rem;
+  }
+  .body-text:last-child { margin-bottom: 0; }
+
+  .text-link { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .text-link:hover { text-decoration: underline; }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    margin: 2rem 0 0;
+    border-left: 1.5px solid var(--border-mid);
+    padding-left: 2rem;
+    display: flex; flex-direction: column; gap: 1.75rem;
+  }
+
+  .tl-item { position: relative; }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -2.45rem; top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--border-mid);
+    border: 2px solid var(--paper);
+    outline: 1.5px solid var(--border-mid);
+  }
+
+  .tl-item.highlight::before { background: var(--accent); outline-color: var(--accent); }
+
+  .tl-year {
+    font-family: var(--mono);
+    font-size: 0.62rem; letter-spacing: 0.08em;
+    color: var(--ink-faint); margin-bottom: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .tl-place {
+    font-family: var(--serif);
+    font-size: 1rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .tl-desc {
+    font-size: 0.875rem; color: var(--ink-muted); line-height: 1.7; font-weight: 300;
+  }
+
+  /* ── STAT CARDS ── */
+  .stat-cards {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; margin-top: 2.5rem;
+  }
+
+  .stat-card {
+    background: var(--paper-warm); padding: 1.25rem 1.1rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif); font-size: 2rem; font-weight: 600;
+    color: var(--ink); letter-spacing: -0.03em; line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-num em { color: var(--accent); font-style: normal; }
+
+  .stat-lbl {
+    font-size: 0.72rem; color: var(--ink-faint); font-weight: 300; line-height: 1.5;
+  }
+
+  /* ── ANALOGY GRID ── */
+  .analogy-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; margin: 1.75rem 0;
+  }
+
+  .analogy-card { background: var(--card); padding: 1.4rem 1.25rem; }
+
+  .analogy-stage {
+    font-family: var(--mono);
+    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-faint); margin-bottom: 0.5rem;
+  }
+
+  .analogy-lang {
+    font-family: var(--serif);
+    font-size: 1rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .analogy-ai {
+    font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; font-weight: 300;
+  }
+
+  /* ── PULLQUOTE ── */
+  .pullquote {
+    border-left: 2px solid var(--accent);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2rem 0;
+    font-family: var(--serif);
+    font-size: 1.15rem; font-style: italic; line-height: 1.6;
+    color: var(--ink);
+  }
+
+  /* ── CLOSING CTA ── */
+  .closing-band {
+    background: var(--ink); color: var(--paper);
+    padding: 4.5rem 0;
+  }
+
+  .closing-inner {
+    max-width: var(--page-max);
+    margin: 0 auto; padding: 0 var(--page-pad);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+
+  .closing-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    font-weight: 600; line-height: 1.25;
+    letter-spacing: -0.02em; color: var(--paper);
+    margin-bottom: 1rem;
+  }
+
+  .closing-sub {
+    font-size: 0.925rem; color: #9a9590; font-weight: 300; line-height: 1.8;
+  }
+
+  .closing-actions {
+    display: flex; flex-direction: column; gap: 1rem; justify-content: center;
+  }
+
+  .btn-fill {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--accent); color: #fff;
+    padding: 0.8rem 1.75rem; border-radius: 4px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: background 0.18s, transform 0.12s;
+  }
+  .btn-fill:hover { background: var(--accent-dk); transform: translateY(-1px); }
+
+  .btn-outline-light {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: transparent; color: #9a9590;
+    padding: 0.78rem 1.75rem; border-radius: 4px;
+    border: 1px solid #3a3830;
+    font-size: 0.9rem; font-weight: 400; text-decoration: none;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .btn-outline-light:hover { border-color: #6a6460; color: var(--paper); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--paper-warm); border-top: 1px solid var(--border);
+    padding: 2.25rem var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+  .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 1.4rem; list-style: none; }
+  .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
+  .foot-links a:hover { color: var(--accent); }
+  .foot-social{display:flex;gap:0.85rem;align-items:center;}
+  .foot-social a{color:var(--ink-faint);text-decoration:none;display:inline-flex;transition:color 0.18s;}
+  .foot-social a:hover{color:var(--accent);}
+  .foot-social svg{width:14px;height:14px;}
+
+
+
+  /* ── COURSES PAGE ── */
+  .courses-hero { max-width: 760px; }
+  .family-jump { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .family-jump a {
+    display: inline-block; font-size: 0.85rem; text-decoration: none;
+    color: var(--ink-muted); border: 1px solid var(--border-mid); border-radius: 3px;
+    padding: 0.4rem 0.75rem; transition: border-color 0.18s, color 0.18s;
+  }
+  .family-jump a:hover { border-color: var(--accent); color: var(--accent); }
+  .course-family { padding: 4.5rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 60px; }
+  .family-head { max-width: 640px; margin-bottom: 2.25rem; }
+  .family-head .sec-title { margin-bottom: 0.75rem; }
+  .course-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .course-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1.75rem 1.6rem 1.5rem; display: flex; flex-direction: column;
+  }
+  .course-title {
+    font-family: var(--serif); font-size: 1.2rem; font-weight: 600;
+    letter-spacing: -0.015em; line-height: 1.3; color: var(--ink);
+  }
+  .course-promise {
+    font-family: var(--serif); font-style: italic; font-size: 0.95rem;
+    color: var(--ink-muted); line-height: 1.6; margin: 0.5rem 0 1.25rem;
+  }
+  .course-label {
+    font-size: 0.82rem; font-weight: 500; color: var(--ink); margin: 1.1rem 0 0.3rem;
+  }
+  .course-text { font-size: 0.875rem; color: var(--ink-muted); font-weight: 300; line-height: 1.7; }
+  .course-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .course-list li {
+    font-size: 0.875rem; color: var(--ink-muted); font-weight: 300; line-height: 1.6;
+    padding-left: 1.1rem; position: relative;
+  }
+  .course-list li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+  .course-foot { margin-top: auto; padding-top: 1.25rem; }
+  .course-format {
+    font-size: 0.8rem; line-height: 1.6;
+    color: var(--ink-muted); border-top: 1px solid var(--border);
+    padding-top: 1rem; margin: 0.5rem 0 0.75rem;
+  }
+  .course-foot .text-link { font-size: 0.85rem; }
+  .course-pending { background: transparent; border-style: dashed; border-color: var(--border-mid); align-self: start; }
+  .course-pending .course-title { margin-bottom: 0.5rem; }
+  .course-wide { max-width: 640px; }
+  .course-badge {
+    align-self: flex-start; font-size: 0.75rem; font-weight: 500; color: var(--teal);
+    background: var(--teal-lt); border-radius: 3px; padding: 0.22rem 0.5rem; margin-bottom: 0.9rem;
+  }
+  .js .course-family.is-collapsed .course-extra { display: none; }
+  .course-more-wrap { display: none; margin-top: 1.5rem; }
+  .js .course-more-wrap { display: block; }
+  .course-more {
+    font-family: var(--sans); font-size: 0.875rem; font-weight: 500; cursor: pointer;
+    background: transparent; color: var(--ink); border: 1px solid var(--border-mid);
+    border-radius: 4px; padding: 0.7rem 1.4rem; transition: border-color 0.18s, color 0.18s;
+  }
+  .course-more:hover { border-color: var(--accent); color: var(--accent); }
+  .family-note { font-size: 0.85rem; color: var(--ink-faint); font-weight: 300; margin-top: 1.5rem; }
+  @media (max-width: 840px) {
+    .course-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 840px) {
+    :root { --page-pad: 5%; }
+    .nav-links { display: none; }
+    .nav-brand { font-size: 1.8rem; }
+    .about-section-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .analogy-grid { grid-template-columns: 1fr; }
+    .stat-cards { grid-template-columns: repeat(2, 1fr); }
+    .closing-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ── COURSES DROPDOWN ── */
+  .nav-dd { position: relative; display: flex; align-items: center; height: 60px; }
+  .nav-dd > a::after { content: ' ▾'; font-size: 0.7em; color: var(--ink-faint); }
+  .nav-dd-menu {
+    display: none; position: absolute; top: 100%; left: -1rem; min-width: 250px;
+    list-style: none; background: var(--card, #fff); border: 1px solid var(--border);
+    border-radius: 6px; padding: 0.45rem 0; box-shadow: 0 10px 28px rgba(28,26,22,0.09); z-index: 120;
+  }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu a {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.55rem 1rem; font-size: 0.85rem; color: var(--ink-muted); text-decoration: none; white-space: nowrap;
+  }
+  .nav-dd-menu a:hover { background: var(--paper-warm); color: var(--ink); }
+  .nav-soon {
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--teal); background: var(--teal-lt); border-radius: 3px; padding: 0.12rem 0.45rem;
+  }
+
+  /* ── PHONE MENU ── */
+  .nav-toggle { display: none; background: none; border: 0; padding: 0.4rem; margin-right: -0.4rem; cursor: pointer; color: var(--ink); }
+  .nav-toggle svg { width: 26px; height: 26px; display: block; }
+  .nav-toggle .i-close { display: none; }
+  @media (max-width: 840px) {
+    .nav-toggle { display: inline-flex; }
+    nav.nav-open .nav-toggle .i-open { display: none; }
+    nav.nav-open .nav-toggle .i-close { display: block; }
+    nav.nav-open .nav-links {
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      box-shadow: 0 14px 30px rgba(28,26,22,0.10);
+      padding: 0.25rem var(--page-pad) 1.25rem;
+      max-height: calc(100vh - 60px); overflow-y: auto;
+    }
+    nav.nav-open .nav-links > li > a:not(.nav-chat):not(.nav-lang) {
+      display: block; padding: 0.85rem 0; font-size: 1rem; color: var(--ink);
+      border-bottom: 1px solid var(--border);
+    }
+    nav.nav-open .nav-dd { display: block; height: auto; }
+    nav.nav-open .nav-dd > a::after { content: ''; }
+    nav.nav-open .nav-dd-menu {
+      display: block; position: static; min-width: 0; box-shadow: none; border: 0;
+      border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; padding: 0.25rem 0 0.5rem 1rem;
+    }
+    nav.nav-open .nav-dd-menu a { padding: 0.5rem 0; font-size: 0.92rem; }
+    nav.nav-open .nav-links .nav-chat { display: block; text-align: center; margin-top: 1rem; padding: 0.75rem 1rem; }
+    nav.nav-open .nav-links .nav-lang { display: inline-block; margin-top: 0.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Communication &amp; Leadership Training</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-open="Open menu" data-close="Close menu"><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <ul class="nav-links" id="site-menu">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dd"><a href="courses.html" class="active">Courses</a>
+    <ul class="nav-dd-menu">
+      <li><a href="courses.html#communication">Communication</a></li>
+      <li><a href="courses.html#leadership">Leadership and executive</a></li>
+      <li><a href="courses.html#ai-adoption">AI adoption</a></li>
+      <li><a href="courses.html#data-storytelling">Data storytelling</a></li>
+    </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="recent-work.html">Recent work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- OPENING HERO -->
+<div class="page-wrap">
+  <div class="about-hero courses-hero reveal">
+    <div>
+      <h1 class="about-h1">Communication, Leadership and AI Adoption courses<em>Built around the presentations, emails, stakeholders and decisions your people already have.</em></h1>
+      <p class="about-lead">
+        Every course works with participants' own material, so what they practise is the work they go back to. Groups of up to 12. Private one-to-one workshops are available in a 2-day format.
+      </p>
+      <ul class="family-jump">
+        <li><a href="#communication">Communication</a></li>
+        <li><a href="#leadership">Leadership and executive</a></li>
+        <li><a href="#ai-adoption">AI adoption</a></li>
+        <li><a href="#data-storytelling">Data storytelling</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNICATION -->
+<section class="course-family is-collapsed" id="communication">
+  <div class="page-wrap">
+    <div class="family-head reveal">
+      <h2 class="sec-title">Communication</h2>
+      <p class="body-text">Two kinds of communication, one family. Corporate communication covers the messages an organisation sends as a whole: strategy, reputation, crisis and stakeholder relations. Business communication covers the work people do every day: presenting, persuading, writing to clients and holding the difficult conversation. Every course incorporates participants&#x27; own materials for real-world practice.</p>
+    </div>
+    <div class="course-grid">
+      <article class="course-card reveal">
+        <h3 class="course-title">Presenting for Decisions</h3>
+        <p class="course-promise">Plan, build and deliver a presentation that ends with a decision.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Managers, project leads and client-facing staff, and the technical, finance and data specialists who present to people outside their field.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Say what they want the audience to decide before they open a slide deck</li>
+          <li>Build the case in three moves (what they&#x27;re saying, what supports it, what follows) and cut the rest</li>
+          <li>Show numbers so a non-specialist reaches the right conclusion</li>
+          <li>Control voice, pace and nerves, in the room and on camera</li>
+          <li>Answer hard questions, and cut twenty minutes to five when asked</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A finished, rehearsed presentation of their own, recorded practice with scored feedback, and a method for building the next one.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card reveal">
+        <h3 class="course-title">Persuasion, Influence and Difficult Conversations</h3>
+        <p class="course-promise">Win agreement, handle conflict and keep the working relationship.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Managers, team and project leads, account managers and senior specialists who need results from people they don&#x27;t manage.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Build a message around what the other person cares about</li>
+          <li>Make a case people remember, with story and evidence in proportion</li>
+          <li>Prepare and hold the conversation they have been putting off</li>
+          <li>Negotiate from interests, and calm things down when it gets heated</li>
+          <li>Adjust their style across cultures, functions and hybrid teams</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A prepared plan for one real conversation from their own work, practised with feedback, and a 90-day plan for the habits they want to change.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card course-extra reveal">
+        <h3 class="course-title">Client Communication: Emails, Reports and Proposals</h3>
+        <p class="course-promise">Everyday business communication that gets a reply, a decision or a signature.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Account, project, procurement and bid teams, client-facing engineers, and anyone whose day runs on email, reports and client calls.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Write emails and requests where the action needed is impossible to miss</li>
+          <li>Put the conclusion first in reports, updates and recommendations</li>
+          <li>Tell a client about a delay, an error or a change of scope and keep the relationship</li>
+          <li>Build proposals, quotations and business cases around what the client is buying</li>
+          <li>Draft faster with AI, and catch what it gets wrong before it goes out</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">Rewritten versions of their own real correspondence, a set of structures and tested wording for the messages they send most, and an AI prompt library.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card course-extra reveal">
+        <h3 class="course-title">Winning and Keeping Stakeholder Commitment</h3>
+        <p class="course-promise">Get the cooperation of people you can&#x27;t instruct, and keep it when the news is bad.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Project and programme managers, communication and public affairs staff, contract and procurement managers, and department heads who answer for an outcome they don&#x27;t fully control.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Map everyone with a stake in a project, including the people nobody listed</li>
+          <li>Ask the questions that show what is really behind a stated position</li>
+          <li>Give technical, executive, regulatory and public audiences the same message in terms each one accepts</li>
+          <li>Make and explain a trade-off when not everyone can be satisfied</li>
+          <li>Deliver a delay, a cost increase or a broken promise and keep the relationship</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A stakeholder map, a message plan, a running record of promises made and kept, and a 90-day engagement plan for a real situation of their own.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card course-extra reveal">
+        <h3 class="course-title">Reputation, Trust and Crisis Communication</h3>
+        <p class="course-promise">Decide who speaks, what gets said and how fast, before the day you need to, practised on a simulated crisis that unfolds through the course.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Communication and corporate affairs leads, and the legal, risk, investor relations, HR and executive colleagues who share responsibility for what the organisation says in public.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Explain what reputation is worth to the business in terms a board accepts</li>
+          <li>Score how ready their own communication function is, and see where it is weak</li>
+          <li>Agree who approves what, and how quickly, when something goes wrong</li>
+          <li>Tell a routine problem from one that can damage the whole organisation, early</li>
+          <li>Respond to deepfakes, forged documents and wrong answers about the company from AI tools</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A readiness score for their own organisation, an approval and escalation plan, and a board-level reputation brief written during the course.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card course-extra reveal">
+        <h3 class="course-title">Getting Strategy Understood</h3>
+        <p class="course-promise">Turn strategy into messages that travel down, up and across the organisation and still mean the same thing.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Directors and department heads, internal communication, HR and change leads, and the line managers who carry messages to their teams.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Put the conclusion first and build the reasoning beneath it</li>
+          <li>Translate one strategy for executives, managers and frontline teams</li>
+          <li>Plan channels, timing and cadence so people aren&#x27;t buried in messages</li>
+          <li>Make it safer to send bad news and pushback upward</li>
+          <li>Communicate through change, and check whether behaviour actually shifted</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A communication plan for a real priority or change in their own organisation, with message maps and talking points for the managers who will deliver it.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card course-extra reveal">
+        <h3 class="course-title">High-Impact Corporate Communication</h3>
+        <p class="course-promise">An intensive lab for experienced communicators: rebuild your own high-stakes communication until it produces a decision.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Experienced managers, functional heads, project leads, communication and HR professionals, and technical specialists who already communicate well and need it to carry more weight.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Define what should change because of a message, and how they&#x27;ll know it did</li>
+          <li>Cut a document by two-thirds without losing the ask</li>
+          <li>Make a case that holds under interruption and hostile questions</li>
+          <li>Stop a message losing its meaning as it passes through management layers</li>
+          <li>Show a sponsor before-and-after evidence that it worked</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">Their own stalled approval, announcement or proposal, rebuilt, stress-tested and ready to use, and a 90-day impact plan.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+    </div>
+    <div class="course-more-wrap">
+      <button type="button" class="course-more" aria-expanded="false" data-more="See 5 more communication courses" data-less="Show fewer">See 5 more communication courses</button>
+    </div>
+    <p class="family-note reveal">Sector versions of these courses are available on request, including energy, oil and gas.</p>
+  </div>
+</section>
+
+<!-- LEADERSHIP AND EXECUTIVE -->
+<section class="course-family is-collapsed" id="leadership">
+  <div class="page-wrap">
+    <div class="family-head reveal">
+      <h2 class="sec-title">Leadership and executive</h2>
+      <p class="body-text">For leaders whose influence depends on how they communicate: holding a message steady under pressure, leading people through change, including the change AI brings, and developing the experts who train others.</p>
+    </div>
+    <div class="course-grid">
+      <article class="course-card reveal">
+        <h3 class="course-title">Message Discipline for Executives and Leadership Roles</h3>
+        <p class="course-promise">Lead through your message: keep it clear, credible and consistent when it travels without you.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Executives, directors, heads of department and country managers, and managers stepping into leadership roles whose decisions are passed on by others.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Turn a strategy into one core message their teams can repeat accurately</li>
+          <li>Lead in writing: board papers, steering notes and announcements that settle a decision</li>
+          <li>Keep their credibility as a leader when they can&#x27;t yet say everything</li>
+          <li>Hold their position under challenge, and handle the conversation that only happens once</li>
+          <li>Cascade a message through their leadership team and check that it landed</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A worked plan and drafts for a live leadership challenge from their own role, and a 90-day plan for how they will communicate as a leader.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card reveal">
+        <h3 class="course-title">Leading Teams That Hand Work to AI</h3>
+        <p class="course-promise">Lead people through the change: what they fear, what changes in their jobs, and who answers for the result.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Managers, team leads, directors and HR business partners responsible for teams where AI is changing how the work gets done.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Explain the change to their team honestly, including the parts that are uncertain</li>
+          <li>Hear and answer the fears behind resistance, and handle quiet refusal</li>
+          <li>Set team standards for when AI is used, how output is checked, and who signs off</li>
+          <li>Redesign roles and goals around what people now contribute</li>
+          <li>Tell genuine adoption from people going through the motions</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A communication plan for introducing or expanding AI in their own team, a draft of the team&#x27;s working standards, and a 90-day plan for following up.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card course-extra reveal">
+        <h3 class="course-title">Internal Experts: Training the Trainer</h3>
+        <p class="course-promise">Turn your internal experts into leaders, with training skills that set them apart.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Engineers, specialists and senior staff who lead and develop others, and anyone stepping into an internal trainer or team-lead role.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Design sessions around what their people need to be able to do afterwards</li>
+          <li>Run activities that get colleagues practising instead of listening</li>
+          <li>Lead a room with confidence, including a difficult one</li>
+          <li>Check what people have learned, before and after the session</li>
+          <li>Tell the training advice that holds up from the popular myths that don&#x27;t</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A session of their own, designed, delivered and reviewed with feedback, a full participant manual, and a set of activities they can reuse with their teams.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+    </div>
+    <div class="course-more-wrap">
+      <button type="button" class="course-more" aria-expanded="false" data-more="See 1 more leadership course" data-less="Show fewer">See 1 more leadership course</button>
+    </div>
+  </div>
+</section>
+
+<!-- AI ADOPTION -->
+<section class="course-family is-collapsed" id="ai-adoption">
+  <div class="page-wrap">
+    <div class="family-head reveal">
+      <h2 class="sec-title">AI adoption</h2>
+      <p class="body-text">For organisations that have the tools but not yet the habits. These courses cover briefing AI well and checking what it produces, finding the work worth handing over, and building the internal champions who spread good practice. They are tool-nonspecific and built around participants&#x27; real tasks.</p>
+    </div>
+    <div class="course-grid">
+      <article class="course-card reveal">
+        <h3 class="course-title">Briefing AI Well: Judgment, Delegation and Quality Control</h3>
+        <p class="course-promise">Hand work to AI the way you&#x27;d hand it to a capable new colleague: clearly, selectively, and with your name still on the result.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Managers, specialists and professionals in any function who already use AI tools and want consistently better results from them, with less rework and less risk.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Decide which tasks to hand to AI, which to share with it, and which to keep</li>
+          <li>Write a brief that gives AI the context, constraints and standard a good colleague would need</li>
+          <li>Check AI output for errors, invented facts and confident nonsense before anyone else sees it</li>
+          <li>Protect confidential and personal data in everyday AI use</li>
+          <li>Say honestly how AI contributed to their work, to managers, clients and colleagues</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A personal library of tested briefs for the tasks they do most, a checklist for reviewing AI output, and their own working setup, built and tried on their real work during the course.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card reveal">
+        <h3 class="course-title">Finding the Work Worth Handing to AI</h3>
+        <p class="course-promise">Map how work actually gets done, find where AI would genuinely help, and make a case your organisation will approve.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Department heads, operations, HR, finance and project managers, and the process owners who are asked “what are we doing with AI?” and need a credible answer.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Map a real workflow step by step, including the unofficial steps nobody wrote down</li>
+          <li>Spot the tasks where AI saves real time, and the ones where it only adds risk</li>
+          <li>Estimate time saved, cost and risk in figures a decision-maker will trust</li>
+          <li>Run a small, measurable pilot before anyone commits a budget</li>
+          <li>Present the case to leadership, and to the people whose work will change</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A mapped workflow from their own department, a ranked shortlist of AI opportunities, and a one-page pilot proposal ready to put forward.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card course-extra reveal">
+        <h3 class="course-title">AI Champions: Spreading Good Practice Across the Organisation</h3>
+        <p class="course-promise">Turn the colleagues who are good with AI into the people who bring everyone else along.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Employees nominated as AI champions, ambassadors or super-users, and the HR, L&amp;D and digital transformation staff who coordinate them.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Coach colleagues one-to-one and in short sessions, without overwhelming them</li>
+          <li>Demonstrate AI on a colleague&#x27;s own work rather than generic examples</li>
+          <li>Build and maintain shared resources (brief libraries, team setups, guidance) that people actually use</li>
+          <li>Collect the questions and problems that show where adoption is stuck, and report them upward</li>
+          <li>Keep momentum after the launch, when enthusiasm drops</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A coaching plan for their own area, a starter set of shared resources for their team, and a short session they have designed, delivered and reviewed with feedback.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+    </div>
+    <div class="course-more-wrap">
+      <button type="button" class="course-more" aria-expanded="false" data-more="See 1 more AI adoption course" data-less="Show fewer">See 1 more AI adoption course</button>
+    </div>
+  </div>
+</section>
+
+<!-- DATA STORYTELLING -->
+<section class="course-family" id="data-storytelling" style="border-bottom: none;">
+  <div class="page-wrap">
+    <div class="family-head reveal">
+      <h2 class="sec-title">Data storytelling</h2>
+      <p class="body-text">For the people who do the analysis and the people who rely on it: turning numbers into recommendations, reports and dashboards that decision-makers understand and act on.</p>
+    </div>
+    <div class="course-grid">
+      <article class="course-card reveal">
+        <h3 class="course-title">Presenting Analysis to Decision-Makers</h3>
+        <p class="course-promise">Turn findings into a recommendation that a non-specialist understands, trusts and acts on.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Data analysts, BI and finance specialists, engineers and researchers who present results to managers, clients or boards outside their field.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Start from the decision the audience has to make, not from the data they have</li>
+          <li>Turn an analysis into a story: the situation, what changed, what it means, what to do</li>
+          <li>Choose the chart that makes the point, and strip out everything that hides it</li>
+          <li>Explain uncertainty, assumptions and limitations without losing the room&#x27;s confidence</li>
+          <li>Handle challenge from people who don&#x27;t like the answer</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">A presentation built from their own analysis, rehearsed with feedback, and a one-page method for turning the next analysis into a recommendation.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+      <article class="course-card reveal">
+        <h3 class="course-title">Reports and Dashboards That Get Used</h3>
+        <p class="course-promise">Written analysis and dashboards that answer the reader&#x27;s question in the first ten seconds.</p>
+        <div class="course-label">Who it's for</div>
+        <p class="course-text">Analysts, controllers, project and operations managers, and anyone who produces regular reports, KPI packs or dashboards that people skim, misread or ignore.</p>
+        <div class="course-label">Participants leave able to</div>
+        <ul class="course-list">
+          <li>Find out what the reader actually uses the report for, and design for that</li>
+          <li>Put the conclusion and the action first, with the detail behind it for whoever wants it</li>
+          <li>Write the headlines, captions and commentary that tell people what a chart means</li>
+          <li>Lay out a dashboard so the important number is the first one people see</li>
+          <li>Use AI to draft commentary and summaries, and check the numbers it gets wrong</li>
+        </ul>
+        <div class="course-label">They take away</div>
+        <p class="course-text">One of their own reports or dashboards, rebuilt and tested on a real reader, and a set of templates and writing rules for the ones they produce regularly.</p>
+        <div class="course-foot">
+          <p class="course-format">Available in 2, 3 or 5 day formats, depending on skills needs · In-house or online · Delivered in English</p>
+          <a href="contact.html" class="text-link">Outlines and training material available upon request →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA BAND -->
+<div class="closing-band">
+  <div class="closing-inner reveal">
+    <div>
+      <h2 class="closing-headline">Want the full outline?</h2>
+      <p class="closing-sub">Tell me which course and a little about the team, and I'll send the outline and suggest the format that fits.</p>
+    </div>
+    <div class="closing-actions">
+      <a href="contact.html" class="btn-fill">Ask for an outline →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">Chris Chester</div>
+    <div class="foot-sub">Communication &amp; Leadership Training · Valencia, Spain</div>
+  </div>
+    <ul class="foot-links">
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="recent-work.html">Recent work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="faq.html#training-providers">Training providers</a></li>
+  </ul>
+  <div class="foot-social">
+    <a href="https://x.com/ChrisChes" target="_blank" rel="noopener" title="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+    <a href="https://www.linkedin.com/in/peter-christopher-chester-8b262353/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <a href="https://www.instagram.com/christopher_chester4056/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://github.com/PCChester" target="_blank" rel="noopener" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+    <a href="https://www.reddit.com/user/chrischester2205/" target="_blank" rel="noopener" title="Reddit"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg></a>
+    <a href="https://bsky.app/profile/udou82.bsky.social" target="_blank" rel="noopener" title="Bluesky"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg></a>
+  </div>
+</footer>
+<div style="background:var(--paper-warm);border-top:1px solid var(--border);padding:0.65rem var(--page-pad);display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:0.62rem;color:#9a9590;letter-spacing:0.05em;">
+  <span>© 2026 Chris Chester. All rights reserved.</span>
+  <a href="privacy.html" style="color:#9a9590;text-decoration:none;">Privacy &amp; Terms</a>
+</div>
+
+
+<script>
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+document.querySelectorAll('.course-more').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const sec = btn.closest('.course-family');
+    const open = !sec.classList.toggle('is-collapsed');
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? btn.dataset.less : btn.dataset.more;
+    if (!open) sec.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+<script>
+(function () {
+  var nav = document.querySelector('nav'), btn = nav && nav.querySelector('.nav-toggle');
+  if (!btn) return;
+  function set(open) {
+    nav.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? btn.dataset.close : btn.dataset.open);
+  }
+  btn.addEventListener('click', function () { set(!nav.classList.contains('nav-open')); });
+  nav.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();
+</script>
+</body>
+</html>

@@ -73,6 +73,9 @@
     letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--ink-faint); margin-top: 2px;
   }
+  @media (max-width: 768px) {
+    .nav-brand span { display: none; }
+  }
   .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.875rem; color: var(--ink-muted);
@@ -745,15 +748,48 @@
   /* ─── REVEAL ─── */
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
   .reveal.in { opacity: 1; transform: none; }
+
+  /* ── PHONE MENU ── */
+  .nav-toggle { display: none; background: none; border: 0; padding: 0.4rem; margin-right: -0.4rem; cursor: pointer; color: var(--ink); }
+  .nav-toggle svg { width: 26px; height: 26px; display: block; }
+  .nav-toggle .i-close { display: none; }
+  @media (max-width: 840px) {
+    .nav-toggle { display: inline-flex; }
+    nav.nav-open .nav-toggle .i-open { display: none; }
+    nav.nav-open .nav-toggle .i-close { display: block; }
+    nav.nav-open .nav-links {
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      box-shadow: 0 14px 30px rgba(28,26,22,0.10);
+      padding: 0.25rem var(--page-pad) 1.25rem;
+      max-height: calc(100vh - 60px); overflow-y: auto;
+    }
+    nav.nav-open .nav-links > li > a:not(.nav-chat):not(.nav-lang) {
+      display: block; padding: 0.85rem 0; font-size: 1rem; color: var(--ink);
+      border-bottom: 1px solid var(--border);
+    }
+    nav.nav-open .nav-dd { display: block; height: auto; }
+    nav.nav-open .nav-dd > a::after { content: ''; }
+    nav.nav-open .nav-dd-menu {
+      display: block; position: static; min-width: 0; box-shadow: none; border: 0;
+      border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; padding: 0.25rem 0 0.5rem 1rem;
+    }
+    nav.nav-open .nav-dd-menu a { padding: 0.5rem 0; font-size: 0.92rem; }
+    nav.nav-open .nav-links .nav-chat { display: block; text-align: center; margin-top: 1rem; padding: 0.75rem 1rem; }
+    nav.nav-open .nav-links .nav-lang { display: inline-block; margin-top: 0.9rem; }
+  }
 </style>
 </head>
 <body>
 
 <!-- ── NAV ── -->
 <nav>
-  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
-  <ul class="nav-links">
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Formación en Comunicación y Liderazgo</span></a>
+  <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu" data-open="Abrir menú" data-close="Cerrar menú"><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <ul class="nav-links" id="site-menu">
     <li><a href="index.html" class="active">Inicio</a></li>
+    <li><a href="../courses.html">Cursos</a></li>
     <li><a href="about.html">Sobre mí</a></li>
     <li><a href="projects.html">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
@@ -769,7 +805,6 @@
 
     <div class="hero-top" style="grid-template-columns: 1fr;">
       <div class="hero-text">
-        <div class="hero-eyebrow">Arquitecto de Habilitación en IA · Valencia, España</div>
         <h1 class="hero-h1">Ayudo a equipos pequeños y medianos a adoptar herramientas de IA — y a utilizarlas de verdad.</h1>
         <p class="hero-sub">Identificar cuellos de botella · Construir soluciones de IA simples · Formar a tu equipo para que las use</p>
         <div class="hero-btns">
@@ -790,7 +825,6 @@
 <section id="services">
   <div class="what-i-do">
     <div class="section-wrap reveal">
-      <div class="sec-eyebrow">Lo que hago — 3 fases</div>
       <h2 class="sec-headline">Diseñado para funcionar. Pensado para quedarse.</h2>
       <p class="sec-sub">La mayoría de los proyectos de IA no fracasan porque las herramientas sean incorrectas, sino porque nadie se quedó para asegurar que el equipo las entendiera.</p>
       <div class="phase-cards">
@@ -828,7 +862,6 @@
 <section id="engagements">
   <div class="engagements-section">
     <div class="section-wrap reveal">
-      <div class="sec-eyebrow">Cómo trabajamos juntos</div>
       <h2 class="sec-headline">Tres formas de colaborar.</h2>
       <div class="engagement-cards">
 
@@ -865,7 +898,6 @@
     <div class="section-wrap">
       <div class="about-grid reveal">
         <div>
-          <div class="sec-eyebrow">El Traductor</div>
           <h2 class="sec-headline">Pasé más de 25 años enseñando a las personas a comunicarse entre sí. Ahora enseño a las personas y las máquinas a trabajar juntas.</h2>
         </div>
         <div>
@@ -882,7 +914,6 @@
 <section id="frameworks">
   <div class="frameworks-section">
     <div class="section-wrap reveal">
-      <div class="sec-eyebrow">Trabajo que se entrega</div>
       <h2 class="sec-headline">Dos proyectos. Los dos listos para su entrega.</h2>
       <p class="fw-intro">Estas herramientas revelaron más de lo esperado.</p>
 
@@ -924,7 +955,6 @@
   <div class="chatbot-section">
     <div class="section-wrap">
       <div class="reveal">
-        <div class="sec-eyebrow">Hablemos</div>
         <h2 class="sec-headline">¿Quieres ver cómo trabajaría con tu equipo? Hablemos.</h2>
         <p class="chat-intro-text">Cuéntame el rol o el problema que estás intentando resolver — te diré directamente si mi experiencia encaja.</p>
       </div>
@@ -1085,10 +1115,10 @@
 <footer>
   <div>
     <div class="foot-brand">Chris Chester</div>
-    <div class="foot-sub">Enseña IA · Valencia, España</div>
+    <div class="foot-sub">Formación en Comunicación y Liderazgo · Valencia, España</div>
   </div>
     <ul class="foot-links">
-    <li><a href="index.html">Inicio</a></li>
+    <li><a href="../courses.html">Cursos</a></li>
     <li><a href="about.html">Sobre m&#237;</a></li>
     <li><a href="projects.html">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
@@ -1266,6 +1296,20 @@ const ro = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);} });
 },{threshold:0.07});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+<script>
+(function () {
+  var nav = document.querySelector('nav'), btn = nav && nav.querySelector('.nav-toggle');
+  if (!btn) return;
+  function set(open) {
+    nav.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? btn.dataset.close : btn.dataset.open);
+  }
+  btn.addEventListener('click', function () { set(!nav.classList.contains('nav-open')); });
+  nav.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 [build]
-  functions = "functions"
   publish = "."
 
 [[headers]]
@@ -7,3 +6,9 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+
+[[redirects]]
+  from = "/projects.html"
+  to = "/recent-work.html"
+  status = 301
+  force = true

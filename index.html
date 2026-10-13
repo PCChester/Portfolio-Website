@@ -11,7 +11,13 @@
   gtag('config', 'G-3ZNZ5H494K');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chris Teaches AI — AI Enablement Architect</title>
+<title>Chris Chester — Communication and Leadership Training</title>
+<meta name="description" content="Communication and leadership training for organisations, based in Valencia, Spain.">
+<link rel="canonical" href="https://chrischesterconsulting.com/">
+<meta property="og:title" content="Chris Chester — Communication and Leadership Training">
+<meta property="og:description" content="Communication and leadership training for organisations, based in Valencia, Spain.">
+<meta property="og:url" content="https://chrischesterconsulting.com/">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -72,6 +78,9 @@
     font-size: 0.6rem; font-weight: 400;
     letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--ink-faint); margin-top: 2px;
+  }
+  @media (max-width: 768px) {
+    .nav-brand span { display: none; }
   }
   .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -193,37 +202,6 @@
     font-size: 0.72rem; color: var(--ink-faint); margin-top: 0.3rem;
   }
 
-  /* CTA bar — full width below hero columns */
-  .hero-cta-bar {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1.25rem 1.5rem;
-    background: var(--paper-warm);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    margin-bottom: 2.5rem;
-  }
-  .hero-cta-bar-text {
-    font-size: 1rem; font-weight: 400; color: var(--ink);
-    font-family: var(--serif); font-style: italic;
-    line-height: 1.4;
-  }
-  .btn-cta-bar {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--accent); color: #fff;
-    padding: 0.65rem 1.5rem; border-radius: 4px;
-    font-size: 0.9rem; font-weight: 500; text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.18s, transform 0.12s;
-    flex-shrink: 0;
-  }
-  .btn-cta-bar:hover { background: var(--accent-dk); transform: translateY(-1px); }
-  .cta-anchor-note {
-    font-size: 0.72rem; color: var(--ink-faint); font-style: italic;
-    padding: 0 0 1.5rem;
-    text-align: left;
-  }
-
   /* ─── SECTION WRAPPER ─── */
   .section-wrap {
     max-width: var(--page-max);
@@ -257,7 +235,7 @@
   }
 
   .phase-cards {
-    display: grid; grid-template-columns: repeat(3,1fr);
+    display: grid; grid-template-columns: repeat(2,1fr);
     gap: 1px; background: var(--border);
     border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
   }
@@ -294,142 +272,10 @@
     color: var(--ink-muted); display: block; margin-bottom: 0.2rem;
   }
 
-  /* ─── ENGAGEMENTS ─── */
-  .engagements-section {
+  /* ─── TWO DOORS ─── */
+  .doors-section {
     padding: 4.5rem 0;
     border-top: 1px solid var(--border);
-  }
-  .engagement-cards {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 1px; background: var(--border);
-    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-    margin-bottom: 1.5rem;
-  }
-  .engagement-card {
-    background: var(--card); padding: 2rem 1.75rem;
-    transition: background 0.2s;
-  }
-  .engagement-card:hover { background: var(--paper-warm); }
-  .engagement-title {
-    font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
-    line-height: 1.3; color: var(--ink); margin-bottom: 0.35rem;
-  }
-  .engagement-for {
-    font-size: 0.75rem; color: var(--ink-faint); font-style: italic;
-    margin-bottom: 0.85rem;
-  }
-  .engagement-outcome {
-    font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65;
-    font-weight: 300; margin-bottom: 1rem; font-style: italic;
-  }
-  .engagement-deliverables {
-    font-family: var(--mono); font-size: 0.72rem;
-    color: var(--ink-faint); line-height: 1.7;
-  }
-  .engagement-deliverables strong {
-    color: var(--ink-muted); display: block; margin-bottom: 0.2rem;
-  }
-  .engagements-note {
-    text-align: center; font-size: 0.85rem; color: var(--ink-muted);
-  }
-  .engagements-note a { color: var(--accent); text-decoration: none; }
-  .engagements-note a:hover { text-decoration: underline; }
-
-  /* ─── ABOUT DARK BAND ─── */
-  .about-band {
-    background: var(--ink); color: var(--paper);
-    padding: 4.5rem 0;
-  }
-  .about-band .sec-eyebrow { color: #b89a6e; }
-  .about-band .sec-eyebrow::before { background: #b89a6e; }
-  .about-band .sec-headline { color: var(--paper); max-width: 100%; }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
-  .about-quote {
-    font-family: var(--serif); font-size: 1.05rem; line-height: 1.75;
-    font-style: italic; color: #aaa49d;
-    border-left: 2px solid var(--accent); padding-left: 1.4rem;
-  }
-  .stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.25rem;
-  }
-  .stat-n {
-    font-family: var(--serif); font-size: 2.2rem; font-weight: 600;
-    color: var(--paper); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.2rem;
-  }
-  .stat-n em { color: var(--accent); font-style: normal; }
-  .stat-l { font-size: 0.78rem; color: #7a7268; font-weight: 300; line-height: 1.5; }
-
-  /* ─── FEATURED FRAMEWORKS ─── */
-  .frameworks-section {
-    padding: 4.5rem 0;
-    border-top: 1px solid var(--border);
-  }
-  .fw-intro {
-    font-size: 0.925rem; color: var(--ink-muted); font-weight: 300;
-    line-height: 1.75; max-width: 560px; margin-top: 0.5rem; margin-bottom: 2rem;
-  }
-  .fw-intro strong {
-    color: var(--ink); font-weight: 500;
-  }
-  .frameworks-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  @media (max-width: 600px) {
-    .frameworks-grid { grid-template-columns: 1fr; }
-  }
-  .framework-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.75rem 1.6rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    position: relative;
-    transition: box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-  .framework-card:hover {
-    box-shadow: 0 4px 18px rgba(26,24,20,0.07);
-    border-color: var(--border-mid);
-  }
-  .framework-card::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 1.4rem; bottom: 1.4rem;
-    width: 3px; border-radius: 0 2px 2px 0;
-  }
-  .framework-card.card-build::before { background: var(--teal); }
-  .framework-card.card-audit::before { background: var(--accent); }
-  .fw-phase {
-    font-family: var(--mono);
-    font-size: 0.62rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--ink-faint);
-  }
-  .fw-title {
-    font-family: var(--serif);
-    font-size: 1.15rem; font-weight: 600;
-    color: var(--ink); line-height: 1.3;
-  }
-  .fw-desc {
-    font-size: 0.875rem; line-height: 1.75;
-    color: var(--ink-muted); font-weight: 300;
-  }
-  .fw-badges {
-    display: flex; flex-wrap: wrap; gap: 6px;
-    margin-top: 0.3rem;
-  }
-  .fw-badge {
-    font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--ink-muted);
-    background: var(--paper-warm);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2px 8px;
   }
   .fw-link {
     margin-top: auto; padding-top: 0.85rem;
@@ -439,6 +285,38 @@
     transition: color 0.15s;
   }
   .fw-link:hover { color: var(--accent); }
+
+  /* ─── CREDIBILITY STRIP ─── */
+  .credibility-section {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .credibility-strip {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  }
+  .credibility-item {
+    background: var(--paper-warm); padding: 1.25rem 1.1rem;
+    text-align: center;
+    font-size: 0.8rem; color: var(--ink-muted); font-weight: 300; line-height: 1.5;
+  }
+
+  /* ─── TESTIMONIALS (hidden until quotes are confirmed) ─── */
+  .testimonials-section {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .testimonial-card { max-width: 640px; }
+  .about-quote {
+    font-family: var(--serif); font-size: 1.05rem; line-height: 1.75;
+    font-style: italic; color: var(--ink-muted);
+    border-left: 2px solid var(--accent); padding-left: 1.4rem;
+  }
+  .testimonial-attribution {
+    margin-top: 0.85rem;
+    font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint);
+  }
 
   /* ─── CHATBOT SECTION ─── */
   .chatbot-section {
@@ -657,7 +535,7 @@
   }
   .foot-brand { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--ink); }
   .foot-sub { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.18rem; font-weight: 300; }
-  .foot-links { display: flex; gap: 1.4rem; list-style: none; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 1.4rem; list-style: none; }
   .foot-links a { font-size: 0.8rem; color: var(--ink-muted); text-decoration: none; transition: color 0.18s; }
   .foot-links a:hover { color: var(--accent); }
   .foot-social{display:flex;gap:0.85rem;align-items:center;}
@@ -685,33 +563,17 @@
     .hero-sub { font-size: 0.9rem; }
     .hero-video { aspect-ratio: 16/9; }
 
-    /* CTA bar — stack on mobile */
-    .hero-cta-bar {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.1rem 1.2rem;
-    }
-    .hero-cta-bar-text { font-size: 0.95rem; }
-    .btn-cta-bar { width: 100%; justify-content: center; }
-
     /* Hero buttons */
     .hero-btns { flex-direction: column; align-items: flex-start; gap: 0.65rem; }
     .btn-fill, .btn-outline { width: 100%; justify-content: center; }
 
-    /* Services */
+    /* Doors */
     .phase-cards { grid-template-columns: 1fr; }
     .phase-card { padding: 1.5rem 1.25rem; }
-
-    /* Engagements */
-    .engagement-cards { grid-template-columns: 1fr; }
-    .engagement-card { padding: 1.5rem 1.25rem; }
     .sec-headline { font-size: clamp(1.25rem, 5vw, 1.75rem); }
 
-    /* About */
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .stats { grid-template-columns: 1fr 1fr; gap: 1.1rem; }
-    .stat-n { font-size: 1.85rem; }
+    /* Credibility strip */
+    .credibility-strip { grid-template-columns: 1fr; }
 
     /* Chatbot */
     .chat-messages { min-height: 180px; max-height: 260px; }
@@ -728,367 +590,306 @@
     footer { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     .foot-links { flex-wrap: wrap; gap: 1rem; }
 
-    /* Anchor note — hide on mobile, it's obvious enough */
-    .cta-anchor-note { display: none; }
   }
 
   /* Extra small — tighten further */
   @media (max-width: 420px) {
     :root { --page-pad: 4.5%; }
     .hero-h1 { font-size: 1.5rem; }
-    .stats { grid-template-columns: 1fr 1fr; }
-    .stat-n { font-size: 1.65rem; }
-    .hero-cta-bar-text { font-size: 0.88rem; }
   }
 
   /* ─── REVEAL ─── */
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s, transform 0.55s; }
   .reveal.in { opacity: 1; transform: none; }
+
+  /* ── COURSES DROPDOWN ── */
+  .nav-dd { position: relative; display: flex; align-items: center; height: 60px; }
+  .nav-dd > a::after { content: ' ▾'; font-size: 0.7em; color: var(--ink-faint); }
+  .nav-dd-menu {
+    display: none; position: absolute; top: 100%; left: -1rem; min-width: 250px;
+    list-style: none; background: var(--card, #fff); border: 1px solid var(--border);
+    border-radius: 6px; padding: 0.45rem 0; box-shadow: 0 10px 28px rgba(28,26,22,0.09); z-index: 120;
+  }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { display: block; }
+  .nav-dd-menu a {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.55rem 1rem; font-size: 0.85rem; color: var(--ink-muted); text-decoration: none; white-space: nowrap;
+  }
+  .nav-dd-menu a:hover { background: var(--paper-warm); color: var(--ink); }
+  .nav-soon {
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--teal); background: var(--teal-lt); border-radius: 3px; padding: 0.12rem 0.45rem;
+  }
+
+  /* ── PHONE MENU ── */
+  .nav-toggle { display: none; background: none; border: 0; padding: 0.4rem; margin-right: -0.4rem; cursor: pointer; color: var(--ink); }
+  .nav-toggle svg { width: 26px; height: 26px; display: block; }
+  .nav-toggle .i-close { display: none; }
+  @media (max-width: 840px) {
+    .nav-toggle { display: inline-flex; }
+    nav.nav-open .nav-toggle .i-open { display: none; }
+    nav.nav-open .nav-toggle .i-close { display: block; }
+    nav.nav-open .nav-links {
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      box-shadow: 0 14px 30px rgba(28,26,22,0.10);
+      padding: 0.25rem var(--page-pad) 1.25rem;
+      max-height: calc(100vh - 60px); overflow-y: auto;
+    }
+    nav.nav-open .nav-links > li > a:not(.nav-chat):not(.nav-lang) {
+      display: block; padding: 0.85rem 0; font-size: 1rem; color: var(--ink);
+      border-bottom: 1px solid var(--border);
+    }
+    nav.nav-open .nav-dd { display: block; height: auto; }
+    nav.nav-open .nav-dd > a::after { content: ''; }
+    nav.nav-open .nav-dd-menu {
+      display: block; position: static; min-width: 0; box-shadow: none; border: 0;
+      border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; padding: 0.25rem 0 0.5rem 1rem;
+    }
+    nav.nav-open .nav-dd-menu a { padding: 0.5rem 0; font-size: 0.92rem; }
+    nav.nav-open .nav-links .nav-chat { display: block; text-align: center; margin-top: 1rem; padding: 0.75rem 1rem; }
+    nav.nav-open .nav-links .nav-lang { display: inline-block; margin-top: 0.9rem; }
+  }
+  /* ═════════ NEW HOMEPAGE (draft) ═════════ */
+  .h-wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--page-pad); }
+  .h-hero { border-bottom: 1px solid var(--border); }
+  .h-hero-inner { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 4.5rem; align-items: center; padding-top: 5rem; padding-bottom: 5rem; }
+  .h-hero-text { display: flex; flex-direction: column; justify-content: center; }
+  .h-hero h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.4rem, 4.6vw, 4.1rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--ink); max-width: 13ch; }
+  .h-hero-sub { font-size: 1.12rem; line-height: 1.7; color: #3f3b35; max-width: 34rem; margin-top: 1.75rem; }
+  .h-hero-sub + .h-hero-sub { margin-top: 0.9rem; }
+  .h-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.25rem; }
+  .h-btn { display: inline-flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 500; text-decoration: none; padding: 0.9rem 1.6rem; border-radius: 4px; transition: background 0.18s, border-color 0.18s, color 0.18s; }
+  .h-btn-primary { background: var(--accent); color: #fff; }
+  .h-btn-primary:hover { background: var(--accent-dk); }
+  .h-btn-secondary { border: 1.5px solid var(--ink); color: var(--ink); }
+  .h-btn-secondary:hover { background: var(--ink); color: var(--paper); }
+  .h-btn:focus-visible, .h-row a:focus-visible, .h-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .h-hero-note { font-size: 0.88rem; color: var(--ink-muted); margin-top: 1.5rem; }
+  .h-hero-photo { justify-self: end; width: 100%; max-width: 400px; aspect-ratio: 4 / 5; border-radius: 6px; overflow: hidden; background: #dcdcda; }
+  .h-hero-photo img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 20%; }
+
+  .h-proof { background: var(--card); border-bottom: 1px solid var(--border); }
+  .h-proof .h-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; padding-top: 2.75rem; padding-bottom: 2.75rem; }
+  .h-proof p { font-family: var(--serif); font-size: 1.12rem; line-height: 1.5; color: var(--ink); }
+  .h-proof span { display: block; font-family: var(--sans); font-size: 0.9rem; color: var(--ink-muted); margin-top: 0.35rem; line-height: 1.6; }
+
+  .h-section { padding: 6rem 0; }
+  .h-section + .h-section { border-top: 1px solid var(--border); }
+  .h-section h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); max-width: 22ch; }
+  .h-lead { font-size: 1.08rem; line-height: 1.75; color: #3f3b35; max-width: 38rem; margin-top: 1.25rem; }
+
+  .h-problem { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 5rem; align-items: start; }
+  .h-cases { list-style: none; }
+  .h-cases li { padding: 1.5rem 0; border-top: 1px solid var(--border-mid); font-size: 1.08rem; line-height: 1.6; color: #3f3b35; }
+  .h-cases li:last-child { border-bottom: 1px solid var(--border-mid); }
+  .h-cases strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.22rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .h-problem-close { margin-top: 2rem; font-size: 1.08rem; line-height: 1.7; color: var(--ink); }
+
+  .h-rows { margin-top: 3rem; border-top: 1.5px solid var(--ink); }
+  .h-row { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr) 11rem; gap: 2rem; align-items: baseline; padding: 1.6rem 0; border-bottom: 1px solid var(--border-mid); }
+  .h-row h3 { font-family: var(--serif); font-weight: 600; font-size: 1.35rem; color: var(--ink); letter-spacing: -0.01em; }
+  .h-row p { font-size: 1rem; line-height: 1.65; color: #3f3b35; }
+  .h-row > a, .h-row > .h-soon { justify-self: end; }
+  .h-row a { font-size: 0.92rem; font-weight: 500; color: var(--accent); text-decoration: none; white-space: nowrap; }
+  .h-row a:hover { text-decoration: underline; }
+  .h-row.is-soon h3, .h-row.is-soon p { color: var(--ink-muted); }
+  .h-soon { font-size: 0.8rem; font-weight: 500; color: var(--teal); background: var(--teal-lt); border-radius: 3px; padding: 0.2rem 0.55rem; white-space: nowrap; }
+  .h-format { margin-top: 1.5rem; font-size: 0.95rem; color: var(--ink-muted); }
+
+  .h-steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem; }
+  .h-steps li { counter-increment: step; }
+  .h-steps li::before { content: counter(step); display: block; font-family: var(--serif); font-size: 2.6rem; font-weight: 400; line-height: 1; color: var(--accent); margin-bottom: 1rem; }
+  .h-steps h3 { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .h-steps p { font-size: 1rem; line-height: 1.7; color: #3f3b35; }
+
+  .h-about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 5rem; align-items: center; }
+  .h-about p { font-size: 1.08rem; line-height: 1.8; color: #3f3b35; margin-top: 1.25rem; max-width: 34rem; }
+  .h-link { display: inline-block; margin-top: 1.75rem; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
+  .h-placeholder { border: 1.5px dashed var(--border-mid); border-radius: 6px; background: var(--paper-warm); color: var(--ink-muted); font-size: 0.92rem; line-height: 1.6; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+  .h-about .h-placeholder { aspect-ratio: 4 / 3; }
+
+  .h-quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .h-quotes .h-placeholder { min-height: 180px; }
+
+  .h-close { background: var(--ink); color: var(--paper); padding: 5.5rem 0; }
+  .h-close .h-wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 4rem; align-items: end; }
+  .h-close h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.15; letter-spacing: -0.02em; color: var(--paper); }
+  .h-close p { font-size: 1.05rem; line-height: 1.75; color: #c9c2b8; margin-top: 1.1rem; max-width: 34rem; }
+  .h-close .h-btn-primary { justify-self: start; }
+
+  .h-chatbot { padding: 4rem 0; }
+  .h-chatbot .h-placeholder { min-height: 160px; }
+
+  @media (max-width: 960px) {
+    .h-hero-inner { grid-template-columns: 1fr; gap: 2.25rem; padding-top: 2rem; padding-bottom: 3.5rem; }
+    .h-hero-text { order: 2; }
+    .h-hero-photo { order: 1; justify-self: stretch; max-width: none; aspect-ratio: auto; height: 44vh; max-height: 380px; }
+    .h-hero-photo img { object-position: 50% 12%; }
+    .h-hero h1 { max-width: 16ch; }
+    .h-proof .h-wrap, .h-steps, .h-quotes { grid-template-columns: 1fr; gap: 1.75rem; }
+    .h-problem, .h-about, .h-close .h-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .h-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .h-row > a, .h-row > .h-soon { justify-self: start; }
+    .h-section { padding: 4.5rem 0; }
+  }
 </style>
 </head>
 <body>
 
 <!-- ── NAV ── -->
 <nav>
-  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Teaches AI</span></a>
-  <ul class="nav-links">
+  <a class="nav-brand" href="index.html"><em>Chris</em> Chester<span>Communication &amp; Leadership Training</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-open="Open menu" data-close="Close menu"><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <ul class="nav-links" id="site-menu">
     <li><a href="index.html">Home</a></li>
+    <li class="nav-dd"><a href="courses.html">Courses</a>
+    <ul class="nav-dd-menu">
+      <li><a href="courses.html#communication">Communication</a></li>
+      <li><a href="courses.html#leadership">Leadership and executive</a></li>
+      <li><a href="courses.html#ai-adoption">AI adoption</a></li>
+      <li><a href="courses.html#data-storytelling">Data storytelling</a></li>
+    </ul>
+    </li>
     <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="recent-work.html">Recent work</a></li>
     <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="#chatbot" class="nav-chat">Let's chat ↓</a></li>
-    <li><a href="es/index.html" class="nav-lang">ES</a></li>
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
-<div class="hero-outer">
-  <div class="hero-inner">
+<main>
 
-    <!-- Left: text -->
-    <div class="hero-top" style="grid-template-columns: 1fr;">
-      <div class="hero-text">
-        <div class="hero-eyebrow">AI Enablement Architect · Valencia, Spain</div>
-        <h1 class="hero-h1">I help small and mid-sized teams adopt AI tools — and actually use them.</h1>
-        <p class="hero-sub">Identifying workflow bottlenecks · Building simple AI solutions · Training your team so they use them</p>
-        <div class="hero-btns">
-          <a href="projects.html" class="btn-fill">See my work ↓</a>
-        </div>
-      </div>
+<!-- HERO -->
+<section class="h-hero" aria-labelledby="hero-title">
+ <div class="h-wrap h-hero-inner">
+  <div class="h-hero-text">
+    <h1 id="hero-title">When the work is technical, the explanation is the job.</h1>
+    <p class="h-hero-sub">Practical communication training for engineers, IT and data professionals, and the managers who rely on them.</p>
+    <p class="h-hero-sub">Built around the presentations, reports and conversations you already have, so you get decisions, approvals and budgets from people outside your field.</p>
+    <div class="h-actions">
+      <a href="courses.html" class="h-btn h-btn-primary">See the courses</a>
+      <a href="contact.html" class="h-btn h-btn-secondary">Talk to me about your team</a>
     </div>
-
-    <!-- Full-width CTA bar -->
-    <div class="hero-cta-bar">
-      <span class="hero-cta-bar-text">Running a small team? Let's talk about your needs.</span>
-      <a href="#chatbot" class="btn-cta-bar">Start the conversation →</a>
-    </div>
-
+    <p class="h-hero-note">In-house or online, in English. Based in Valencia, Spain.</p>
   </div>
-</div>
+  <div class="h-hero-photo">
+    <img src="images/chris-chester-portrait.jpg" width="960" height="1200" alt="Chris Chester, communication and leadership trainer">
+  </div>
+ </div>
+</section>
 
-<!-- ── WHAT I DO ── -->
-<section id="services">
-  <div class="what-i-do">
-    <div class="section-wrap reveal">
-      <div class="sec-eyebrow">What I do — 3 phases</div>
-      <h2 class="sec-headline">Built to work. Designed to stick.</h2>
-      <p class="sec-sub">Most AI projects fail not because the tools are wrong, but because nobody stayed to make sure the team understood them.</p>
-      <div class="phase-cards">
-        <div class="phase-card">
-          <div class="phase-num">Phase 01</div>
-          <span class="phase-tag p1">Audit &amp; Strategy</span>
-          <h3 class="phase-title">Find where time is leaking</h3>
-          <p class="phase-body">Map which 20% of tasks are worth automating first. After 30+ years of communication training, I speak the language of the C-suite and entry-level staff — and I deliver a clear picture, not a bloated proposal.</p>
-          <p class="phase-deliverables"><strong>You walk away with:</strong>Workflow audit report · Top-3 automation recommendations</p>
-        </div>
-        <div class="phase-card">
-          <div class="phase-num">Phase 02</div>
-          <span class="phase-tag p2">Build</span>
-          <h3 class="phase-title">Design and build the workflow or pipeline</h3>
-          <p class="phase-body">You get a working tool, not a proposal. Python-backed, practical, built to last. Something tangible your team can point to and measure from day one.</p>
-          <p class="phase-deliverables"><strong>You walk away with:</strong>Working prototype or pipeline · Handover documentation</p>
-        </div>
-        <div class="phase-card">
-          <div class="phase-num">Phase 03</div>
-          <span class="phase-tag p3">Train &amp; Enable</span>
-          <h3 class="phase-title">Stay until the team uses it confidently</h3>
-          <p class="phase-body">That's when the ROI actually shows up. I don't hand over a tool and disappear — I stay until the team knows how to use it, adapt it, and trust it. Fear of new tools isn't a blocker; it's something I've been solving in classrooms and boardrooms for decades.</p>
-          <p class="phase-deliverables"><strong>You walk away with:</strong>Custom prompt library · SOPs · Up to 3 training sessions</p>
-        </div>
-      </div>
+<!-- PROOF -->
+<section class="h-proof" aria-label="Background">
+  <div class="h-wrap">
+    <p>Thirty years training professionals<span>From language and communication to presentation, leadership and executive messaging.</span></p>
+    <p>Taught in 10 countries on 3 continents<span>Including Germany, Spain, Egypt and Thailand.</span></p>
+    <p>Technical topics, explained to everyone else<span>A background in English for IT, data analysis and AI adoption training.</span></p>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="h-section">
+  <div class="h-wrap h-problem">
+    <div>
+      <h2>Good work gets lost in the explanation.</h2>
+      <p class="h-lead">Most specialists were trained to get things right, not to get them across. The cost shows up in meetings, inboxes and steering committees.</p>
+    </div>
+    <div>
+      <ul class="h-cases">
+        <li><strong>The analysis is right.</strong>The steering committee still asks to see it again next month.</li>
+        <li><strong>The proposal is thorough.</strong>The client signs with someone who made it simpler.</li>
+        <li><strong>The engineer knows the fix.</strong>The meeting ends without a decision.</li>
+      </ul>
+      <p class="h-problem-close">None of that is a knowledge problem. It's a communication problem, and it can be trained.</p>
     </div>
   </div>
 </section>
 
-<!-- ── ENGAGEMENTS ── -->
-<section id="engagements">
-  <div class="engagements-section">
-    <div class="section-wrap reveal">
-      <div class="sec-eyebrow">How we work together</div>
-      <h2 class="sec-headline">Three ways to engage.</h2>
-      <div class="engagement-cards">
-        <div class="engagement-card">
-          <h3 class="engagement-title">AI Quickstart</h3>
-          <p class="engagement-for">For teams just getting started.</p>
-          <p class="engagement-outcome">"A clear picture of where AI can help, and one working proof of concept."</p>
-          <p class="engagement-deliverables"><strong>You walk away with:</strong>Workflow audit report · Top-3 automation recommendations · 1 working prototype</p>
-        </div>
-        <div class="engagement-card">
-          <h3 class="engagement-title">Full Adoption Sprint</h3>
-          <p class="engagement-for">For teams who bought tools that aren't being used.</p>
-          <p class="engagement-outcome">"Your team goes from resistant to confident in one sprint."</p>
-          <p class="engagement-deliverables"><strong>You walk away with:</strong>Team assessment · Custom prompt library · 3 training sessions · SOPs · Handover doc</p>
-        </div>
-        <div class="engagement-card">
-          <h3 class="engagement-title">Custom Build + Train</h3>
-          <p class="engagement-for">For founders who know what they want built.</p>
-          <p class="engagement-outcome">"A scoped solution, built and handed over with your team fully trained to use it."</p>
-          <p class="engagement-deliverables"><strong>You walk away with:</strong>Scoped automation or pipeline · Full documentation · Team onboarding</p>
-        </div>
+<!-- WHAT I TRAIN -->
+<section class="h-section">
+  <div class="h-wrap">
+    <h2>What I train</h2>
+    <div class="h-rows">
+      <div class="h-row">
+        <h3>Communication</h3>
+        <p>Presenting for decisions, persuasion and difficult conversations, client and stakeholder communication, and crisis communication.</p>
+        <a href="courses.html#communication">Communication courses</a>
       </div>
-      <p class="engagements-note">Not sure which fits? <a href="#chatbot">The chatbot below will help you figure it out.</a></p>
+      <div class="h-row">
+        <h3>Leadership and executive</h3>
+        <p>Message discipline for executives and leaders, leading teams that hand work to AI, and turning internal experts into leaders who can teach.</p>
+        <a href="courses.html#leadership">Leadership courses</a>
+      </div>
+      <div class="h-row">
+        <h3>AI adoption</h3>
+        <p>Briefing AI well, finding the work worth handing to AI, and building the internal champions who spread good practice.</p>
+        <a href="courses.html#ai-adoption">AI adoption courses</a>
+      </div>
+      <div class="h-row">
+        <h3>Data storytelling</h3>
+        <p>Presenting analysis, and writing reports and dashboards that decision-makers understand and act on.</p>
+        <a href="courses.html#data-storytelling">Data storytelling courses</a>
+      </div>
     </div>
+    <p class="h-format">Every course runs in a 2, 3 or 5 day format, in-house or online, for groups of up to 12.</p>
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="about-band">
-    <div class="section-wrap">
-      <div class="about-grid reveal">
-        <div>
-          <div class="sec-eyebrow">The Translator</div>
-          <h2 class="sec-headline">I spent 30+ years teaching humans to communicate with each other. Now I teach humans and machines to work together.</h2>
-        </div>
-        <div>
-          <blockquote class="about-quote">
-            "Learning to use AI tools is structurally identical to learning a second language. There's a vocabulary stage, a grammar stage, and a fluency stage. I've guided thousands of people through that progression — the subject has just changed."
-          </blockquote>
-        </div>
-      </div>
-    </div>
+<!-- HOW IT WORKS -->
+<section class="h-section">
+  <div class="h-wrap">
+    <h2>How a course comes together</h2>
+    <ol class="h-steps">
+      <li><h3>A short conversation</h3><p>You tell me about the team, the work, and where communication is costing you time. No forms, no sales process.</p></li>
+      <li><h3>A course incorporating your material</h3><p>I adapt the course to your people's real presentations, reports and meetings, and agree the format with you.</p></li>
+      <li><h3>Practice, feedback and a plan</h3><p>Participants practise on their own work, get specific feedback, and leave with a plan for the next 90 days.</p></li>
+    </ol>
   </div>
 </section>
 
-<!-- ── FEATURED FRAMEWORKS ── -->
-<section id="frameworks">
-  <div class="frameworks-section">
-    <div class="section-wrap reveal">
-      <div class="sec-eyebrow">Work that ships</div>
-      <h2 class="sec-headline">Two projects. Two problems solved.</h2>
-      <p class="fw-intro">These tools revealed more than was expected.</p>
+<!-- TESTIMONIALS hidden until real ones arrive; remove this comment wrapper to show them
 
-      <div class="frameworks-grid">
-
-        <!-- Bellabeat -->
-        <div class="framework-card card-audit">
-          <div class="fw-phase">Phase 1 · Audit &amp; Strategy</div>
-          <h3 class="fw-title">Bellabeat</h3>
-          <p class="fw-desc">A wellness brand needed to understand how their tracker was actually being used — not how they assumed it was being used. The data revealed users weren't building habits; they were burning out. That single finding flipped the product roadmap: instead of pushing a performance feature, they built a recovery one. One analysis. One redirected roadmap.</p>
-          <div class="fw-badges">
-            <span class="fw-badge">SQL</span>
-            <span class="fw-badge">BigQuery</span>
-            <span class="fw-badge">R</span>
-            <span class="fw-badge">Tableau</span>
-          </div>
-          <a href="https://github.com/yourusername/bellabeat" target="_blank" class="fw-link">View on GitHub →</a>
-        </div>
-
-        <!-- Lead Scout -->
-        <div class="framework-card card-build">
-          <div class="fw-phase">Phase 2 · Build</div>
-          <h3 class="fw-title">Lead Scout</h3>
-          <p class="fw-desc">A sales team was losing hours every week to manual prospect research — copy-pasting names, checking websites, qualifying by hand. Lead Scout automated the entire pipeline: find businesses in any target area, score them, pull a named contact, draft a personalised cold email. What took a half-day now takes three minutes.</p>
-          <div class="fw-badges">
-            <span class="fw-badge">Python</span>
-            <span class="fw-badge">Flask</span>
-            <span class="fw-badge">Claude API</span>
-            <span class="fw-badge">SSE</span>
-            <span class="fw-badge">Localization</span>
-          </div>
-          <a href="https://github.com/yourusername/lead-scout" target="_blank" class="fw-link">View on GitHub →</a>
-        </div>
-
-      </div>
+<section class="h-section" id="testimonials">
+  <div class="h-wrap">
+    <h2>What participants say</h2>
+    <div class="h-quotes">
+      <div class="h-placeholder">Testimonial 1 goes here: quote, name, role, organisation</div>
+      <div class="h-placeholder">Testimonial 2 goes here: quote, name, role, organisation</div>
     </div>
   </div>
 </section>
+-->
 
-<!-- ── CHATBOT ── -->
-<section id="chatbot">
-  <div class="chatbot-section">
-    <div class="section-wrap">
-      <div class="reveal">
-        <div class="sec-eyebrow">Chatbot section</div>
-        <h2 class="sec-headline">Want to see how I'd train your team? Let's chat.</h2>
-        <p class="chat-intro-text">Tell me about the role or problem you're trying to solve — I'll give you a straight answer on whether my background fits.</p>
-      </div>
-
-      <div class="chat-ui reveal">
-        <div class="chat-hdr">
-          <div class="chat-avatar">C</div>
-          <div>
-            <div class="chat-who">Chris</div>
-            <div class="chat-online">Online now</div>
-          </div>
-        </div>
-
-        <div class="chat-messages" id="chatMsgs">
-          <div class="msg bot">Hi! What is your team struggling with from an operational standpoint right now?</div>
-        </div>
-        <div class="typing-dots" id="typingDots">
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-
-        <div class="qr-row" id="qrRow">
-          <button class="qr" onclick="sendQ('No time to take all calls')">No time to take all calls</button>
-          <button class="qr" onclick="sendQ('Invoices get lost or double-billed')">Invoices get lost or double-billed</button>
-          <button class="qr" onclick="sendQ('Too many emails and chats to handle')">Too many emails/chats to handle</button>
-          <button class="qr" onclick="sendQ('Repetitive admin tasks eating into team time')">Repetitive admin tasks</button>
-        </div>
-
-        <div class="chat-input-row">
-          <input class="chat-field" id="chatField" type="text" placeholder="Or type your answer…" onkeydown="if(event.key==='Enter')sendChat()">
-          <button class="chat-send" onclick="sendChat()">Send</button>
-        </div>
-      </div>
-
-      <!-- Chat report -->
-      <div class="report-box" id="chatReport">
-        <div class="report-hed">Your AI Readiness Snapshot</div>
-        <div class="report-txt" id="chatReportBody">
-          <p id="cr1"></p><p id="cr2"></p><p id="cr3"></p>
-        </div>
-        <div class="report-actions">
-          <a href="contact.html" class="btn-fill">Let's talk →</a>
-          <button class="btn-text" onclick="resetChat()">Start over</button>
-        </div>
-      </div>
-
-      <!-- Form toggle -->
-      <div class="form-toggle-area reveal">
-        <p class="prefer-label">prefer a form?</p>
-        <button class="btn-report" id="toggleBtn" onclick="toggleForm()">
-          Get your free AI Readiness Mini-Report →
-        </button>
-        <p class="form-note">Opens a short 5-question form. AI generates a personalised report instantly. No chatbot required.</p>
-      </div>
-
-      <!-- Form panel -->
-      <div class="form-panel" id="formPanel">
-        <!-- Step 1 -->
-        <div class="f-step active">
-          <p class="f-q">What is your team struggling with from an operational standpoint right now?</p>
-          <p class="f-hint">Choose the closest match, or describe it below</p>
-          <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'work','No time to take all calls')">No time to take all calls</button>
-            <button class="f-opt" onclick="pick(this,'work','Invoices get lost or double-billed')">Invoices get lost or double-billed</button>
-            <button class="f-opt" onclick="pick(this,'work','Too many emails and chats to handle')">Too many emails/chats to handle</button>
-            <button class="f-opt" onclick="pick(this,'work','Repetitive admin tasks eating into team time')">Repetitive admin tasks</button>
-          </div>
-          <input class="f-input" id="f-work" style="height:40px" placeholder="Or describe it in your own words…" oninput="fa.work=this.value">
-          <div class="f-nav">
-            <span class="f-prog">1 / 5</span>
-            <button class="btn-sm" onclick="nextStep()">Next →</button>
-          </div>
-        </div>
-        <!-- Step 2 -->
-        <div class="f-step">
-          <p class="f-q">Have you tried using any AI tools to solve this yet — and given up on them?</p>
-          <p class="f-hint">Honesty helps — there's no wrong answer</p>
-          <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'ai','No, not tried anything yet')">No, not tried anything yet</button>
-            <button class="f-opt" onclick="pick(this,'ai','Yes, tried something but stopped')">Yes, tried and stopped</button>
-            <button class="f-opt" onclick="pick(this,'ai','Using tools but not getting value')">Using tools, not getting value</button>
-          </div>
-          <div class="f-nav">
-            <button class="btn-back" onclick="prevStep()">← Back</button>
-            <span class="f-prog">2 / 5</span>
-            <button class="btn-sm" onclick="nextStep()">Next →</button>
-          </div>
-        </div>
-        <!-- Step 3 -->
-        <div class="f-step">
-          <p class="f-q">How big is the team?</p>
-          <p class="f-hint">Roughly speaking</p>
-          <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'size','1–5')">1–5 people</button>
-            <button class="f-opt" onclick="pick(this,'size','6–20')">6–20 people</button>
-            <button class="f-opt" onclick="pick(this,'size','20+')">20+ people</button>
-          </div>
-          <div class="f-nav">
-            <button class="btn-back" onclick="prevStep()">← Back</button>
-            <span class="f-prog">3 / 5</span>
-            <button class="btn-sm" onclick="nextStep()">Next →</button>
-          </div>
-        </div>
-        <!-- Step 4 -->
-        <div class="f-step">
-          <p class="f-q">What industry are you in?</p>
-          <p class="f-hint">Choose the closest match</p>
-          <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'industry','Healthcare')">Healthcare</button>
-            <button class="f-opt" onclick="pick(this,'industry','Finance')">Finance</button>
-            <button class="f-opt" onclick="pick(this,'industry','Education')">Education</button>
-            <button class="f-opt" onclick="pick(this,'industry','Retail')">Retail</button>
-            <button class="f-opt" onclick="pick(this,'industry','Tech')">Tech</button>
-            <button class="f-opt" onclick="pick(this,'industry','Professional Services')">Professional Services</button>
-          </div>
-          <input class="f-input" id="f-industry" style="height:40px" placeholder="Or type your sector…" oninput="fa.industry=this.value">
-          <div class="f-nav">
-            <button class="btn-back" onclick="prevStep()">← Back</button>
-            <span class="f-prog">4 / 5</span>
-            <button class="btn-sm" onclick="nextStep()">Next →</button>
-          </div>
-        </div>
-        <!-- Step 5 -->
-        <div class="f-step">
-          <p class="f-q">What's the biggest obstacle right now?</p>
-          <p class="f-hint">What's actually in the way?</p>
-          <div class="f-opts">
-            <button class="f-opt" onclick="pick(this,'obstacle','Staff resistance')">Staff resistance</button>
-            <button class="f-opt" onclick="pick(this,'obstacle','No clear use case')">No clear use case</button>
-            <button class="f-opt" onclick="pick(this,'obstacle','Technical setup')">Technical setup</button>
-            <button class="f-opt" onclick="pick(this,'obstacle','Time to implement')">Time to implement</button>
-          </div>
-          <input class="f-input" id="f-obstacle" style="height:40px" placeholder="Something else?" oninput="fa.obstacle=this.value">
-          <div class="f-nav">
-            <button class="btn-back" onclick="prevStep()">← Back</button>
-            <span class="f-prog">5 / 5</span>
-            <button class="btn-sm" onclick="makeFormReport()">Get my report →</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Form report -->
-      <div class="report-box" id="formReport">
-        <div class="report-hed">Your AI Readiness Snapshot</div>
-        <div class="report-txt" id="formReportBody">
-          <p id="fr1"></p><p id="fr2"></p><p id="fr3"></p>
-        </div>
-        <div class="report-actions">
-          <a href="contact.html" class="btn-fill">Let's talk →</a>
-          <button class="btn-text" onclick="resetForm()">Start over</button>
-        </div>
-      </div>
-
+<!-- CLOSING -->
+<section class="h-close">
+  <div class="h-wrap">
+    <div>
+      <h2>Tell me about your team.</h2>
+      <p>A short email is enough: who they are, what they present or write, and where it isn't working. I'll reply with an honest view and a suggested course.</p>
     </div>
+    <a href="contact.html" class="h-btn h-btn-primary">Get in touch</a>
   </div>
 </section>
+
+</main>
 
 <!-- ── FOOTER ── -->
 <footer>
   <div>
     <div class="foot-brand">Chris Chester</div>
-    <div class="foot-sub">Teaches AI · Valencia, Spain</div>
+    <div class="foot-sub">Communication &amp; Leadership Training · Valencia, Spain</div>
   </div>
     <ul class="foot-links">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="recent-work.html">Recent work</a></li>
     <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="faq.html#training-providers">Training providers</a></li>
   </ul>
   <div class="foot-social">
     <a href="https://x.com/ChrisChes" target="_blank" rel="noopener" title="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
@@ -1104,164 +905,19 @@
   <a href="privacy.html" style="color:#9a9590;text-decoration:none;">Privacy &amp; Terms</a>
 </div>
 
-
 <script>
-// ── CHATBOT ──
-const botQuestions = [
-  "Have you tried using any AI tools to tackle this yet — and given up on them?",
-  "Understood. How big is the team this would affect?",
-  "Good to know. And what industry or sector are you in?",
-  "Got it. Last question — what's the biggest obstacle right now? Staff resistance, no clear use case, technical setup, or something else?",
-];
-
-let chatTurn = 0, chatCtx = {};
-const chatMsgs = document.getElementById('chatMsgs');
-const typingDots = document.getElementById('typingDots');
-const qrRow = document.getElementById('qrRow');
-
-function addMsg(txt, type) {
-  const d = document.createElement('div');
-  d.className = `msg ${type}`;
-  d.textContent = txt;
-  chatMsgs.appendChild(d);
-  chatMsgs.scrollTop = chatMsgs.scrollHeight;
-}
-
-function botReply() {
-  typingDots.classList.add('on');
-  chatMsgs.scrollTop = chatMsgs.scrollHeight;
-  setTimeout(() => {
-    typingDots.classList.remove('on');
-    if (chatTurn < botQuestions.length) {
-      addMsg(botQuestions[chatTurn], 'bot');
-      chatTurn++;
-    } else {
-      addMsg("Thanks — that's enough for me to give you something specific. Here's your AI Readiness Snapshot:", 'bot');
-      setTimeout(() => {
-        const r = buildReport(chatCtx.industry||'your sector', chatCtx.size||'your team', chatCtx.work||'manual tasks', 'Not yet', chatCtx.obstacle||'implementation');
-        document.getElementById('cr1').textContent = r[0];
-        document.getElementById('cr2').textContent = r[1];
-        document.getElementById('cr3').textContent = r[2];
-        const box = document.getElementById('chatReport');
-        box.classList.add('show');
-        box.scrollIntoView({behavior:'smooth',block:'nearest'});
-      }, 500);
-    }
-  }, 800 + Math.random() * 700);
-}
-
-function sendQ(txt) {
-  addMsg(txt, 'user');
-  qrRow.style.display = 'none';
-  if (!chatCtx.work) chatCtx.work = txt;
-  botReply();
-}
-
-function sendChat() {
-  const v = document.getElementById('chatField').value.trim();
-  if (!v) return;
-  addMsg(v, 'user');
-  document.getElementById('chatField').value = '';
-  qrRow.style.display = 'none';
-  if (!chatCtx.work)          chatCtx.work = v;
-  else if (!chatCtx.ai)       chatCtx.ai = v;
-  else if (!chatCtx.size)     chatCtx.size = v;
-  else if (!chatCtx.industry) chatCtx.industry = v;
-  else                        chatCtx.obstacle = v;
-  botReply();
-}
-
-function resetChat() {
-  chatMsgs.innerHTML = '<div class="msg bot">Hi! What does your team currently struggle with when using new tools?</div>';
-  document.getElementById('chatReport').classList.remove('show');
-  qrRow.style.display = '';
-  chatTurn = 0; chatCtx = {};
-}
-
-// ── FORM ──
-let curStep = 1;
-const fa = {};
-
-function toggleForm() {
-  const panel = document.getElementById('formPanel');
-  const btn = document.getElementById('toggleBtn');
-  const isOpen = panel.classList.contains('open');
-  panel.classList.toggle('open');
-  btn.textContent = isOpen ? 'Get your free AI Readiness Mini-Report →' : 'Close the form ↑';
-}
-
-function showStep(n) {
-  document.querySelectorAll('.f-step').forEach((s,i) => s.classList.toggle('active', i+1===n));
-  curStep = n;
-}
-function nextStep() { if(curStep<4) showStep(curStep+1); }
-function prevStep() { if(curStep>1) showStep(curStep-1); }
-
-function pick(el, key, val) {
-  el.closest('.f-opts').querySelectorAll('.f-opt').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');
-  fa[key] = val;
-}
-
-function makeFormReport() {
-  const industry = fa.industry || document.getElementById('f-industry').value || 'your sector';
-  const size = fa.size || 'your team';
-  const work = fa.work || document.getElementById('f-work').value || 'manual tasks';
-  const ai = fa.ai || 'Not yet';
-  const obstacle = fa.obstacle || document.getElementById('f-obstacle').value || 'implementation';
-  const r = buildReport(industry, size, work, ai, obstacle);
-  document.getElementById('fr1').textContent = r[0];
-  document.getElementById('fr2').textContent = r[1];
-  document.getElementById('fr3').textContent = r[2];
-  document.getElementById('formPanel').classList.remove('open');
-  document.getElementById('toggleBtn').textContent = 'Get your free AI Readiness Mini-Report →';
-  const box = document.getElementById('formReport');
-  box.classList.add('show');
-  box.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-
-function resetForm() {
-  Object.keys(fa).forEach(k=>delete fa[k]);
-  document.getElementById('formReport').classList.remove('show');
-  document.getElementById('formPanel').classList.add('open');
-  document.getElementById('toggleBtn').textContent = 'Close the form ↑';
-  showStep(1);
-  document.querySelectorAll('.f-opt').forEach(b=>b.classList.remove('on'));
-  ['f-work','f-industry','f-obstacle'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-}
-
-// ── REPORT GENERATOR ──
-function buildReport(industry, size, work, ai, obstacle) {
-  const aiLower = (ai || '').toLowerCase();
-  const notTried = aiLower.includes('not tried') || aiLower.includes('not yet') || aiLower === 'not yet';
-  const triedStopped = aiLower.includes('tried') || aiLower.includes('stopped') || aiLower.includes('mixed');
-
-  const p1 = notTried
-    ? `You haven't tried any AI tools yet — which is actually a good position to be in. You get to choose what to try based on your specific problem, rather than cleaning up a rushed decision someone made earlier. Teams in ${industry} who map the problem first almost always get better results than those who buy a tool first and figure it out later.`
-    : triedStopped
-    ? `You've tried something and it didn't stick — that's the most common situation I see in ${industry}. It almost never means the tool was wrong. It usually means the setup wasn't right, or the team didn't get enough support to actually use it. That's a fixable problem.`
-    : `You're already using tools, which means you have something to build on. The question now is whether your team actually trusts what the tools give them, or just tolerates it. That gap between using something and relying on something is usually where most of the remaining value is sitting.`;
-
-  const p2 = (work && work.length > 5)
-    ? `Based on what you've described, the most immediate opportunity for a team of ${size} is to take the one task eating the most time and build one clean, repeatable process around it — with a clear step where someone checks the output before it goes any further. That alone typically cuts the time spent on that task by 40–60% within the first month.`
-    : `For a team of ${size} in ${industry}, the quick win is almost always to find the single most repetitive task and fix that one thing first — not a full overhaul, just one visible improvement the team can see and measure.`;
-
-  const p3 = obstacle === 'Staff resistance'
-    ? `Staff resistance is the obstacle I know best. I've spent over 20 years working with people who were told to adopt something new and didn't want to. The pushback is almost never about the tool itself — it's about not knowing what it will do, and worrying it makes them look bad. Once people can predict what a tool gives them, the resistance usually disappears on its own.`
-    : obstacle === 'No clear use case'
-    ? `Not having a clear use case is actually good news — it means you haven't made a bad investment yet. A half-day look at how your team actually spends its time almost always turns up two or three obvious places where hours are being lost to something that could be handled differently. That's usually where I start.`
-    : obstacle === 'Technical setup'
-    ? `The technical side is real, but it's almost always simpler than it looks. Most of the complexity tends to disappear once you match the right tool to the actual task, rather than reaching for whatever gets the most attention right now.`
-    : `The obstacle you're describing — ${obstacle.toLowerCase()} — is one I've helped teams work through before. The path usually starts with an honest look at what the team actually does each day, and building a plan that doesn't ask everyone to change everything at once.`;
-
-  return [p1, p2, p3];
-}
-
-// ── SCROLL REVEAL ──
-const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
-}, {threshold:0.07});
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+(function () {
+  var nav = document.querySelector('nav'), btn = nav && nav.querySelector('.nav-toggle');
+  if (!btn) return;
+  function set(open) {
+    nav.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? btn.dataset.close : btn.dataset.open);
+  }
+  btn.addEventListener('click', function () { set(!nav.classList.contains('nav-open')); });
+  nav.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();
 </script>
 </body>
 </html>
